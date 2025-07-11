@@ -1177,7 +1177,90 @@ body {
     outline: none;
     border: none;
   }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+      height: auto;
+    }
   
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .hero-description {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+  
+    .phone-mockup {
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  
+    .navbar .navbar-brand {
+      font-size: 1.5rem;
+    }
+  
+    .navbar-nav .nav-link {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .section-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  
+  .hero-section,
+.features-section,
+.cities-section,
+.partners-section,
+.services-section,
+.download-app-section {
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .download-buttons-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-store-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .download-phone-mockup {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+  }
+}
+
 
   
   
