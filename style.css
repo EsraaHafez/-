@@ -1,19 +1,34 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Cairo', sans-serif;
-    overflow-x: hidden;
-    background: linear-gradient(135deg, #0077be 0%, #48CAE4 100%);
+  font-family: 'Cairo', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0077be 0%, #48CAE4 100%);
+  color: #fff;
+}
+
+/* Unified section background */
+.hero-section,
+.features-section,
+.cities-section,
+.partners-section,
+.services-section,
+.download-app-section,
+.faq-section {
+  background: linear-gradient(135deg, #0077be, #48CAE4);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
 /* ======= Navbar Beach Theme ======= */
-.navbar {
-  background: linear-gradient(rgba(0, 123, 193, 0.3), rgba(72, 202, 228, 0.3)), 
-              url('images/beach-navbar.jpg') no-repeat center center !important;
+  .navbar {
+   background: linear-gradient(rgba(0, 123, 193, 0.3), rgba(72, 202, 228, 0.3)), 
+              url('images/beach-navbar.jpg') no-repeat center center !important; 
   background-size: cover !important;
   background-position: center !important;
   backdrop-filter: blur(8px);
@@ -133,7 +148,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 60px;
-    background: linear-gradient(rgba(0, 123, 193, 0.5), rgba(0, 123, 193, 0.5)), url('images/beach-bg.jpeg') no-repeat center center;
+    /* background: linear-gradient(rgba(0, 123, 193, 0.5), rgba(0, 123, 193, 0.5)), url('images/beach-bg.jpeg') no-repeat center center; */
+     background: linear-gradient(rgba(95, 71, 226, 0.5), rgba(134, 192, 226, 0.5) , rgba(0,44,77,0.6));
     background-size: cover;
     color: white;
     overflow: hidden;
@@ -289,150 +305,182 @@ body {
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
 }
+/* أنيميشن عند دخول الصفحة */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
-/* مميزات التطبيق  */
+
+
+
+/* القسم */
 .features-section {
-  padding: 100px 0;
-  background: linear-gradient(rgba(0, 123, 193, 0.7), rgba(0, 123, 193, 0.9)),
-              url('images/Screenshot_10-7-2025_144741_blogger.googleusercontent.com.jpeg') center center no-repeat;
-  background-size: cover;
+  background: linear-gradient(135deg, rgba(95, 71, 226, 0.5), rgba(134, 192, 226, 0.6), rgba(0,44,77,0.7));
   color: #fff;
-  overflow: hidden;
-}
-
-.section-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  animation: fadeInDown 1s ease-in-out;
-}
-
-.section-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  animation: fadeInUp 1.2s ease-in-out;
-}
-
-.feature-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 25px;
+  padding: 100px 0;
   text-align: center;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  animation: zoomIn 1s ease-in-out;
-}
-
-.feature-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.feature-icon {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #ffeb3b;
-  animation: floatIcon 3s ease-in-out infinite;
-}
-
-/* موبايل mockup */
-.mockup-phone {
-  width: 280px;
-  height: 500px;
-  background: #fff;
-  border-radius: 40px;
-  padding: 15px;
-  position: relative;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-  animation: floatPhone 3s ease-in-out infinite;
   overflow: hidden;
 }
 
-.mockup-screen {
-  width: 100%;
-  height: 100%;
+/* النصوص */
+.features-content .section-mini-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fce38a;
+  animation: fadeInDown 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+.features-content .section-title {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeInDown 1.3s ease-in-out forwards;
+  opacity: 0;
+}
+
+.features-content .section-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #f0f0f0;
+  animation: fadeInUp 1.6s ease-in-out forwards;
+  opacity: 0;
+}
+
+/* زر البدء */
+.btn-start {
+  background: #fce38a;
+  color: #000;
+  padding: 12px 30px;
   border-radius: 30px;
-  background: #f1f1f1;
-  padding: 10px;
-  /* أزلنا overflow عشان الصور تاخد كامل المساحة */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: fadeInUp 2s ease-in-out forwards;
+  opacity: 0;
 }
 
-.mockup-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  height: 100%;
-}
-
-.mockup-image-grid {
-  width: 100%;
-  height: calc((100% - 10px) );
-  object-fit: cover;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
-}
-
-.mockup-image-grid:hover {
+.btn-start:hover {
+  background: #fff176;
   transform: scale(1.05);
 }
 
-
-/* أنيميشن الموبايل */
-@keyframes floatPhone {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* الحاوية العامة */
+.integration-graphic {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: auto;
+  animation: fadeIn 2s ease-in-out forwards;
+  opacity: 0;
 }
 
-/* أنيميشن */
+
+/* الأيقونة الثابتة في المنتصف */
+.center-icon {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  color: #0077be;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+
+/* قائمة الأيقونات الدوارة */
+.integration-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 120;
+  left: 120;
+  width: 100%;
+  height: 100%;
+  animation: rotate-circle 25s linear infinite;
+  z-index: 1;
+}
+
+/* الأيقونات الخارجية */
+.integration-icons li {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: rotate(calc(72deg * var(--i))) translate(115px) rotate(calc(-72deg * var(--i)));
+  background: #fff;
+  color: #0077be;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.integration-icons li:hover {
+  transform: scale(1.15) rotate(calc(72deg * var(--i))) translate(115px) rotate(calc(-72deg * var(--i)));
+  background-color: #fff176;
+}
+
+/* أنيميشن الدوران */
+@keyframes rotate-circle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* أنيميشن النصوص */
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoomIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .mockup-phone {
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
+  .features-content .section-title {
+    font-size: 2rem;
+  }
+
+  .features-content .section-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .integration-graphic {
+    margin-top: 40px;
   }
 }
 
- /* city  */
+ 
+ 
 /* المدن */
 .cities-section {
     padding: 100px 0;
-  background: linear-gradient(rgba(0, 123, 193, 0.6), rgba(0, 123, 193, 0.6)),
-              url('images/Screenshot_10-7-2025_144741_blogger.googleusercontent.com.jpeg') center center no-repeat;
+/*   background: linear-gradient(rgba(0, 123, 193, 0.6), rgba(0, 123, 193, 0.6)),
+              url('images/Screenshot_10-7-2025_144741_blogger.googleusercontent.com.jpeg') center center no-repeat; */
   background-size: cover;
   color: #fff;
+  background: linear-gradient(rgba(95, 71, 226, 0.5), rgba(134, 192, 226, 0.5) , rgba(0,44,77,0.6));
   text-align: center;
   overflow: hidden;
 }
@@ -523,9 +571,10 @@ body {
 /*  شركاء */
 .partners-section {
   padding: 100px 0;
-  background: linear-gradient(rgba(0, 123, 193, 0.8), rgba(0, 123, 193, 0.8)),
-              url('images/beach-bg.jpeg') center center no-repeat;
+/*   background: linear-gradient(rgba(0, 123, 193, 0.8), rgba(0, 123, 193, 0.8)),
+              url('images/beach-bg.jpeg') center center no-repeat; */
   background-size: cover;
+  background: linear-gradient(rgba(95, 71, 226, 0.5), rgba(134, 192, 226, 0.5) , rgba(0,44,77,0.6));
   color: #fff;
   text-align: center;
   overflow: hidden;
@@ -597,10 +646,11 @@ body {
  
 /* قسم الأسئلة الشائعة */
 .faq-section {
-  background: linear-gradient(rgba(0, 123, 193, 0.7), rgba(0, 123, 193, 0.9)),
-              url('images/es.jpeg') no-repeat center center;
+/*   background: linear-gradient(rgba(0, 123, 193, 0.7), rgba(0, 123, 193, 0.9)),
+              url('images/es.jpeg') no-repeat center center; */
   background-size: cover;
   color: #fff;
+  background: linear-gradient(rgba(95, 71, 226, 0.5), rgba(134, 192, 226, 0.5) , rgba(0,44,77,0.6));
   padding: 100px 0;
   text-align: center;
   overflow: hidden;
@@ -708,9 +758,10 @@ body {
 /* قسم الخدمات */
 .services-section {
   padding: 100px 0;
-  background: linear-gradient(rgba(0, 183, 255, 0.4), rgba(0, 183, 255, 0.6)), 
-              url('images/Screenshot_10-7-2025_144741_blogger.googleusercontent.com.jpeg') no-repeat center center;
+/*   background: linear-gradient(rgba(0, 183, 255, 0.4), rgba(0, 183, 255, 0.6)), 
+              url('images/Screenshot_10-7-2025_144741_blogger.googleusercontent.com.jpeg') no-repeat center center; */
   background-size: cover;
+  background: linear-gradient(rgba(95, 71, 226, 0.5), rgba(134, 192, 226, 0.5) , rgba(0,44,77,0.6));
   color: #fff;
   text-align: center;
   overflow: hidden;
@@ -785,10 +836,11 @@ body {
 
   .download-app-section {
   padding: 100px 0;
-  background: linear-gradient(rgba(0, 183, 255, 0.3), rgba(0, 183, 255, 0.5)),
-              url('images/es.jpeg') no-repeat center center;
+/*   background: linear-gradient(rgba(0, 183, 255, 0.3), rgba(0, 183, 255, 0.5)),
+              url('images/es.jpeg') no-repeat center center; */
   background-size: cover;
   color: #fff;
+  background: linear-gradient(135deg, #1c3a44, #75a1df); 
   overflow: hidden;
 }
 
@@ -850,7 +902,7 @@ body {
   width: 300px;
   height: 550px;
   margin: auto;
-  background: linear-gradient(135deg, #48CAE4, #0096C7);
+  background: linear-gradient(135deg, #10028f, #0096C7);
   border-radius: 40px;
   padding: 10px;
   position: relative;
@@ -863,7 +915,7 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  background: #fefefe;
+  background: url('images/3.jpg') no-repeat center bottom; 
   padding: 20px;
   position: relative;
   display: flex;
@@ -1261,6 +1313,149 @@ body {
   }
 }
 
+/* // work */
+/* ==== Mobile Showcase Section (عرض الموبايل) ==== */
+.mobile-showcase-section {
+  background: linear-gradient(135deg, #084458, #5f9ffa); 
+  padding: 80px 0;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
 
-  
-  
+.mobile-showcase-section .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.mobile-showcase-section .section-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.mobile-static-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 0 20px;
+}
+
+.mobile-pair {
+  display: flex;
+  gap: 20px;
+}
+
+/* الموبايلات */
+.phone {
+  width: 160px;
+  height: 320px;
+  border-radius: 40px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 119, 190, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.phone:hover {
+  transform: scale(1.05);
+  box-shadow: 0 18px 35px rgba(0, 119, 190, 0.5);
+}
+
+/* كل موبايل بحركة مستقلة */
+.phone1 {
+  animation: floatScale1 4s ease-in-out infinite;
+}
+
+.phone2 {
+  animation: floatTilt1 5s ease-in-out infinite;
+}
+
+.phone3 {
+  animation: floatScale2 6s ease-in-out infinite;
+}
+
+.phone4 {
+  animation: floatTilt2 7s ease-in-out infinite;
+}
+
+/* حركات الموبايل */
+@keyframes floatScale1 {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+
+@keyframes floatTilt1 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes floatScale2 {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes floatTilt2 {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-3deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-pair {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone {
+    width: 130px;
+    height: 260px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-section .phone-mockup {
+    margin-top: 30px;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .download-store-btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .features-section .integration-graphic {
+    margin-top: 30px;
+  }
+
+  .download-app-section .download-buttons-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
