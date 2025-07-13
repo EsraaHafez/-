@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -238,7 +238,7 @@
                 إجابات للأسئلة الأكثر شيوعاً حول تطبيق مناسباتي
             </p>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-8 col-12 col-lg-6 mx-auto">
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faq1">
@@ -344,7 +344,7 @@
       <div class="row align-items-center">
         
         <!-- النص والأزرار -->
-        <div class="col-lg-6 text-section" data-aos="fade-right">
+        <div class="col-12 col-lg-6 text-section" data-aos="fade-right">
           <h2 class="download-title">حمل التطبيق الآن</h2>
           <p class="download-description">
             احصل على تطبيق مناسباتي واستمتع بأفضل تجربة حجز للشاليهات في المملكة
@@ -368,7 +368,7 @@
         </div>
   
         <!-- شكل الموبايل -->
-        <div class="col-lg-6 phone-section mt-5 mt-lg-0" data-aos="fade-left">
+        <div class="col-12 col-lg-6 phone-section mt-5 mt-lg-0" data-aos="fade-left">
           <div class="download-phone-mockup mx-auto">
             <div class="phone-notch"></div>
             <div class="phone-frame">
@@ -545,6 +545,19 @@
         ride: 'carousel'
       });
     </script>
+    <script>
+      // إغلاق القائمة عند الضغط على أي رابط
+      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          const navbarToggler = document.querySelector('.navbar-toggler');
+          const navbarCollapse = document.querySelector('#navbarNav');
+          if (navbarToggler.offsetParent !== null && navbarCollapse.classList.contains('show')) {
+            navbarToggler.click(); // إغلاق القائمة
+          }
+        });
+      });
+    </script>
+    
     
 </body>
 </html>
