@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <title>مناسباتي - أفضل تطبيق لتنظيم المناسبات</title>
     <style>
         * {
@@ -509,6 +510,10 @@
                 height: 290px;
             }
 
+            .hero {
+    padding: 0 10px;
+}
+
             .phone-left {
                 right: 0;
             }
@@ -642,5 +647,22 @@
         <div class="wave"></div>
         <div class="wave wave-2"></div>
     </div>
+    <script>
+      const toggleBtn = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+  
+      toggleBtn.addEventListener('click', () => {
+          navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
+          navLinks.style.flexDirection = 'column';
+          navLinks.style.background = 'rgba(255,255,255,0.1)';
+          navLinks.style.padding = '15px';
+          navLinks.style.borderRadius = '15px';
+          navLinks.style.position = 'absolute';
+          navLinks.style.top = '70px';
+          navLinks.style.right = '20px';
+          navLinks.style.zIndex = '200';
+      });
+  </script>
+  
 </body>
 </html>
