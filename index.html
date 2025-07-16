@@ -3,301 +3,632 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مناسباتي - تطبيق تأجير الشاليهات</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
+    <title>مناسباتي - أفضل تطبيق لتنظيم المناسبات</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #48CAE4 0%, #0077B6 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background floating elements */
+        .background-dots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .dot:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .dot:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+        .dot:nth-child(3) { top: 30%; left: 15%; animation-delay: 4s; }
+        .dot:nth-child(4) { top: 40%; right: 20%; animation-delay: 1s; }
+        .dot:nth-child(5) { top: 50%; left: 8%; animation-delay: 3s; }
+        .dot:nth-child(6) { top: 60%; right: 15%; animation-delay: 5s; }
+        .dot:nth-child(7) { top: 70%; left: 25%; animation-delay: 2.5s; }
+        .dot:nth-child(8) { top: 80%; right: 25%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-15px) scale(1.2); opacity: 0.6; }
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 12px;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+            opacity: 0.9;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #48CAE4 !important;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            padding: 0 50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            padding-right: 50px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .explore-button {
+            background: #00B4D8;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .explore-button:hover {
+            background: #0096C7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Real Phone Mockup */
+        .hero-phones {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 600px;
+        }
+
+        .phone {
+            width: 280px;
+            height: 580px;
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+
+        .phone:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .phone-left {
+            right: 60px;
+            z-index: 1;
+            transform: rotate(-8deg);
+        }
+
+        .phone-right {
+            left: 60px;
+            z-index: 2;
+            transform: rotate(8deg);
+        }
+
+        .phone-body {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #2c2c2c 0%, #1a1a1a 100%);
+            border-radius: 45px;
+            position: relative;
+            box-shadow: 
+                0 0 0 3px #0a0a0a,
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-camera {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 30px;
+            background: #000;
+            border-radius: 15px;
+            z-index: 10;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .phone-camera::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #333;
+            border-radius: 50%;
+            border: 1px solid #555;
+        }
+
+        .phone-camera::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        .phone-screen {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            background: linear-gradient(135deg, #48CAE4 0%, #0077B6 100%);
+            border-radius: 35px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .phone-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .phone-subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .phone-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 16px;
+            border-radius: 15px;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(-3px);
+        }
+
+        .feature-icon {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        /* Curved waves at bottom */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: 1;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            clip-path: polygon(0 60%, 20% 45%, 40% 50%, 60% 35%, 80% 40%, 100% 25%, 100% 100%, 0% 100%);
+        }
+
+        .wave-2 {
+            background: rgba(255, 255, 255, 0.05);
+            clip-path: polygon(0 70%, 25% 55%, 50% 60%, 75% 45%, 100% 50%, 100% 100%, 0% 100%);
+            animation: wave-float 6s ease-in-out infinite;
+        }
+
+        @keyframes wave-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-phones {
+                height: 500px;
+            }
+            
+            .phone {
+                width: 240px;
+                height: 490px;
+            }
+            
+            .phone-left {
+                right: 40px;
+            }
+            
+            .phone-right {
+                left: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 20px;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-phones {
+                height: 400px;
+                margin-top: 20px;
+            }
+
+            .phone {
+                width: 200px;
+                height: 410px;
+            }
+
+            .phone-left {
+                right: 10px;
+                transform: rotate(-5deg);
+            }
+
+            .phone-right {
+                left: 10px;
+                transform: rotate(5deg);
+            }
+
+            .phone-logo {
+                font-size: 18px;
+            }
+
+            .feature-card {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+
+            .phone-camera {
+                width: 120px;
+                height: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .hero-phones {
+                height: 350px;
+            }
+
+            .phone {
+                width: 160px;
+                height: 330px;
+            }
+
+            .phone-left {
+                right: 5px;
+            }
+
+            .phone-right {
+                left: 5px;
+            }
+
+            .phone-features {
+                gap: 8px;
+            }
+
+            .feature-card {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+
+            .phone-logo {
+                font-size: 16px;
+            }
+
+            .phone-subtitle {
+                font-size: 10px;
+            }
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .phone {
+                width: 140px;
+                height: 290px;
+            }
+
+            .phone-left {
+                right: 0;
+            }
+
+            .phone-right {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .feature-card {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+        }
+    </style>
 </head>
 <body>
-     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="images/3.jpg" alt="مناسباتي" style="height: 40px;">
-            <span style="margin-right: 10px;">مناسباتي</span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <!-- <span class="navbar-toggler-icon"></span> -->
-            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
-              <li class="nav-item"><a class="nav-link" href="#features">المميزات</a></li>
-              <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
-              <li class="nav-item"><a class="nav-link" href="#how-it-works">كيف يعمل</a></li>
-              <li class="nav-item"><a class="nav-link" href="#cities">المدن</a></li>
-              <!-- <li class="nav-item"><a class="nav-link" href="#about">عن التطبيق</a></li> -->
-              <li class="nav-item"><a class="nav-link" href="#download">حمل التطبيق</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
-            </ul>
-          </div>
+    <!-- Background Dots -->
+    <div class="background-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">🎉</div>
+            مناسباتي
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">حول التطبيق</a></li>
+            <li><a href="#">المميزات</a></li>
+             <li><a href="#">الخدمات</a></li>
+             <li><a href="#">تواصل معنا</a></li>
+            <li><a href="#" class="cta-button">ابدأ الآن</a></li>
+        </ul>
+        <button class="mobile-menu-toggle">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">أهلاً بك في مناسباتي، أقوى تطبيق لتنظيم المناسبات</h1>
+            <p class="hero-subtitle">
+                نظم مناسباتك بسهولة وأناقة مع تطبيق مناسباتي الذي يوفر لك جميع الأدوات اللازمة 
+                لتخطيط وتنظيم أفراحك ومناسباتك الخاصة. من الدعوات الرقمية إلى إدارة القوائم 
+                والمهام، كل شيء في مكان واحد.
+            </p>
+            <button class="explore-button">اكتشف المميزات</button>
         </div>
-      </nav>
-      
-<!-- Hero Section -->
-<section class="hero-section" id="home">
-    <div class="hero-background"></div>
-    <div class="floating-elements">
-        <i class="fas fa-umbrella-beach floating-icon fa-3x"></i>
-        <i class="fas fa-swimmer floating-icon fa-2x"></i>
-        <i class="fas fa-sun floating-icon fa-3x"></i>
-        <i class="fas fa-waves floating-icon fa-2x"></i>
-        <i class="fas fa-cocktail floating-icon fa-2x"></i>
-    </div>
 
-    <div class="hero-content">
-        <h1 class="hero-title">مناسباتي</h1>
-        <p class="hero-subtitle">تطبيق تأجير الشاليهات الأول في المنطقة</p>
-        <p class="hero-description">
-            اكتشف أجمل الشاليهات والمنتجعات واحجز بكل سهولة وأمان. استمتع بعطلة لا تُنسى مع عائلتك وأصدقائك في أروع الأماكن.
-        </p>
-    </div>
-
-    <div class="phone-mockup">
-        <div class="phone-screen">
-            <div class="phone-content">
-                <div class="app-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>مناسباتي</h3>
-                <p>أفضل تطبيق لحجز الشاليهات</p>
-                <div style="margin-top: 40px;">
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin: 10px 0;">
-                        <i class="fas fa-search" style="margin-bottom: 10px;"></i>
-                        <p style="margin: 0; font-size: 0.9rem;">ابحث عن الشاليه المثالي</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin: 10px 0;">
-                        <i class="fas fa-calendar-check" style="margin-bottom: 10px;"></i>
-                        <p style="margin: 0; font-size: 0.9rem;">احجز بسهولة وأمان</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; margin: 10px 0;">
-                        <i class="fas fa-star" style="margin-bottom: 10px;"></i>
-                        <p style="margin: 0; font-size: 0.9rem;">استمتع بأفضل الخدمات</p>
+        <div class="hero-phones">
+            <div class="phone phone-left">
+                <div class="phone-body">
+                    <div class="phone-camera"></div>
+                    <div class="phone-screen">
+                        <div class="phone-logo">مناسباتي</div>
+                        <div class="phone-subtitle">تنظيم المناسبات</div>
+                        <div class="phone-features">
+                            <div class="feature-card">
+                                <span class="feature-icon">🎉</span>
+                                تنظيم الحفلات
+                            </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">💌</span>
+                                دعوات رقمية
+                            </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">📋</span>
+                                إدارة القوائم
+                            </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">📅</span>
+                                جدولة المهام
+                            </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">🎵</span>
+                                قوائم الموسيقى
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<!-- قسم المميزات -->
-<section class="features-section" id="features">
-  <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
-
-  
-<!-- النصوص -->
-<div class="features-content class="col-12 col-lg-6">
-  <span class="section-mini-title">عن التطبيق</span>
-  <h2 class="section-title">مناسباتي – الشاليه المناسب لمناسبتك</h2>
-  <p class="section-subtitle">
-    تطبيق "مناسباتي" هو منصتك الذكية لحجز وتأجير الشاليهات بكل سهولة وسرعة.  
-    اختر من بين مجموعة واسعة من الشاليهات المناسبة للمناسبات العائلية، حفلات التخرج، أعياد الميلاد والمزيد، مع إمكانية مشاهدة الصور، تحديد الموقع، ومعرفة المميزات قبل الحجز.
-  </p>
-  <p class="section-subtitle">
-    نوفر لك تجربة حجز مريحة، أسعار واضحة، ومجموعة فاخرة من الشاليهات في مواقع مميزة داخل العراق.
-  </p>
-  <a href="#start" class="btn-start">ابدأ الحجز الآن</a>
-</div>
-
-<!-- دائرة الأيقونات -->
-<div class="integration-graphic col-lg-5 mt-5 mt-lg-0">
-  <div class="center-icon">
-    <i class="fas fa-hotel main-icon"></i> <!-- بدل التقويم -->
-  </div>
-  
-  <ul class="integration-icons">
-    <li style="--i:1"><i class="fas fa-water"></i></li>             <!-- البحر -->
-    <li style="--i:2"><i class="fas fa-home"></i></li>              <!-- الشاليه -->
-    <li style="--i:3"><i class="fas fa-sun"></i></li>               <!-- الشمس -->
-    <li style="--i:4"><i class="fas fa-glass-cheers"></i></li>     <!-- المناسبات -->
-    <li style="--i:5"><i class="fas fa-swimming-pool"></i></li>    <!-- المسبح -->
-  </ul>
-</div>
-  </div>
-</section>
-
-<!-- قسم كيف يعمل التطبيق (دائري) -->
-<section class="mobile-showcase-section" id="how-it-works">
-  <div class="container text-center">
-    <h2 class="section-title mb-4">كيف يعمل التطبيق؟</h2>
-    <p class="section-subtitle mb-5">تجربة عرض تفاعلية كأنك تمسك الموبايل فعليًا</p>
-
-    <div class="mobile-static-wrapper">
-      <!-- زوج 1 -->
-      <div class="mobile-pair">
-        <img class="phone phone1 img-fluid" src="images/1.jpg" alt="موبايل 1">
-        <img class="phone phone1 img-fluid" src="images/2.jpg" alt="موبايل 2">
-      </div>
-
-      <!-- زوج 2 -->
-      <div class="mobile-pair">
-        <img class="phone phone1 img-fluid" src="images/3.jpg" alt="موبايل 3">
-        <img class="phone phone1 img-fluid" src="images/4.jpg" alt="موبايل 4">
-      </div>
-    </div>
-  </div>
-</section>
-
- 
-   <!-- Cities Section -->
-<section class="cities-section" id="cities">
-  <div class="container">
-    <h2 class="section-title">المدن المتاحة</h2>
-    <p class="section-subtitle">
-      نقدم خدماتنا حالياً في أربع مدن رئيسية داخل العراق
-    </p>
-    <div class="row">
-      <div class="col-lg-3 col-md-6">
-        <div class="city-card">
-          <div class="city-icon">
-            <i class="fas fa-city"></i>
-          </div>
-          <h4>بغداد</h4>
-          <p>150+ شاليه</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="city-card">
-          <div class="city-icon">
-            <i class="fas fa-mountain"></i>
-          </div>
-          <h4>أربيل</h4>
-          <p>120+ شاليه</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="city-card">
-          <div class="city-icon">
-            <i class="fas fa-water"></i>
-          </div>
-          <h4>البصرة</h4>
-          <p>100+ شاليه</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="city-card">
-          <div class="city-icon">
-            <i class="fas fa-mosque"></i>
-          </div>
-          <h4>النجف</h4>
-          <p>80+ شاليه</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h2 class="section-title">شركاؤنا في النجاح</h2>
-            <p class="section-subtitle">
-                نعمل مع أفضل مقدمي الخدمات لضمان تجربة مميزة
-            </p>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="partner-card">
-                        <div class="partner-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h4>أصحاب الشاليهات</h4>
-                        <p>أكثر من 500 مالك شاليه يثق بنا</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="partner-card">
-                        <div class="partner-icon">
-                            <i class="fas fa-credit-card"></i>
-                        </div>
-                        <h4>شركات الدفع</h4>
-                        <p>تكامل مع أفضل بوابات الدفع الآمنة</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="partner-card">
-                        <div class="partner-icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <h4>خدمات النقل</h4>
-                        <p>شراكة مع شركات النقل الموثوقة</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">الأسئلة الشائعة</h2>
-            <p class="section-subtitle">
-                إجابات للأسئلة الأكثر شيوعاً حول تطبيق مناسباتي
-            </p>
-            <div class="row">
-                <div class="col-lg-8 col-12 col-lg-6 mx-auto">
-                    <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
-                                    كيف يمكنني حجز شاليه من خلال التطبيق؟
-                                </button>
-                            </h2>
-                            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    يمكنك حجز شاليه بسهولة من خلال البحث عن الشاليه المناسب، اختيار التواريخ، والدفع بشكل آمن. ستحصل على تأكيد فوري للحجز.
-                                </div>
+            <div class="phone phone-right">
+                <div class="phone-body">
+                    <div class="phone-camera"></div>
+                    <div class="phone-screen">
+                        <div class="phone-logo">مناسباتي</div>
+                        <div class="phone-subtitle">مميزات متقدمة</div>
+                        <div class="phone-features">
+                            <div class="feature-card">
+                                <span class="feature-icon">💰</span>
+                                إدارة الميزانية
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
-                                    هل يمكنني إلغاء الحجز؟
-                                </button>
-                            </h2>
-                            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    نعم، يمكنك إلغاء الحجز قبل 24 ساعة من موعد الوصول مع استرداد كامل للمبلغ. راجع سياسة الإلغاء لكل شاليه.
-                                </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">📱</span>
+                                تطبيق سهل الاستخدام
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
-                                    ما هي طرق الدفع المتاحة؟
-                                </button>
-                            </h2>
-                            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    نقبل جميع البطاقات الائتمانية (فيزا، ماستركارد)، أبل باي، وطرق الدفع الرقمية المختلفة بأمان تام.
-                                </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">🔔</span>
+                                تنبيهات ذكية
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
-                                    هل هناك رسوم خفية؟
-                                </button>
-                            </h2>
-                            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    لا، جميع الأسعار شاملة وواضحة. ما تراه هو ما تدفعه بدون أي رسوم خفية أو مفاجآت.
-                                </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">🎯</span>
+                                تخطيط دقيق
                             </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq5">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
-                                    كيف يمكنني التواصل مع الدعم الفني؟
-                                </button>
-                            </h2>
-                            <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    فريق الدعم متاح 24/7 عبر الهاتف، البريد الإلكتروني، أو الشات المباشر في التطبيق.
-                                </div>
+                            <div class="feature-card">
+                                <span class="feature-icon">⭐</span>
+                                تقييمات المستخدمين
                             </div>
                         </div>
                     </div>
@@ -306,259 +637,10 @@
         </div>
     </section>
 
- <!-- قسم الخدمات الجديد -->
-<section class="services-section" id="services">
-  <div class="container">
-    <h2 class="section-title">خدماتنا المميزة</h2>
-    <p class="section-subtitle">نقدم مجموعة من الخدمات لضمان أفضل تجربة لك</p>
-    <div class="row text-center">
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card">
-          <i class="fas fa-umbrella-beach service-icon"></i>
-          <h4>دعم فني 24/7</h4>
-          <p>فريق دعم متعاون ومتاح على مدار الساعة لمساعدتك في أي استفسار أو مشكلة.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card">
-          <i class="fas fa-water service-icon"></i>
-          <h4>حماية البيانات</h4>
-          <p>نضمن لك أمان بياناتك وخصوصيتك أثناء استخدام التطبيق.</p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="service-card">
-          <i class="fas fa-sun service-icon"></i>
-          <h4>تحديثات مستمرة</h4>
-          <p>نقوم بتحديث التطبيق بشكل دوري لضمان تقديم أفضل الميزات والخدمات.</p>
-        </div>
-      </div>
+    <!-- Wave Container -->
+    <div class="wave-container">
+        <div class="wave"></div>
+        <div class="wave wave-2"></div>
     </div>
-  </div>
-</section>
-
- 
-<!-- Download App Section -->
-<!-- Download App Section -->
-<section class="download-app-section" id ="download" style="padding: 100px 0; background: linear-gradient(to right, #74c9e2, #48CAE4); overflow: hidden;">
-    <div class="container">
-      <div class="row align-items-center">
-        
-        <!-- النص والأزرار -->
-        <div class="col-12 col-lg-6 text-section" data-aos="fade-right">
-          <h2 class="download-title">حمل التطبيق الآن</h2>
-          <p class="download-description">
-            احصل على تطبيق مناسباتي واستمتع بأفضل تجربة حجز للشاليهات في المملكة
-          </p>
-          <div class="download-buttons-section d-flex gap-3 flex-wrap mt-4">
-            <a href="#" class="download-store-btn">
-              <i class="fab fa-apple"></i>
-              <div>
-                <small>تحميل من</small>
-                <strong>App Store</strong>
-              </div>
-            </a>
-            <a href="#" class="download-store-btn">
-              <i class="fab fa-google-play"></i>
-              <div>
-                <small>تحميل من</small>
-                <strong>Google Play</strong>
-              </div>
-            </a>
-          </div>
-        </div>
-  
-        <!-- شكل الموبايل -->
-        <div class="col-12 col-lg-6 phone-section mt-5 mt-lg-0" data-aos="fade-left">
-          <div class="download-phone-mockup mx-auto">
-            <div class="phone-notch"></div>
-            <div class="phone-frame">
-              <div class="phone-screen-content">
-                <div class="app-preview">
-                  <h3>مناسباتي</h3>
-                  <div class="preview-cards">
-                    <div class="preview-card">
-                      <i class="fas fa-home"></i>
-                      <span>شاليه فاخر</span>
-                    </div>
-                    <div class="preview-card">
-                      <i class="fas fa-swimming-pool"></i>
-                      <span>مسبح خاص</span>
-                    </div>
-                    <div class="preview-card">
-                      <i class="fas fa-star"></i>
-                      <span>تقييم 5 نجوم</span>
-                    </div>
-                    <div class="preview-card">
-                      <i class="fas fa-map-marker-alt"></i>
-                      <span>مواقع متنوعة</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> 
-  
-      </div>
-    </div>
-  </section>
-
-  
-  
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>مناسباتي</h4>
-                    <p>تطبيق تأجير الشاليهات الأول في المنطقة. نوفر لك أفضل الخيارات للاستمتاع بعطلة لا تُنسى.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.tiktok.com" class="social-link" target="_blank">
-                          <i class="fab fa-tiktok"></i>
-                      </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>روابط مهمة</h4>
-                    <p><a href="#">الرئيسية</a></p>
-                    <p><a href="#">المميزات</a></p>
-                    <p><a href="#">عن التطبيق</a></p>
-                    <p><a href="#">شروط الاستخدام</a></p>
-                    <p><a href="#">سياسة الخصوصية</a></p>
-                </div>
-                <div class="footer-section">
-                    <h4>تواصل معنا</h4>
-                    <p>
-                      <a href="mailto:info@shalehati.com">
-                        <i class="fas fa-envelope"></i> info@shalehati.com
-                      </a>
-                    </p>
-                    <p>
-                      <a href="tel:+966501234567">
-                        <i class="fas fa-phone"></i> +966 50 123 4567
-                      </a>
-                    </p>
-                    <p>
-                      <a href="https://www.google.com/maps?q=بغداد,+العراق" target="_blank">
-                        <i class="fas fa-map-marker-alt"></i> بغداد، العراق
-                      </a>                      
-                    </p>
-                  </div>
-                  
-                <div class="footer-section">
-                    <h4>حمل التطبيق</h4>
-                    <p>متوفر الآن على جميع المنصات</p>
-                    <div style="margin-top: 20px;">
-                        <a href="#" class="download-btn" style="margin-bottom: 10px; display: inline-flex;">
-                            <i class="fab fa-apple"></i>
-                            App Store
-                        </a>
-                        <a href="#" class="download-btn" style="display: inline-flex;">
-                            <i class="fab fa-google-play"></i>
-                            Google Play
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 مناسباتي. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Animate stats on scroll
-        const animateStats = () => {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const rect = stat.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const target = parseInt(stat.textContent);
-                    const isPercentage = stat.textContent.includes('%');
-                    const isTime = stat.textContent.includes('/');
-                    
-                    if (!isTime && !isPercentage) {
-                        let current = 0;
-                        const increment = target / 100;
-                        const timer = setInterval(() => {
-                            current += increment;
-                            if (current >= target) {
-                                current = target;
-                                clearInterval(timer);
-                            }
-                            stat.textContent = Math.floor(current) + (stat.textContent.includes('K') ? 'K+' : '+');
-                        }, 20);
-                    }
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateStats);
-        
-        // Add loading animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-        });
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        once: true,
-        duration: 1000,
-        easing: 'ease-out-quart'
-      });
-    </script>
-     <script>
-      var appSlider = document.querySelector('#appSlider');
-      var carousel = new bootstrap.Carousel(appSlider, {
-        interval: 2500, // كل 2.5 ثانية
-        ride: 'carousel'
-      });
-    </script>
-    <script>
-      // إغلاق القائمة عند الضغط على أي رابط
-      document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          const navbarToggler = document.querySelector('.navbar-toggler');
-          const navbarCollapse = document.querySelector('#navbarNav');
-          if (navbarToggler.offsetParent !== null && navbarCollapse.classList.contains('show')) {
-            navbarToggler.click(); // إغلاق القائمة
-          }
-        });
-      });
-    </script>
-    
-    
 </body>
 </html>
