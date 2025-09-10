@@ -139,9 +139,7 @@ body {
     100% { width: 100%; }
 }
 
- 
-
-/* Navigation */
+/* Navigation محسن للموبايل */
 .navbar {
     position: fixed;
     top: 0;
@@ -150,7 +148,7 @@ body {
     padding: 15px 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     transform: translateY(-100%);
     animation: slideDown 0.8s ease 3.5s forwards;
 }
@@ -160,8 +158,6 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    width: 90%;
-    margin: auto;
 }
 
 .logo {
@@ -204,7 +200,7 @@ body {
     width: 100%;
 }
 
-/* Mobile Menu Button */
+/* Mobile Menu */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -215,18 +211,16 @@ body {
     padding: 5px;
 }
 
-/* Mobile Menu */
 .mobile-menu {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
     left: 0;
-    background: #1d1d1d; /* خلفية داكنة للموبايل */
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px 0;
-    text-align: center;
 }
 
 .mobile-menu.active {
@@ -234,8 +228,18 @@ body {
     animation: slideDownMobile 0.3s ease;
 }
 
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-menu li {
+    margin: 15px 0;
+    text-align: center;
+}
+
 .mobile-menu a {
-    color: var(--text-inverse); /* نص أبيض على الخلفية الغامقة */
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
@@ -250,13 +254,47 @@ body {
     border-radius: 10px;
 }
 
-/* Responsive */
+/* Navigation responsive */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
     .nav-links {
         display: none;
     }
+    
     .mobile-menu-toggle {
         display: block;
+    }
+}
+
+@keyframes slideDown {
+    to { transform: translateY(0); }
+}
+
+@keyframes slideDownMobile {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
