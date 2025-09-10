@@ -1755,3 +1755,54 @@ body {
         display: none;
     }
 }
+
+/* تصميم زر المنيو */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* ناف بار عادي على الشاشات الكبيرة */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #1a1a40;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 80px 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 9999;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li a {
+    color: white;
+    font-size: 1.3rem;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+}
+
