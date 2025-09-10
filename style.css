@@ -1236,9 +1236,9 @@ body {
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
+    gap: 40px; /* بدل 60px */
 }
+
 
 .contact-info {
     padding: 20px 0;
