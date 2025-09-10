@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حوّل مبناك القديم إلى تحفة معمارية | شركة التطوير العقاري</title>
+    <title>حوّل مبناك القديم إلى تحفة معمارية | شركة قروأب المحدودة</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #5123a5 50%, #4914aa 100%);
+            --secondary-gradient: linear-gradient(135deg, #1649f3 0%, #4c72ee 100%);
+            --accent-gradient: linear-gradient(135deg, #3686cc 0%, #03858b 100%);
             --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             --glass-bg: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
@@ -121,7 +121,7 @@
             100% { width: 100%; }
         }
 
-        /* Navigation */
+        /* Enhanced Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -133,12 +133,14 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             transform: translateY(-100%);
             animation: slideDown 0.8s ease 3.5s forwards;
+            transition: var(--transition);
         }
 
         .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
@@ -148,12 +150,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            z-index: 1001;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 30px;
+            margin: 0;
         }
 
         .nav-links a {
@@ -180,6 +184,80 @@
             width: 100%;
         }
 
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 80px 30px 30px;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .mobile-nav-links a:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
         @keyframes slideDown {
             to { transform: translateY(0); }
         }
@@ -187,7 +265,7 @@
         /* Enhanced Hero Section */
         .hero {
             min-height: 100vh;
-            background: var(--primary-gradient);
+            background: rgba(13, 17, 70);
             position: relative;
             display: flex;
             align-items: center;
@@ -247,6 +325,7 @@
             color: white;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero-subtitle {
@@ -296,6 +375,8 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            min-width: 200px;
+            justify-content: center;
         }
 
         .cta-primary {
@@ -378,6 +459,78 @@
             to { opacity: 1; }
         }
 
+        /* Enhanced Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: #f8fafc;
+            position: relative;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(180deg, rgba(13, 17, 70, 1) 0%, transparent 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 100px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
         /* Enhanced Sections */
         .section {
             padding: 120px 0;
@@ -396,47 +549,23 @@
             background-clip: text;
         }
 
+        .section2-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            color: whitesmoke;
+        }
+
         .section-subtitle {
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             color: var(--text-secondary);
             margin-bottom: 80px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        /* Stats Counter */
-        .stats-section {
-            background: var(--dark-gradient);
-            color: white;
-            padding: 80px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            background: var(--secondary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            opacity: 0.9;
         }
 
         /* Enhanced About Section */
@@ -532,9 +661,20 @@
             transform: scale(1.1) rotate(5deg);
         }
 
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
         /* Advanced Before/After Section */
         .before-after-section {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #e0dfe0 0%, #f0eeee 100%);
             color: white;
             overflow: hidden;
         }
@@ -697,7 +837,7 @@
 
         /* Advanced Contact Form */
         .contact-section {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #002cbd 0%, #252655 100%);
             color: white;
             position: relative;
         }
@@ -747,7 +887,7 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(238, 235, 235, 0.1);
             color: white;
             transition: var(--transition);
             backdrop-filter: blur(10px);
@@ -760,12 +900,13 @@
         .form-control:focus {
             outline: none;
             border-color: var(--secondary-gradient);
-            background: rgba(255, 255, 255, 0.15);
+            background-color: rgba(141, 6, 252, 0.15);
             transform: translateY(-2px);
+            color: whitesmoke; 
         }
 
         .submit-button {
-            background: var(--secondary-gradient);
+            background: rgb(46, 46, 133);
             color: white;
             padding: 18px 40px;
             border: none;
@@ -923,6 +1064,118 @@
             box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
         }
 
+        /* Enhanced Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--primary-gradient);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            padding: 8px 0;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact-item i {
+            font-size: 1.2rem;
+            margin-left: 15px;
+            color: var(--secondary-gradient);
+            width: 25px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom p {
+            margin-bottom: 15px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-3px);
+        }
+
         /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed;
@@ -942,11 +1195,13 @@
             justify-content: center;
             transition: var(--transition);
             animation: pulse 2s infinite;
+            text-decoration: none;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+            color: white;
         }
 
         @keyframes pulse {
@@ -962,13 +1217,27 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1100px;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 3.5rem;
             }
             
-            .section-title {
-                font-size: 3rem;
+            .section-title, .section2-title {
+                font-size: 2.8rem;
             }
             
             .about-content,
@@ -977,11 +1246,46 @@
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
+            
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                min-height: 90vh;
+                padding: 100px 0 50px;
+            }
+            
             .hero h1 {
                 font-size: 2.8rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 1.2rem;
             }
             
             .hero-buttons {
@@ -995,11 +1299,26 @@
                 justify-content: center;
             }
             
-            .section-title {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title, .section2-title {
                 font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .section-subtitle {
+                font-size: 1.3rem;
+                margin-bottom: 50px;
             }
             
             .about-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .services-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1007,38 +1326,136 @@
                 grid-template-columns: 1fr;
             }
             
-            .navbar {
-                padding: 10px 0;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .contact-form {
+                padding: 40px 30px;
+            }
+            
+            .before-after-item .image-container {
+                height: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                left: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section {
-                padding: 80px 0;
-            }
-            
             .container {
                 padding: 0 15px;
             }
             
-            .section-title {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title, .section2-title {
                 font-size: 2rem;
             }
             
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .feature-card,
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .before-after-item .image-container {
+                height: 250px;
+            }
+            
+            .faq-question {
+                padding: 20px;
+                font-size: 1.1rem;
+            }
+            
+            .faq-answer.active {
+                padding: 20px;
+            }
+            
+            .navbar {
+                padding: 10px 0;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .mobile-menu {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .loading-text {
+                font-size: 1.2rem;
+            }
+            
+            .loading-spinner {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            
+            .section-title, .section2-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-primary, .cta-secondary {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .contact-item {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
             }
         }
 
@@ -1080,6 +1497,26 @@
                 transform: scale(1);
             }
         }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar, .whatsapp-float, .loading-screen {
+                display: none !important;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1094,11 +1531,11 @@
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">🏗️ البناء العصري</div>
+                <div class="logo">🏗️ تشطيبات</div>
                 <ul class="nav-links">
                     <li><a href="#home">الرئيسية</a></li>
                     <li><a href="#about">من نحن</a></li>
@@ -1106,18 +1543,33 @@
                     <li><a href="#gallery">معرض الأعمال</a></li>
                     <li><a href="#contact">تواصل معنا</a></li>
                 </ul>
-            </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div> 
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" onclick="closeMobileMenu()">الرئيسية</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">من نحن</a></li>
+            <li><a href="#services" onclick="closeMobileMenu()">خدماتنا</a></li>
+            <li><a href="#gallery" onclick="closeMobileMenu()">معرض الأعمال</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">تواصل معنا</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
 
     <!-- Enhanced Hero Section -->
     <section class="hero" id="home">
         <div class="hero-particles" id="particles"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-subtitle">شركة رائدة في التشطيبات والتطوير العقاري</div>
+                <div class="hero-subtitle">تشطيبات - رائدة في التشطيبات والتطوير العقاري</div>
                 <h1>حوّل مبناك القديم إلى تحفة معمارية</h1>
-                <p class="hero-description">نحن متخصصون في تشطيب وتحديث المباني القديمة بأحدث التقنيات والمواد عالية الجودة. فريق من المهندسين والخبراء لتحقيق أحلامك المعمارية.</p>
+                <p class="hero-description">نحن متخصصون في التشطيبات الداخلية والخارجية، ترميم المباني، وعقود الصيانة الشاملة. فريق من أمهر المهندسين والفنيين المتخصصين لتحقيق رؤيتكم المعمارية بأعلى معايير الجودة والدقة.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="cta-primary">
                         <i class="fas fa-phone"></i>
@@ -1139,23 +1591,23 @@
     </section>
 
     <!-- Stats Counter Section -->
-    <section class="stats-section">
+    <section class="stats-section" id="stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-number" data-count="5">0</div>
                     <div class="stat-label">مشروع مكتمل</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-number" data-count="25">0</div>
                     <div class="stat-label">سنة خبرة</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-number" data-count="50">0</div>
                     <div class="stat-label">عميل راضي</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-number" data-count="21">0</div>
                     <div class="stat-label">مهندس وفني</div>
                 </div>
             </div>
@@ -1165,15 +1617,15 @@
     <!-- Enhanced About Section -->
     <section class="about section" id="about">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">لماذا تختارنا؟</h2>
+            <h2 class="section-title" data-aos="fade-up">لماذا تختار تشطيبات؟</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                نحن نجمع بين الخبرة العريقة والتقنيات الحديثة لنقدم لك أفضل النتائج
+                نحن نجمع بين الخبرة العريقة الممتدة لـ 25 عاماً والتقنيات الحديثة لنقدم لك أفضل النتائج
             </p>
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
                     <h3>رؤيتنا في التطوير العقاري</h3>
-                    <p>نحن فريق من المهندسين والفنيين المتخصصين في تحويل المباني القديمة إلى مساحات عصرية وعملية. نستخدم أفضل المواد والتقنيات الحديثة لضمان جودة العمل ودوام النتائج.</p>
-                    <p>خبرتنا الطويلة في مجال التشطيبات تضمن لكم الحصول على نتائج تفوق التوقعات، مع الالتزام بالمواعيد والميزانية المحددة. نؤمن بأن كل مبنى له قصة، ونحن هنا لنكتب فصلاً جديداً مليئاً بالجمال والوظائف العملية.</p>
+                    <p>تشطيبات هي شركة رائدة في مجال التشطيبات والتطوير العقاري، نتميز بخبرة واسعة تمتد لأكثر من 25 عاماً في تحويل المباني القديمة إلى مساحات عصرية وعملية. فريقنا المتخصص من 5 مهندسين معتمدين و16 فني محترف يعمل بأحدث التقنيات والمواد عالية الجودة.</p>
+                    <p>نحن نؤمن بأن كل مبنى يحمل إمكانيات لا محدودة للتطوير والتحديث. مع التزامنا الصارم بمعايير الجودة والمواعيد المحددة، نضمن لعملائنا الحصول على نتائج تفوق التوقعات. سواء كان مشروعكم يتطلب تشطيبات داخلية أو خارجية، أو ترميم شامل، أو عقود صيانة دورية، فإن تشطيبات هي شريككم الموثوق لتحقيق أحلامكم المعمارية.</p>
                 </div>
                 <div class="about-features" data-aos="fade-left">
                     <div class="feature-card">
@@ -1202,7 +1654,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>فريق متخصص</h3>
-                        <p>مهندسون وفنيون معتمدون وذوو خبرة عالية</p>
+                        <p>5 مهندسين معتمدين و16 فني ذوي خبرة عالية</p>
                     </div>
                 </div>
             </div>
@@ -1246,50 +1698,57 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">خدماتنا المتميزة</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                نقدم حلولاً شاملة لجميع احتياجاتك في التشطيب والتطوير العقاري
+                نقدم حلولاً شاملة ومتخصصة لجميع احتياجاتك في التشطيب والتطوير العقاري
             </p>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-paint-roller"></i>
                     </div>
-                    <div class="service-title">تشطيب داخلي</div>
-                    <div class="service-description">تصميم وتنفيذ التشطيبات الداخلية بأحدث الطرق والمواد العازلة والديكورات العصرية</div>
+                    <div class="service-title">التشطيبات الداخلية</div>
+                    <div class="service-description">تصميم وتنفيذ التشطيبات الداخلية الفاخرة بأحدث الطرق والمواد العازلة والديكورات العصرية التي تناسب جميع الأذواق</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <div class="service-title">تشطيب خارجي</div>
-                    <div class="service-description">واجهات حديثة ومقاومة للعوامل الجوية مع أنظمة عزل حراري ومائي متقدمة</div>
+                    <div class="service-title">التشطيبات الخارجية</div>
+                    <div class="service-description">واجهات حديثة ومقاومة للعوامل الجوية مع أنظمة عزل حراري ومائي متقدمة لضمان الدوام والجمال</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <div class="service-title">صيانة شاملة</div>
-                    <div class="service-description">خدمات الصيانة والترميم للمباني القديمة مع ضمان الجودة والمتانة</div>
+                    <div class="service-title">ترميم المباني</div>
+                    <div class="service-description">خدمات ترميم شاملة للمباني القديمة وإعادة تأهيلها بأحدث المعايير الهندسية مع ضمان الجودة والمتانة</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-icon">
-                        <i class="fas fa-drafting-compass"></i>
+                        <i class="fas fa-wrench"></i>
                     </div>
-                    <div class="service-title">تصميم معماري</div>
-                    <div class="service-description">تصاميم معمارية مبتكرة وحديثة تناسب احتياجاتكم وتحقق أحلامكم</div>
+                    <div class="service-title">عقود الصيانة</div>
+                    <div class="service-description">عقود صيانة دورية شاملة للمباني والمنشآت مع فريق فني متخصص متاح على مدار الساعة</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="service-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <div class="service-title">استشارات هندسية</div>
-                    <div class="service-description">استشارات متخصصة من فريق من المهندسين ذوي الخبرة العالية في المجال</div>
+                    <div class="service-title">الاستشارات الهندسية</div>
+                    <div class="service-description">استشارات متخصصة من فريق من أمهر المهندسين ذوي الخبرة الطويلة في مجال البناء والتطوير</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-title">استثمار مباني</div>
+                    <div class="service-description">خدمات استثمارية شاملة للمباني والعقارات مع دراسات جدوى مفصلة وإدارة احترافية للاستثمارات العقارية</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <div class="service-title">بناء مستدام</div>
-                    <div class="service-description">حلول صديقة للبيئة مع استخدام مواد مستدامة وتقنيات توفير الطاقة</div>
+                    <div class="service-title">البناء المستدام</div>
+                    <div class="service-description">حلول صديقة للبيئة مع استخدام مواد مستدامة وتقنيات توفير الطاقة للمستقبل الأخضر</div>
                 </div>
             </div>
         </div>
@@ -1300,7 +1759,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                إجابات على أكثر الأسئلة شيوعاً من عملائنا
+                إجابات على أكثر الأسئلة شيوعاً من عملائنا الكرام
             </p>
             <div class="faq-container">
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
@@ -1355,7 +1814,7 @@
     <!-- Advanced Contact Section -->
     <section class="contact-section section" id="contact">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">تواصل معنا الآن</h2>
+            <h2 class="section2-title" data-aos="fade-up">تواصل معنا الآن</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
                 احصل على استشارة مجانية وعرض سعر مخصص لمشروعك
             </p>
@@ -1366,44 +1825,51 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <strong>اتصل بنا</strong><br>
-                            +20 123 456 7890
+                            0595844787
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <strong>راسلنا</strong><br>
-                            info@construction.com
+                            info@tshtibat.com
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <strong>زورنا</strong><br>
-                            القاهرة، مصر - المعادي
+                            الرياض - حي البديعة
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>فرع آخر</strong><br>
+                            المدينة المنورة - حي الملك فهد
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
                             <strong>ساعات العمل</strong><br>
-                            يومياً من 8 ص إلى 8 م
+                            من 8 صباحاً إلى 5 مساءً
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link" target="_blank">
+                        <a href="#" class="social-link" target="_blank" aria-label="فيسبوك">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-link" target="_blank">
+                        <a href="#" class="social-link" target="_blank" aria-label="إنستغرام">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link" target="_blank">
+                        <a href="#" class="social-link" target="_blank" aria-label="تويتر">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link" target="_blank">
+                        <a href="#" class="social-link" target="_blank" aria-label="لينكد إن">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://goo.gl/maps/example" class="social-link" target="_blank">
+                        <a href="https://goo.gl/maps/example" class="social-link" target="_blank" aria-label="موقعنا على الخريطة">
                             <i class="fas fa-map-marker-alt"></i>
                         </a>
                     </div>
@@ -1432,25 +1898,12 @@
                         </div>
                         <div class="form-group">
                             <label for="service">نوع الخدمة المطلوبة *</label>
-                            <select id="service" name="service" class="form-control" required>
+                            <select id="service" name="service" class="form-control" required style="background:rgb(46, 46, 133);">
                                 <option value="">اختر نوع الخدمة</option>
-                                <option value="تشطيب داخلي">تشطيب داخلي</option>
-                                <option value="تشطيب خارجي">تشطيب خارجي</option>
-                                <option value="صيانة شاملة">صيانة شاملة</option>
-                                <option value="تصميم معماري">تصميم معماري</option>
-                                <option value="استشارات هندسية">استشارات هندسية</option>
-                                <option value="بناء مستدام">بناء مستدام</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="budget">الميزانية التقريبية</label>
-                            <select id="budget" name="budget" class="form-control">
-                                <option value="">اختر النطاق السعري</option>
-                                <option value="أقل من 50,000 جنيه">أقل من 50,000 جنيه</option>
-                                <option value="50,000 - 100,000 جنيه">50,000 - 100,000 جنيه</option>
-                                <option value="100,000 - 200,000 جنيه">100,000 - 200,000 جنيه</option>
-                                <option value="200,000 - 500,000 جنيه">200,000 - 500,000 جنيه</option>
-                                <option value="أكثر من 500,000 جنيه">أكثر من 500,000 جنيه</option>
+                                <option value="التشطيبات">التشطيبات</option>
+                                <option value="ترميم المباني">ترميم المباني</option>
+                                <option value="عقود صيانة">عقود صيانة</option>
+                                <option value="استثمار مباني">استثمار مباني</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1473,8 +1926,88 @@
         </div>
     </section>
 
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏗️ تشطيبات</h3>
+                    <p>شركة رائدة في مجال التشطيبات والتطوير العقاري منذ أكثر من 25 عاماً. نحول أحلامكم المعمارية إلى واقع مبهر بأعلى معايير الجودة والإتقان.</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank" aria-label="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="لينكد إن">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">التشطيبات الداخلية</a></li>
+                        <li><a href="#services">التشطيبات الخارجية</a></li>
+                        <li><a href="#services">ترميم المباني</a></li>
+                        <li><a href="#services">عقود الصيانة</a></li>
+                        <li><a href="#services">الاستشارات الهندسية</a></li>
+                        <li><a href="#services">استثمار المباني</a></li>
+                        <li><a href="#services">البناء المستدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط مفيدة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#gallery">معرض الأعمال</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الخدمة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>معلومات التواصل</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0595844787</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@tshtibat.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>الرياض - حي البديعة</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>المدينة المنورة - حي الملك فهد</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>من 8 صباحاً إلى 5 مساءً</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 شركة قروأب المحدودة - تشطيبات. جميع الحقوق محفوظة.</p>
+                <p>تم التصميم والتطوير بأعلى معايير الجودة والإبداع</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201234567890" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
+    <a href="https://wa.me/966595844787" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب" aria-label="تواصل عبر الواتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1499,10 +2032,37 @@
             easing: 'ease-out-cubic'
         });
 
+        // Mobile Menu Functions
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+            mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = 'auto';
+        }
+
+        mobileMenuToggle.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
         // Create floating particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = window.innerWidth < 768 ? 25 : 50;
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -1595,21 +2155,19 @@
                 const phone = formData.get('phone');
                 const email = formData.get('email');
                 const service = formData.get('service');
-                const budget = formData.get('budget');
                 const message = formData.get('message');
                 
                 // Create WhatsApp message
-                const whatsappMessage = `🏗️ *طلب استشارة جديد* 🏗️%0A%0A` +
+                const whatsappMessage = `🏗️ *طلب استشارة من شركة قروأب المحدودة* 🏗️%0A%0A` +
                     `👤 *الاسم:* ${firstName} ${lastName}%0A` +
                     `📱 *الجوال:* ${phone}%0A` +
                     `📧 *الإيميل:* ${email || 'غير محدد'}%0A` +
-                    `🔧 *نوع الخدمة:* ${service}%0A` +
-                    `💰 *الميزانية:* ${budget || 'غير محدد'}%0A%0A` +
+                    `🔧 *نوع الخدمة:* ${service}%0A%0A` +
                     `📝 *تفاصيل المشروع:*%0A${message || 'لا توجد ملاحظات إضافية'}%0A%0A` +
-                    `⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-EG')}`;
+                    `⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-SA')}`;
                 
                 // Open WhatsApp
-                const whatsappURL = `https://wa.me/201234567890?text=${whatsappMessage}`;
+                const whatsappURL = `https://wa.me/966595844787?text=${whatsappMessage}`;
                 window.open(whatsappURL, '_blank');
                 
                 // Show success message
@@ -1674,7 +2232,9 @@
             setTimeout(() => {
                 notification.style.transform = 'translateX(400px)';
                 setTimeout(() => {
-                    document.body.removeChild(notification);
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
                 }, 400);
             }, 5000);
         }
@@ -1690,6 +2250,8 @@
                         top: offsetTop,
                         behavior: 'smooth'
                     });
+                    // Close mobile menu if open
+                    closeMobileMenu();
                 }
             });
         });
@@ -1762,8 +2324,10 @@
                 img.addEventListener('load', function() {
                     this.style.opacity = '1';
                 });
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
+                if (!img.complete) {
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.5s ease';
+                }
             });
         });
 
@@ -1786,87 +2350,37 @@
             observer.observe(el);
         });
 
-        // Mobile menu toggle (for mobile responsiveness)
-        function createMobileMenu() {
-            const navbar = document.querySelector('.navbar');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (window.innerWidth <= 768) {
-                const menuToggle = document.createElement('button');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                menuToggle.className = 'mobile-menu-toggle';
-                menuToggle.style.cssText = `
-                    background: none;
-                    border: none;
-                    font-size: 1.5rem;
-                    color: var(--text-primary);
-                    cursor: pointer;
-                    display: block;
-                `;
-                
-                const navContent = document.querySelector('.nav-content');
-                navContent.appendChild(menuToggle);
-                
-                menuToggle.addEventListener('click', () => {
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '100%';
-                    navLinks.style.left = '0';
-                    navLinks.style.right = '0';
-                    navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.padding = '20px';
-                    navLinks.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-                });
+        // Handle window resize for particles
+        window.addEventListener('resize', function() {
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer) {
+                particlesContainer.innerHTML = '';
+                createParticles();
             }
-        }
+        });
 
-        // Handle window resize
-        window.addEventListener('resize', createMobileMenu);
-        
-        // Performance optimization: Lazy load images
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries) => {
+        // Accessibility: Handle keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Performance: Lazy load background images
+        const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+        const backgroundObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
+                    const bg = entry.target;
+                    bg.style.backgroundImage = `url(${bg.dataset.bg})`;
+                    backgroundObserver.unobserve(bg);
                 }
             });
         });
 
-        lazyImages.forEach(img => imageObserver.observe(img));
+        lazyBackgrounds.forEach(bg => backgroundObserver.observe(bg));
 
-        // Add custom cursor effect for interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .feature-card, .service-card');
-        
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', function() {
-                document.body.style.cursor = 'pointer';
-            });
-            
-            el.addEventListener('mouseleave', function() {
-                document.body.style.cursor = 'default';
-            });
-        });
-
-        // Preload critical resources
-        const preloadLinks = [
-            'https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-        ];
-
-        preloadLinks.forEach(href => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'style';
-            link.href = href;
-            document.head.appendChild(link);
-        });
-
-        console.log('🏗️ صفحة البناء العصري تم تحميلها بنجاح!');
+        console.log('🏗️ موقع شركة قروأب المحدودة تم تحميله بنجاح مع تحسينات الاستجابة!');
     </script>
 </body>
 </html>
