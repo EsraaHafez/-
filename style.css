@@ -226,23 +226,7 @@ body {
 }
 
 /* Mobile Menu Button */
-
-/* إخفاء القائمة بشكل افتراضي */
-.mobile-menu {
-  display: none;
-  background: #2e2e85; /* أو أي لون تحبه */
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  padding: 15px 0;
-}
-
-/* لما تكون القائمة مفتوحة */
-.mobile-menu.active {
-  display: block;
-}
+ 
 
 
 .mobile-menu-toggle {
