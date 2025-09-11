@@ -631,41 +631,25 @@
         });
     });
 
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('animate');
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+    // ✅ استبدال كود القائمة المنسدلة بالكود الجديد
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
 
-    document.querySelectorAll('.feature-card, .service-card, .before-after-item').forEach(el => {
-        observer.observe(el);
-    });
-
-    // ✅ Mobile menu toggle (مجمعة وبدون تكرار)
-// ✅ Mobile menu toggle (للموبايل فقط)
-const menuToggle = document.querySelector('.mobile-menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
+    mobileMenuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        body.classList.toggle('menu-open');
     });
 
-    // يقفل القائمة لو المستخدم اختار أي لينك
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
-            menuToggle.querySelector('i').classList.add('fa-bars');
-            menuToggle.querySelector('i').classList.remove('fa-times');
+            body.classList.remove('menu-open');
         });
     });
-}
 
 </script>
+
 
 </body>
 </html>
