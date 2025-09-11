@@ -219,9 +219,10 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: #000; /* خلفية سوداء */
+    color: white;
+    backdrop-filter: none; /* نشيل البلور */
+    border-bottom: none;
     padding: 20px 0;
 }
 
@@ -241,7 +242,7 @@ body {
 }
 
 .mobile-menu a {
-    color: var(--text-primary);
+    color: white; /* يخلي النص أبيض */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
