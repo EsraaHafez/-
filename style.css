@@ -18,13 +18,18 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* base font size */
+}
+
 body {
     font-family: 'Cairo', sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
     direction: rtl;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    position: relative;
 }
 
 /* Custom Scrollbar */
@@ -45,20 +50,25 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    width: 100%; /* مهم علشان ياخد حجم الشاشة */
+    width: 100%;
 }
-
 
 /* تحسين للموبايل */
 @media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
     .container {
         padding: 0 15px;
     }
 }
 
 @media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
     .container {
-        padding: 0 10px;
+        padding: 0 12px;
     }
 }
 
@@ -115,17 +125,14 @@ body {
     animation: loadProgress 3s ease-in-out forwards;
 }
 
-/* تحسين Loading للموبايل */
 @media (max-width: 768px) {
     .loading-spinner {
         width: 50px;
         height: 50px;
     }
-    
     .loading-text {
         font-size: 1rem;
     }
-    
     .loading-progress {
         width: 150px;
     }
@@ -141,10 +148,12 @@ body {
     100% { width: 100%; }
 }
 
-/* Navigation محسن للموبايل */
+/* Navigation محسن ومُصلح للموبايل */
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     z-index: 1000;
     padding: 15px 0;
@@ -160,6 +169,10 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .logo {
@@ -169,12 +182,19 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    flex-shrink: 0;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
 }
 
 .nav-links a {
@@ -182,16 +202,19 @@ body {
     color: var(--text-primary);
     font-weight: 600;
     position: relative;
-    padding: 5px 0;
+    padding: 8px 12px;
     transition: var(--transition);
     font-size: 1rem;
+    display: block;
+    white-space: nowrap;
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
     background: var(--primary-gradient);
@@ -199,62 +222,103 @@ body {
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+    width: 80%;
 }
 
-/* Mobile Menu */
+/* Mobile Menu Button */
 .mobile-menu-toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--text-primary);
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
+    z-index: 1001;
+    transition: var(--transition);
 }
 
+.mobile-menu-toggle:hover {
+    color: #667eea;
+}
+
+/* Mobile Menu */
 .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    background: #000; /* خلفية سوداء */
-    color: white;
-    backdrop-filter: none; /* نشيل البلور */
-    border-bottom: none;
-    padding: 20px 0;
+    height: 100vh;
+    background: rgba(13, 17, 70, 0.98);
+    backdrop-filter: blur(15px);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    overflow-y: auto;
+    padding-top: 80px;
 }
 
 .mobile-menu.active {
-    display: block;
-    animation: slideDownMobile 0.3s ease;
+    transform: translateX(0);
 }
 
 .mobile-menu ul {
     list-style: none;
-    padding: 0;
+    padding: 40px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .mobile-menu li {
-    margin: 15px 0;
+    width: 100%;
     text-align: center;
 }
 
 .mobile-menu a {
-    color: white; /* يخلي النص أبيض */
+    color: white;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 15px 30px;
     display: block;
     transition: var(--transition);
+    border-radius: 12px;
+    margin: 0 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.mobile-menu a:hover {
+.mobile-menu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
     background: var(--primary-gradient);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.mobile-menu a:hover::before {
+    left: 0;
+}
+
+/* Close button for mobile menu */
+.mobile-menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
     color: white;
-    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
 }
 
 /* Navigation responsive */
@@ -262,9 +326,9 @@ body {
     .nav-links {
         gap: 20px;
     }
-    
     .nav-links a {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        padding: 6px 10px;
     }
 }
 
@@ -273,8 +337,12 @@ body {
         padding: 12px 0;
     }
     
+    .nav-content {
+        padding: 0 15px;
+    }
+    
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     
     .nav-links {
@@ -286,29 +354,34 @@ body {
     }
 }
 
+@media (max-width: 480px) {
+    .nav-content {
+        padding: 0 12px;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    .mobile-menu a {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+    }
+}
+
 @keyframes slideDown {
     to { transform: translateY(0); }
 }
 
-@keyframes slideDownMobile {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 /* Enhanced Hero Section محسن للموبايل */
 .hero {
     min-height: 100vh;
-    background: rgba(13, 17, 70);
+    background: rgba(13, 17, 70, 1);
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 100px 0 50px;
+    padding: 120px 0 50px;
 }
 
 .hero::before {
@@ -329,6 +402,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .particle {
@@ -362,13 +436,13 @@ body {
     z-index: 2;
     text-align: center;
     color: white;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 20px;
     opacity: 0;
@@ -376,7 +450,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 900;
     margin-bottom: 30px;
     line-height: 1.2;
@@ -386,17 +460,20 @@ body {
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 300;
     margin-bottom: 40px;
     opacity: 0;
     animation: fadeInUp 1s ease 4.4s forwards;
     line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
     opacity: 0;
@@ -406,18 +483,19 @@ body {
 .cta-primary, .cta-secondary {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 16px 35px;
+    gap: 10px;
+    padding: 18px 40px;
     text-decoration: none;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    min-width: 180px;
+    min-width: 200px;
     justify-content: center;
     text-align: center;
+    white-space: nowrap;
 }
 
 .cta-primary {
@@ -442,20 +520,30 @@ body {
 }
 
 /* Hero responsive */
+@media (max-width: 1200px) {
+    .hero h1 {
+        font-size: 3.4rem;
+    }
+}
+
 @media (max-width: 1024px) {
+    .hero {
+        padding: 100px 0 40px;
+    }
+    
     .hero h1 {
         font-size: 3rem;
     }
     
     .hero-description {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 90vh;
-        padding: 80px 0 40px;
+        min-height: 95vh;
+        padding: 90px 0 40px;
     }
     
     .hero h1 {
@@ -464,53 +552,59 @@ body {
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-bottom: 15px;
     }
     
     .hero-description {
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-bottom: 35px;
     }
     
     .hero-buttons {
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        gap: 15px;
     }
     
     .cta-primary, .cta-secondary {
         width: 100%;
-        max-width: 280px;
-        padding: 14px 30px;
-        font-size: 0.95rem;
+        max-width: 300px;
+        padding: 16px 35px;
+        font-size: 1rem;
+        min-width: auto;
+    }
+    
+    /* إخفاء الجسيمات على الموبايل */
+    .hero-particles {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        min-height: 85vh;
-        padding: 70px 0 30px;
+        min-height: 90vh;
+        padding: 80px 0 30px;
     }
     
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 20px;
     }
     
     .hero-subtitle {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .hero-description {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-bottom: 30px;
     }
     
     .cta-primary, .cta-secondary {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-        max-width: 250px;
+        padding: 14px 30px;
+        font-size: 0.95rem;
+        max-width: 280px;
     }
 }
 
@@ -592,7 +686,7 @@ body {
 /* Enhanced About Section */
 .about_section {
     min-height: 100vh;
-    background: rgba(13, 17, 70);
+    background: rgba(13, 17, 70, 1);
     position: relative;
     display: flex;
     align-items: center;
@@ -649,7 +743,6 @@ body {
     line-height: 1.4;
 }
 
-/* Stats responsive */
 @media (max-width: 768px) {
     .Stats_section {
         padding: 40px 0;
@@ -734,7 +827,6 @@ body {
     padding: 0 20px;
 }
 
-/* Sections responsive */
 @media (max-width: 1024px) {
     .section {
         padding: 60px 0;
@@ -888,7 +980,6 @@ body {
     line-height: 1.5;
 }
 
-/* About responsive */
 @media (max-width: 1024px) {
     .about-content {
         gap: 40px;
@@ -1033,7 +1124,6 @@ body {
     font-size: 0.8rem;
 }
 
-/* Before/After responsive */
 @media (max-width: 1024px) {
     .before-after-container {
         gap: 30px;
@@ -1172,7 +1262,6 @@ body {
     z-index: 2;
 }
 
-/* Services responsive */
 @media (max-width: 1024px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1236,9 +1325,9 @@ body {
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px; /* بدل 60px */
+    gap: 40px;
+    align-items: start;
 }
-
 
 .contact-info {
     padding: 20px 0;
@@ -1282,6 +1371,7 @@ body {
     color: white;
     transition: var(--transition);
     backdrop-filter: blur(10px);
+    box-sizing: border-box;
 }
 
 .form-control::placeholder {
@@ -1313,6 +1403,7 @@ body {
     gap: 8px;
     position: relative;
     overflow: hidden;
+    min-height: 50px;
 }
 
 .submit-button:hover {
@@ -1347,9 +1438,9 @@ body {
     color: var(--secondary-gradient);
     width: 40px;
     text-align: center;
+    flex-shrink: 0;
 }
 
-/* Contact responsive */
 @media (max-width: 1024px) {
     .contact-container {
         gap: 40px;
@@ -1399,6 +1490,7 @@ body {
     .submit-button {
         padding: 12px 30px;
         font-size: 1rem;
+        min-height: 44px;
     }
     
     .contact-item {
@@ -1447,6 +1539,8 @@ body {
     font-weight: 600;
     transition: var(--transition);
     position: relative;
+    min-height: 60px;
+    touch-action: manipulation;
 }
 
 .faq-question::before {
@@ -1469,6 +1563,8 @@ body {
     font-size: 1.3rem;
     color: var(--primary-gradient);
     transition: var(--transition);
+    flex-shrink: 0;
+    margin-right: 10px;
 }
 
 .faq-answer {
@@ -1490,11 +1586,11 @@ body {
     color: var(--text-secondary);
 }
 
-/* FAQ responsive */
 @media (max-width: 768px) {
     .faq-question {
         padding: 20px;
         font-size: 1.1rem;
+        min-height: 56px;
     }
     
     .faq-answer {
@@ -1514,10 +1610,12 @@ body {
     .faq-question {
         padding: 15px;
         font-size: 1rem;
+        min-height: 52px;
     }
     
     .faq-question i {
         font-size: 1.1rem;
+        margin-right: 8px;
     }
     
     .faq-answer {
@@ -1556,6 +1654,7 @@ body {
     transition: var(--transition);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    touch-action: manipulation;
 }
 
 .social-link:hover {
@@ -1564,7 +1663,6 @@ body {
     box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
 }
 
-/* Social Links responsive */
 @media (max-width: 480px) {
     .social-links {
         gap: 10px;
@@ -1574,6 +1672,7 @@ body {
         width: 45px;
         height: 45px;
         font-size: 1.2rem;
+        min-height: 44px;
     }
 }
 
@@ -1596,6 +1695,8 @@ body {
     justify-content: center;
     transition: var(--transition);
     animation: pulse 2s infinite;
+    text-decoration: none;
+    touch-action: manipulation;
 }
 
 .whatsapp-float:hover {
@@ -1603,7 +1704,6 @@ body {
     box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
 }
 
-/* WhatsApp responsive */
 @media (max-width: 768px) {
     .whatsapp-float {
         width: 55px;
@@ -1621,6 +1721,7 @@ body {
         font-size: 1.4rem;
         bottom: 10px;
         left: 10px;
+        min-height: 44px;
     }
 }
 
@@ -1677,14 +1778,6 @@ body {
 
 /* تحسينات إضافية للأداء على الموبايل */
 @media (max-width: 768px) {
-    .hero-particles {
-        display: none; /* إخفاء الجسيمات على الموبايل لتحسين الأداء */
-    }
-    
-    .particle {
-        display: none;
-    }
-    
     /* تقليل الظلال على الموبايل */
     .feature-card, .service-card, .faq-item {
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -1695,29 +1788,26 @@ body {
     }
 }
 
-/* تحسين الخطوط للشاشات الصغيرة */
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    
-    /* تحسين المسافات */
+/* تحسين المسافات للشاشات الصغيرة جداً */
+@media (max-width: 320px) {
     .container {
-        padding: 0 10px;
+        padding: 0 8px;
     }
     
-    /* تحسين الأزرار للمس */
-    .cta-primary, .cta-secondary, .submit-button {
-        min-height: 44px; /* الحد الأدنى المطلوب للمس */
-        touch-action: manipulation;
+    .nav-content {
+        padding: 0 8px;
     }
     
-    .mobile-menu a {
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .hero-content {
+        padding: 0 8px;
+    }
+    
+    .section-title, .section2-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
     }
 }
 
@@ -1758,4 +1848,16 @@ body {
     }
 }
 
- 
+/* إضافة تحسينات خاصة للنافبار على الموبايل */
+@media (max-width: 768px) {
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    
+    .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+    }
+}
