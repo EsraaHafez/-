@@ -1851,52 +1851,5 @@ body {
     }
 }
 
-/* إضافة تحسينات خاصة للنافبار على الموبايل */
-@media (max-width: 768px) {
-    body.menu-open {
-        overflow: hidden;
-        position: fixed;
-        width: 100%;
-    }
-    
-    .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(25px);
-    }
-}
-
-
-/* زر القائمة يظهر فقط على الموبايل */
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
-}
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: #222;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 100%;
-  text-align: right;
-}
-
-.mobile-menu.active {
-  display: flex;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; /* نخفي القائمة العادية */
-  }
-  .mobile-menu-toggle {
-    display: block; /* نعرض زر القائمة */
-  }
-}
+ 
 
