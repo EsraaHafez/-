@@ -214,24 +214,22 @@ body {
 }
 
 .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background: #000;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #000; /* خلفية سوداء */
     color: white;
-    padding: 80px 20px;
-    transition: right 0.3s ease-in-out;
-    z-index: 9999;
+    backdrop-filter: none; /* نشيل البلور */
+    border-bottom: none;
+    padding: 20px 0;
 }
 
 .mobile-menu.active {
-    right: 0;
+    display: block;
+    animation: slideDownMobile 0.3s ease;
 }
-
 
 .mobile-menu ul {
     list-style: none;
@@ -302,7 +300,6 @@ body {
         transform: translateY(0);
     }
 }
-
 /* Enhanced Hero Section محسن للموبايل */
 .hero {
     min-height: 100vh;
