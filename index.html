@@ -1,1094 +1,1 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حوّل مبناك القديم إلى تحفة معمارية | شركة تشطيبات المحدودة</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-:root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #5123a5 50%, #4914aa 100%);
-    --secondary-gradient: linear-gradient(135deg, #1649f3 0%, #4c72ee 100%);
-    --accent-gradient: linear-gradient(135deg, #3686cc 0%, #03858b 100%);
-    --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --text-primary: #2c3e50;
-    --text-secondary: #7f8c8d;
-    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.1);
-    --shadow-hard: 0 25px 80px rgba(0, 0, 0, 0.15);
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
-body {
-    font-family: 'Cairo', sans-serif;
-    line-height: 1.7;
-    color: var(--text-primary);
-    direction: rtl;
-    overflow-x: hidden;
-    position: relative;
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-gradient);
-    border-radius: 3px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
-}
-
-/* Advanced Loading Screen */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-gradient);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-
-.loading-content {
-    text-align: center;
-    color: white;
-    padding: 20px;
-}
-
-.loading-spinner {
-    width: 60px;
-    height: 60px;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    border-top: 3px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
-}
-
-.loading-text {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.loading-progress {
-    width: 200px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 2px;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.loading-bar {
-    height: 100%;
-    background: white;
-    width: 0%;
-    animation: loadProgress 3s ease-in-out forwards;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes loadProgress {
-    0% { width: 0%; }
-    100% { width: 100%; }
-}
-
-/* Navigation محسن ومُصلح للموبايل */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 15px 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transform: translateY(-100%);
-    animation: slideDown 0.8s ease 3.5s forwards;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 900;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .contact-form {
-        padding: 30px 20px;
-    }
-}
-
-/* Enhanced FAQ */
-.faq-section {
-    background: #f8fafc;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: white;
-    margin-bottom: 15px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    transition: var(--transition);
-}
-
-.faq-item:hover {
-    box-shadow: var(--shadow-hard);
-}
-
-.faq-question {
-    padding: 25px;
-    background: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: var(--transition);
-    position: relative;
-    min-height: 60px;
-}
-
-.faq-question::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--primary-gradient);
-    transform: scaleX(0);
-    transition: var(--transition);
-}
-
-.faq-question:hover::before {
-    transform: scaleX(1);
-}
-
-.faq-question i {
-    font-size: 1.3rem;
-    color: var(--primary-gradient);
-    transition: var(--transition);
-    flex-shrink: 0;
-    margin-right: 10px;
-}
-
-.faq-answer {
-    padding: 0 25px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    background: #f8fafc;
-}
-
-.faq-answer.active {
-    padding: 25px;
-    max-height: 300px;
-}
-
-.faq-answer p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.social-link {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.3rem;
-    text-decoration: none;
-    transition: var(--transition);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.social-link:hover {
-    background: var(--secondary-gradient);
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
-}
-
-/* Floating WhatsApp */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    left: 20px;
-    background: #25d366;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 1.8rem;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-    animation: pulse 2s infinite;
-    text-decoration: none;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    }
-    50% {
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3), 0 0 0 15px rgba(37, 211, 102, 0.1);
-    }
-    100% {
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    }
-}
-
-/* Mobile responsive improvements */
-@media (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
-    
-    .container {
-        padding: 0 12px;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .section-title, .section2-title {
-        font-size: 2rem;
-    }
-    
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 1.4rem;
-        bottom: 10px;
-        left: 10px;
-    }
-}
-
-/* تحسين الأداء للموبايل */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .hero-particles {
-        display: none;
-    }
-}
-
-/* إضافة دعم touch للموبايل */
-@media (hover: none) and (pointer: coarse) {
-    .cta-primary:hover, .cta-secondary:hover,
-    .service-card:hover, .feature-card:hover,
-    .before-after-item:hover, .contact-item:hover {
-        transform: none;
-    }
-}
-    </style>
-</head>
-<body>
-    <!-- Advanced Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <div class="loading-text">جاري التحميل...</div>
-            <div class="loading-progress">
-                <div class="loading-bar"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navigation مع القائمة المنسدلة -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">🏗️ تشطيبات</div>
- 
-                <ul class="nav-links">
-                    <li><a href="#Home">الرئيسية</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#gallery">معرض الأعمال</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                </ul>
-
-                <!-- زر القائمة المنسدلة للموبايل -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- القائمة المنسدلة للموبايل -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#Home">الرئيسية</a></li>
-            <li><a href="#about">من نحن</a></li>
-            <li><a href="#services">خدماتنا</a></li>
-            <li><a href="#gallery">معرض الأعمال</a></li>
-            <li><a href="#contact">تواصل معنا</a></li>
-        </ul>
-    </div>
-
-    <!-- Enhanced Hero Section -->
-    <section class="about_section" id="Home">
-        <div class="hero-particles" id="particles"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-subtitle">تشطيبات - رائدة في التشطيبات والتطوير العقاري</div>
-                <h1>حوّل مبناك القديم إلى تحفة معمارية</h1>
-                <p class="hero-description">نحن متخصصون في التشطيبات الداخلية والخارجية، ترميم المباني، وعقود الصيانة الشاملة. فريق من أمهر المهندسين والفنيين المتخصصين لتحقيق رؤيتكم المعمارية بأعلى معايير الجودة والدقة.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="cta-primary">
-                        <i class="fas fa-phone"></i>
-                        احصل على استشارة مجانية
-                    </a>
-                    <a href="#gallery" class="cta-secondary">
-                        <i class="fas fa-images"></i>
-                        شاهد أعمالنا
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <p>اسحب للأسفل</p>
-        </div>
-    </section>
-
-    <!-- Stats Counter Section -->
-    <section class="Stats_section" id="Stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number" data-count="5">0</div>
-                    <div class="stat-label">مشروع مكتمل</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number" data-count="25">0</div>
-                    <div class="stat-label">سنة خبرة</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-label">عميل راضي</div>
-                </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-number" data-count="21">0</div>
-                    <div class="stat-label">مهندس وفني</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced About Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">لماذا تختار تشطيبات؟</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                نحن نجمع بين الخبرة العريقة الممتدة لـ 25 عاماً والتقنيات الحديثة لنقدم لك أفضل النتائج
-            </p>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h3>رؤيتنا في التطوير العقاري</h3>
-                    <p>تشطيبات هي شركة رائدة في مجال التشطيبات والتطوير العقاري، نتميز بخبرة واسعة تمتد لأكثر من 25 عاماً في تحويل المباني القديمة إلى مساحات عصرية وعملية. فريقنا المتخصص من 5 مهندسين معتمدين و16 فني محترف يعمل بأحدث التقنيات والمواد عالية الجودة.</p>
-                    <p>نحن نؤمن بأن كل مبنى يحمل إمكانيات لا محدودة للتطوير والتحديث. مع التزامنا الصارم بمعايير الجودة والمواعيد المحددة، نضمن لعملائنا الحصول على نتائج تفوق التوقعات. سواء كان مشروعكم يتطلب تشطيبات داخلية أو خارجية، أو ترميم شامل، أو عقود صيانة دورية، فإن تشطيبات هي شريككم الموثوق لتحقيق أحلامكم المعمارية.</p>
-                </div>
-                <div class="about-features" data-aos="fade-left">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="feature-title">ضمان شامل</h3>
-                        <p class="feature-description">ضمان 5 سنوات على جميع الأعمال والمواد المستخدمة</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3 class="feature-title">سرعة التنفيذ</h3>
-                        <p class="feature-description">التزام صارم بالمواعيد المحددة مع جودة عالية</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="feature-title">جودة عالية</h3>
-                        <p class="feature-description">مواد وخامات عالية الجودة من أفضل الموردين</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="feature-title">فريق متخصص</h3>
-                        <p class="feature-description">5 مهندسين معتمدين و16 فني ذوي خبرة عالية</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advanced Before/After Gallery -->
-    <section class="before-after-section section" id="gallery">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">معرض التحولات المذهلة</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                شاهد كيف نحول الأحلام إلى واقع معماري مبهر
-            </p>
-            <div class="before-after-container">
-                <div class="before-after-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="comparison-badge">قبل</div>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى قديم قبل التشطيب" loading="lazy">
-                        <div class="image-overlay">
-                            <div class="overlay-title">المبنى قبل التطوير</div>
-                            <div class="overlay-description">واجهة قديمة تحتاج إلى تحديث شامل وإعادة تأهيل كاملة</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="before-after-item" data-aos="fade-left" data-aos-delay="400">
-                    <div class="comparison-badge">بعد</div>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى حديث بعد التشطيب" loading="lazy">
-                        <div class="image-overlay">
-                            <div class="overlay-title">النتيجة المبهرة</div>
-                            <div class="overlay-description">تحفة معمارية عصرية بتصميم أنيق ووظائف متقدمة</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Services Section -->
-    <section class="services-section section" id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">خدماتنا المتميزة</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                نقدم حلولاً شاملة ومتخصصة لجميع احتياجاتك في التشطيب والتطوير العقاري
-            </p>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-roller"></i>
-                    </div>
-                    <div class="service-title">التشطيبات الداخلية</div>
-                    <div class="service-description">تصميم وتنفيذ التشطيبات الداخلية الفاخرة بأحدث الطرق والمواد العازلة والديكورات العصرية التي تناسب جميع الأذواق</div>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="service-title">التشطيبات الخارجية</div>
-                    <div class="service-description">واجهات حديثة ومقاومة للعوامل الجوية مع أنظمة عزل حراري ومائي متقدمة لضمان الدوام والجمال</div>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="service-title">ترميم المباني</div>
-                    <div class="service-description">خدمات ترميم شاملة للمباني القديمة وإعادة تأهيلها بأحدث المعايير الهندسية مع ضمان الجودة والمتانة</div>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <div class="service-title">عقود الصيانة</div>
-                    <div class="service-description">عقود صيانة دورية شاملة للمباني والمنشآت مع فريق فني متخصص متاح على مدار الساعة</div>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <div class="service-title">الاستشارات الهندسية</div>
-                    <div class="service-description">استشارات متخصصة من فريق من أمهر المهندسين ذوي الخبرة الطويلة في مجال البناء والتطوير</div>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="service-title">استثمار مباني</div>
-                    <div class="service-description">خدمات استثمارية شاملة للمباني والعقارات مع دراسات جدوى مفصلة وإدارة احترافية للاستثمارات العقارية</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced FAQ Section -->
-    <section class="faq-section section" id="faq">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                إجابات على أكثر الأسئلة شيوعاً من عملائنا الكرام
-            </p>
-            <div class="faq-container">
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>كم تستغرق عملية التشطيب الكاملة؟</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>تختلف مدة التشطيب حسب حجم المشروع ونوع التشطيب المطلوب. عادة ما تتراوح بين 2-6 أشهر للمشاريع المتوسطة، ونحن نلتزم بالجدول الزمني المتفق عليه مع ضمان أعلى معايير الجودة.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>ما هي أنواع المواد المستخدمة في التشطيب؟</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>نستخدم أفضل أنواع المواد المعتمدة دولياً مثل الدهانات العازلة المقاومة للرطوبة، السيراميك والبورسلين عالي الجودة، والعوازل الحرارية والصوتية المطورة. جميع المواد حاصلة على شهادات الجودة العالمية.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>هل تقدمون ضمان على الأعمال والمواد؟</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>نعم، نقدم ضمان شامل لمدة 5 سنوات على جميع أعمال التشطيب والمواد المستخدمة. كما نوفر خدمة صيانة دورية مجانية خلال السنة الأولى لضمان استمرارية الجودة العالية.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>كيف يتم تحديد تكلفة المشروع؟</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>نقوم بزيارة مجانية لموقع المشروع وإعداد دراسة تفصيلية تشمل المساحات والمواد المطلوبة. بعدها نقدم عرض سعر شامل وشفاف يتضمن جميع التفاصيل بدون أي تكاليف خفية.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>هل يمكنني متابعة سير العمل في مشروعي؟</span>
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>بالطبع! نوفر نظام متابعة متطور يمكنكم من خلاله متابعة تقدم العمل عبر تقارير دورية وصور للمراحل المختلفة. كما يمكنكم التواصل المباشر مع مدير المشروع في أي وقت.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Advanced Contact Section -->
-    <section class="contact-section section" id="contact">
-        <div class="container">
-            <h2 class="section2-title" data-aos="fade-up">تواصل معنا الآن</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                احصل على استشارة مجانية وعرض سعر مخصص لمشروعك
-            </p>
-            <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3 style="font-size: 2rem; margin-bottom: 30px;">معلومات التواصل</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>اتصل بنا</strong><br>
-                            0595844787
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>راسلنا</strong><br>
-                            info@tshtibat.com
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>زورنا</strong><br>
-                            الرياض - حي البديعة
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>فرع آخر</strong><br>
-                            المدينة المنورة - حي الملك فهد
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>ساعات العمل</strong><br>
-                            من 8 صباحاً إلى 5 مساءً
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://goo.gl/maps/example" class="social-link" target="_blank">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">الاسم الأول *</label>
-                                <input type="text" id="firstName" name="firstName" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">اسم العائلة *</label>
-                                <input type="text" id="lastName" name="lastName" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">رقم الجوال *</label>
-                                <input type="tel" id="phone" name="phone" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">البريد الإلكتروني</label>
-                                <input type="email" id="email" name="email" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">نوع الخدمة المطلوبة *</label>
-                            <select id="service" style="background:rgb(46, 46, 133);" name="service" class="form-control" required>
-                                <option value="">اختر نوع الخدمة</option>
-                                <option value="التشطيبات">التشطيبات</option>
-                                <option value="ترميم المباني">ترميم المباني</option>
-                                <option value="عقود صيانة">عقود صيانة</option>
-                                <option value="استثمار مباني">استثمار مباني</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">تفاصيل المشروع وملاحظات إضافية</label>
-                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="اكتب تفاصيل مشروعك هنا... (المساحة، نوع المبنى، التوقيت المفضل، إلخ)"></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">
-                            <span class="btn-text">
-                                <i class="fas fa-paper-plane"></i>
-                                إرسال الطلب الآن
-                            </span>
-                            <span class="loading" style="display: none;">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                جاري الإرسال...
-                            </span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/966595844787" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Advanced Page Loading
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loadingScreen').style.opacity = '0';
-                setTimeout(() => {
-                    document.getElementById('loadingScreen').style.display = 'none';
-                }, 500);
-            }, 3000);
-        });
-
-        // Initialize AOS with custom settings
-        AOS.init({
-            duration: 1200,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
-
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            if (!particlesContainer) return;
-            
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Animated Counter
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target;
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        const increment = target / 100;
-                        let current = 0;
-
-                        const updateCounter = () => {
-                            if (current < target) {
-                                current += increment;
-                                counter.textContent = Math.ceil(current);
-                                setTimeout(updateCounter, 20);
-                            } else {
-                                counter.textContent = target;
-                            }
-                        };
-
-                        updateCounter();
-                        observer.unobserve(counter);
-                    }
-                });
-            });
-
-            counters.forEach(counter => observer.observe(counter));
-        }
-
-        // Enhanced FAQ Toggle
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('i');
-            const allAnswers = document.querySelectorAll('.faq-answer');
-            const allIcons = document.querySelectorAll('.faq-question i');
-
-            allAnswers.forEach((item, index) => {
-                if (item !== answer) {
-                    item.classList.remove('active');
-                    allIcons[index].className = 'fas fa-plus';
-                    allIcons[index].style.transform = 'rotate(0deg)';
-                }
-            });
-
-            if (answer.classList.contains('active')) {
-                answer.classList.remove('active');
-                icon.className = 'fas fa-plus';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                answer.classList.add('active');
-                icon.className = 'fas fa-minus';
-                icon.style.transform = 'rotate(180deg)';
-            }
-        }
-
-        // Enhanced Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const submitBtn = this.querySelector('.submit-button');
-            const btnText = submitBtn.querySelector('.btn-text');
-            const loading = submitBtn.querySelector('.loading');
-            
-            btnText.style.display = 'none';
-            loading.style.display = 'flex';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.8';
-            
-            setTimeout(() => {
-                const firstName = formData.get('firstName');
-                const lastName = formData.get('lastName');
-                const phone = formData.get('phone');
-                const email = formData.get('email');
-                const service = formData.get('service');
-                const message = formData.get('message');
-                
-                const whatsappMessage = `🏗️ *طلب استشارة من شركة تشطيبات المحدودة* 🏗️%0A%0A` +
-                    `👤 *الاسم:* ${firstName} ${lastName}%0A` +
-                    `📱 *الجوال:* ${phone}%0A` +
-                    `📧 *الإيميل:* ${email || 'غير محدد'}%0A` +
-                    `🔧 *نوع الخدمة:* ${service}%0A%0A` +
-                    `📝 *تفاصيل المشروع:*%0A${message || 'لا توجد ملاحظات إضافية'}%0A%0A` +
-                    `⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-SA')}`;
-                
-                window.open(`https://wa.me/966595844787?text=${whatsappMessage}`, '_blank');
-                
-                showNotification('✅ تم إرسال طلبكم بنجاح! سيتم التواصل معكم خلال 24 ساعة.', 'success');
-                this.reset();
-                btnText.style.display = 'flex';
-                loading.style.display = 'none';
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-            }, 2500);
-        });
-
-        // Success/Error Notification System
-        function showNotification(message, type = 'success') {
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-                    <span>${message}</span>
-                </div>
-            `;
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: ${type === 'success' ? '#10b981' : '#ef4444'};
-                color: white;
-                padding: 20px 25px;
-                border-radius: 15px;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-                z-index: 10000;
-                transform: translateX(400px);
-                transition: all 0.4s ease;
-                font-size: 1.1rem;
-                font-weight: 600;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255,255,255,0.2);
-            `;
-            notification.querySelector('.notification-content').style.cssText = `
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            `;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.style.transform = 'translateX(0)', 100);
-            setTimeout(() => {
-                notification.style.transform = 'translateX(400px)';
-                setTimeout(() => notification.remove(), 400);
-            }, 5000);
-        }
-
-        // Mobile Menu Toggle - الكود المُصلح
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const body = document.body;
-
-            if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                    body.classList.toggle('menu-open');
-
-                    // تبديل الأيقونة
-                    const icon = mobileMenuToggle.querySelector('i');
-                    if (icon) {
-                        if (mobileMenu.classList.contains('active')) {
-                            icon.classList.remove('fa-bars');
-                            icon.classList.add('fa-times');
-                        } else {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    }
-                });
-
-                // إغلاق القائمة عند النقر على الروابط
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.remove('active');
-                        body.classList.remove('menu-open');
-
-                        const icon = mobileMenuToggle.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    });
-                });
-
-                // إغلاق القائمة عند النقر خارجها
-                document.addEventListener('click', function(event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                        if (mobileMenu.classList.contains('active')) {
-                            mobileMenu.classList.remove('active');
-                            body.classList.remove('menu-open');
-
-                            const icon = mobileMenuToggle.querySelector('i');
-                            if (icon) {
-                                icon.classList.remove('fa-times');
-                                icon.classList.add('fa-bars');
-                            }
-                        }
-                    }
-                });
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({ 
-                        top: target.offsetTop - 80, 
-                        behavior: 'smooth' 
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            const scrolled = window.pageYOffset;
-            
-            if (scrolled > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = 'none';
-                navbar.classList.remove('scrolled');
-            }
-
-            // Parallax effect للهيرو
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Initialize all functions when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            animateCounters();
-
-            // تحسين تحميل الصور
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                });
-                if (img.complete) {
-                    img.style.opacity = '1';
-                } else {
-                    img.style.opacity = '0';
-                    img.style.transition = 'opacity 0.5s ease';
-                }
-            });
-        });
-
-        // تحسين الأداء للموبايل
-        if ('ontouchstart' in window) {
-            document.body.classList.add('touch-device');
-        }
-
-        // منع التصغير/التكبير بالضغط المزدوج على iOS
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-    </script>
-</body>
-</html>
