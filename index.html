@@ -24,21 +24,35 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">🏗️ تشطيبات</div>
- 
-                <ul class="nav-links">
-                    <li><a href="#Home">الرئيسية</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#gallery">معرض الأعمال</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                </ul>
-            </div> 
-        </div>
-    </nav>
+<header class="navbar">
+  <div class="nav-content">
+    <div class="logo">موقعي</div>
+    <!-- روابط الديسكتوب -->
+    <ul class="nav-links">
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#contact">تواصل</a></li>
+    </ul>
+
+    <!-- زر فتح القائمة على الموبايل -->
+    <button class="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- القائمة الجانبية للموبايل -->
+<nav class="mobile-menu">
+  <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+  <ul>
+    <li><a href="#home">الرئيسية</a></li>
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#services">خدماتنا</a></li>
+    <li><a href="#contact">تواصل</a></li>
+  </ul>
+</nav>
+
 
     <!-- Enhanced Hero Section -->
     <section class="about_section" id="Home">
@@ -799,5 +813,30 @@
 
         console.log('🏗️ موقع شركة قروأب المحدودة تم تحميله بنجاح!');
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+  // فتح القائمة
+  mobileMenuToggle.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+  });
+
+  // غلق القائمة
+  mobileMenuClose.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+  });
+
+  // إغلاق القائمة لما تدوسي على أي لينك
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+});
+</script>
+
 </body>
 </html>
