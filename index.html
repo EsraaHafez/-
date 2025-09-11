@@ -646,15 +646,7 @@
         });
     });
 
-    // ✅ استبدال كود القائمة المنسدلة بالكود الجديد
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const body = document.body;
-
-    mobileMenuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        body.classList.toggle('menu-open');
-    });
+ 
 
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
@@ -700,21 +692,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
-<script>
-  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (mobileMenuToggle && mobileMenu) {
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      mobileMenuToggle.innerHTML = 
-        mobileMenu.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-    });
-  }
-</script>
-
+ 
 
 </body>
 </html>
