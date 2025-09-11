@@ -650,6 +650,42 @@
 
 </script>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // ✅ كود القائمة المنسدلة بعد تحميل الـ DOM
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            body.classList.toggle('menu-open');
+
+            // تبديل أيقونة القائمة لو فيها <i>
+            const icon = mobileMenuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+});
+</script>
+
 
 </body>
 </html>
