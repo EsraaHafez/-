@@ -1,4 +1,4 @@
-يعني اسيب كود دا بس :root {
+:root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #5123a5 50%, #4914aa 100%);
     --secondary-gradient: linear-gradient(135deg, #1649f3 0%, #4c72ee 100%);
     --accent-gradient: linear-gradient(135deg, #3686cc 0%, #03858b 100%);
