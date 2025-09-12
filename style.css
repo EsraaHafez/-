@@ -18,7 +18,8 @@ body {
     line-height: 1.7;
     color: var(--text-primary);
     direction: rtl;
-     position: relative;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Custom Scrollbar */
