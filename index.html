@@ -12,51 +12,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar" role="navigation" aria-label="القائمة الرئيسية">
-    <!-- Logo / Brand -->
-    <a href="#" class="brand" aria-label="العودة للرئيسية">
-      <div class="mark">EB</div>
-      <div class="title">
-        <span class="name">EduBlogHub</span>
-        <span class="small">لوحة التحكم</span>
-      </div>
-    </a>
-
-    <!-- Desktop Links -->
-    <ul class="nav-links" role="menubar" aria-hidden="false">
-      <li role="none"><a role="menuitem" href="#home">الرئيسية</a></li>
-      <li role="none"><a role="menuitem" href="#students">الطلاب</a></li>
-      <li role="none"><a role="menuitem" href="#teachers">المعلمين</a></li>
-      <li role="none"><a role="menuitem" href="#timetable">الجدول</a></li>
-      <li role="none"><a role="menuitem" href="#blog">المقالات</a></li>
-    </ul>
-
-    <!-- Actions -->
-    <div class="nav-actions" aria-hidden="false">
-      <a class="btn" href="#new">إضافة</a>
-
-      <!-- mobile toggle (visible on small screens) -->
-      <button class="mobile-toggle" id="mobileToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="فتح القائمة">
-        <!-- simple hamburger icon (SVG) -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-          <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile dropdown menu -->
-    <nav id="mobileMenu" class="mobile-menu" aria-labelledby="mobileToggle" role="menu">
-      <div class="mobile-links">
-        <a href="#home" role="menuitem">الرئيسية</a>
-        <a href="#students" role="menuitem">الطلاب</a>
-        <a href="#teachers" role="menuitem">المعلمين</a>
-        <a href="#timetable" role="menuitem">الجدول</a>
-        <a href="#blog" role="menuitem">المقالات</a>
-        <a href="#settings" role="menuitem">الإعدادات</a>
-        <a href="#logout" role="menuitem">تسجيل الخروج</a>
-      </div>
+   <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">🏗️ تشطيبات</div>
+ 
+                <ul class="nav-links">
+                    <li><a href="#Home">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#gallery">معرض الأعمال</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-links">
+                    <a href="#Home">الرئيسية</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#services">خدماتنا</a>
+                    <a href="#gallery">معرض الأعمال</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+            </div>
+        </div>
     </nav>
-  </header>
 
     <!-- Enhanced Hero Section -->
     <section class="about_section" id="Home">
