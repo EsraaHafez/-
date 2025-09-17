@@ -145,52 +145,34 @@
     </section>
 
 <!-- Advanced Before/After Gallery -->
-<section class="portfolio-gallery section" id="gallery">
+<!-- معرض الأعمال (سبيدر) -->
+<section class="portfolio-section section" id="gallery">
   <div class="container">
     <h2 class="section-title" data-aos="fade-up">معرض الأعمال</h2>
     <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-      شاهد أبرز مشاريعنا قبل وبعد التطوير
+      بعض من مشاريعنا المميزة قبل وبعد التطوير
     </p>
 
-    <div class="gallery-grid">
-      <!-- صورة واحدة -->
-      <a href="images/work1.jpg" class="gallery-item" data-lightbox="works">
-        <img src="images/work1.jpg" alt="عمل 1">
-      </a>
+    <div class="portfolio-grid">
+      <!-- كرري هذا الـ div لكل صورة عندك -->
+      <div class="portfolio-item" data-aos="zoom-in">
+        <img src="images/gallery/1.jpg" alt="مشروع 1" loading="lazy">
+        <div class="overlay">
+          <span class="overlay-text">مشروع رقم 1</span>
+        </div>
+      </div>
 
-      <a href="images/work2.jpg" class="gallery-item" data-lightbox="works">
-        <img src="images/work2.jpg" alt="عمل 2">
-      </a>
+      <div class="portfolio-item" data-aos="zoom-in" data-aos-delay="100">
+        <img src="images/gallery/2.jpg" alt="مشروع 2" loading="lazy">
+        <div class="overlay">
+          <span class="overlay-text">مشروع رقم 2</span>
+        </div>
+      </div>
 
-      <!-- كرري البلوك ده لكل الصور لحد ما تخلص الـ 19 صورة -->
+      <!-- كملي لحد الصورة 19 بنفس الشكل -->
     </div>
   </div>
 </section>
-
-<!-- Lightbox2 (مكتبة جاهزة) -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
-<style>
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-.gallery-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.gallery-item img:hover {
-  transform: scale(1.05);
-}
-</style>
-
 
     <!-- Interactive Services Section -->
     <section class="services-section section" id="services">
