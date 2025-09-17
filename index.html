@@ -1119,5 +1119,78 @@
       });
     })();
   </script>
+
+    <script>
+let currentSlideIndex = 0;
+const totalSlides = 19;
+let slideInterval;
+
+// Change slide function
+function changeSlide(direction) {
+    clearInterval(slideInterval);
+    
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    // Remove active class from current slide
+    slides[currentSlideIndex].classList.remove('active');
+    indicators[currentSlideIndex].classList.remove('active');
+    
+    // Update slide index
+    currentSlideIndex += direction;
+    
+    if (currentSlideIndex >= totalSlides) {
+        currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+        currentSlideIndex = totalSlides - 1;
+    }
+    
+    // Add active class to new slide
+    slides[currentSlideIndex].classList.add('active');
+    indicators[currentSlideIndex].classList.add('active');
+    
+    // Update counter
+    document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+    
+    // Restart auto-slide
+    startAutoSlide();
+}
+
+// Go to specific slide
+function goToSlide(index) {
+    clearInterval(slideInterval);
+    
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    // Remove active class from current slide
+    slides[currentSlideIndex].classList.remove('active');
+    indicators[currentSlideIndex].classList.remove('active');
+    
+    // Update to new slide
+    currentSlideIndex = index;
+    slides[currentSlideIndex].classList.add('active');
+    indicators[currentSlideIndex].classList.add('active');
+
+    // Update counter
+    document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+
+    // Restart auto-slide
+    startAutoSlide();
+}
+
+// Auto-slide function
+function startAutoSlide() {
+    slideInterval = setInterval(() => {
+        changeSlide(1);
+    }, 5000); // تغيير كل 5 ثواني
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    startAutoSlide();
+});
+</script>
+
 </body>
 </html>
