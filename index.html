@@ -145,36 +145,345 @@
     </section>
 
 <!-- Advanced Before/After Gallery -->
-<section class="before-after-section section" id="gallery">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">معرض التحولات المذهلة</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                شاهد كيف نحول الأحلام إلى واقع معماري مبهر
-            </p>
-            <div class="before-after-container">
-                <div class="before-after-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="comparison-badge">قبل</div>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى قديم قبل التشطيب" loading="lazy">
-                        <div class="image-overlay">
-                            <div class="overlay-title">المبنى قبل التطوير</div>
-                            <div class="overlay-description">واجهة قديمة تحتاج إلى تحديث شامل وإعادة تأهيل كاملة</div>
+<!-- Advanced Gallery Slider Section -->
+<section class="gallery-slider-section section" id="gallery">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">معرض أعمالنا المتميزة</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            استكشف مجموعة من أروع مشاريعنا المنجزة بأعلى معايير الجودة والإبداع
+        </p>
+        
+        <div class="gallery-slider-container" data-aos="fade-up" data-aos-delay="200">
+            <!-- Slider Navigation -->
+            <div class="slider-nav">
+                <button class="nav-btn prev-btn" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="nav-btn next-btn" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            
+            <!-- Main Slider -->
+            <div class="slider-wrapper">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Slide 1 -->
+                    <div class="slide active">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مشروع فيلا فاخرة" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>فيلا سكنية فاخرة</h3>
+                            <p>تشطيب كامل لفيلا بمساحة 400 متر مربع</p>
+                            <div class="slide-tags">
+                                <span class="tag">تشطيب داخلي</span>
+                                <span class="tag">تصميم عصري</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="before-after-item" data-aos="fade-left" data-aos-delay="400">
-                    <div class="comparison-badge">بعد</div>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى حديث بعد التشطيب" loading="lazy">
-                        <div class="image-overlay">
-                            <div class="overlay-title">النتيجة المبهرة</div>
-                            <div class="overlay-description">تحفة معمارية عصرية بتصميم أنيق ووظائف متقدمة</div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مبنى تجاري حديث" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>مبنى تجاري متطور</h3>
+                            <p>تشطيب واجهة خارجية بأحدث المواد العازلة</p>
+                            <div class="slide-tags">
+                                <span class="tag">واجهات خارجية</span>
+                                <span class="tag">عزل حراري</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="شقة سكنية أنيقة" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>شقة سكنية أنيقة</h3>
+                            <p>تصميم داخلي راقي مع إضاءة ذكية</p>
+                            <div class="slide-tags">
+                                <span class="tag">تصميم داخلي</span>
+                                <span class="tag">إضاءة ذكية</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مطبخ عصري" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>مطبخ عصري متكامل</h3>
+                            <p>تصميم مطبخ بخزائن ذكية ومواد عالية الجودة</p>
+                            <div class="slide-tags">
+                                <span class="tag">مطابخ</span>
+                                <span class="tag">تصميم ذكي</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="حمام فاخر" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>حمام فاخر ومودرن</h3>
+                            <p>تشطيب حمام بأجود أنواع السيراميك والإكسسوارات</p>
+                            <div class="slide-tags">
+                                <span class="tag">حمامات</span>
+                                <span class="tag">سيراميك فاخر</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صالة استقبال" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>صالة استقبال راقية</h3>
+                            <p>تصميم صالة بديكورات كلاسيكية عصرية</p>
+                            <div class="slide-tags">
+                                <span class="tag">صالات</span>
+                                <span class="tag">ديكور كلاسيكي</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 7 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600563438938-a42abaa0c10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="غرفة نوم رئيسية" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>غرفة نوم رئيسية</h3>
+                            <p>تصميم هادئ ومريح مع دولاب مدمج</p>
+                            <div class="slide-tags">
+                                <span class="tag">غرف نوم</span>
+                                <span class="tag">دواليب مدمجة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 8 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600566753051-4c4ab27dc56c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مكتب منزلي" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>مكتب منزلي عملي</h3>
+                            <p>مساحة عمل مريحة ومنظمة للعمل من المنزل</p>
+                            <div class="slide-tags">
+                                <span class="tag">مكاتب</span>
+                                <span class="tag">تنظيم مساحات</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 9 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سلالم داخلية" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>سلالم داخلية فاخرة</h3>
+                            <p>تصميم سلالم بدرابزين معدني أنيق</p>
+                            <div class="slide-tags">
+                                <span class="tag">سلالم</span>
+                                <span class="tag">معادن</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 10 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="حديقة داخلية" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>حديقة داخلية</h3>
+                            <p>تصميم مساحة خضراء داخل المنزل</p>
+                            <div class="slide-tags">
+                                <span class="tag">حدائق</span>
+                                <span class="tag">مساحات خضراء</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 11 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607686669-8051fdefdd5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مدخل رئيسي" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>مدخل رئيسي مهيب</h3>
+                            <p>تصميم مدخل يترك انطباعاً أول مميز</p>
+                            <div class="slide-tags">
+                                <span class="tag">مداخل</span>
+                                <span class="tag">تصميم مهيب</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 12 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="شرفة خارجية" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>شرفة خارجية مريحة</h3>
+                            <p>مساحة استرخاء خارجية مع إطلالة رائعة</p>
+                            <div class="slide-tags">
+                                <span class="tag">شرفات</span>
+                                <span class="tag">مساحات خارجية</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 13 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600566753229-f91d6b24dde4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="غرفة معيشة" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>غرفة معيشة دافئة</h3>
+                            <p>مساحة تجمع عائلي مريحة ودافئة</p>
+                            <div class="slide-tags">
+                                <span class="tag">غرف معيشة</span>
+                                <span class="tag">أجواء دافئة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 14 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مطعم منزلي" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>مطعم منزلي أنيق</h3>
+                            <p>منطقة طعام عائلية بتصميم أنيق</p>
+                            <div class="slide-tags">
+                                <span class="tag">مناطق طعام</span>
+                                <span class="tag">تصميم عائلي</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 15 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مكتبة منزلية" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>مكتبة منزلية راقية</h3>
+                            <p>مساحة للقراءة والاسترخاء مع رفوف مدمجة</p>
+                            <div class="slide-tags">
+                                <span class="tag">مكتبات</span>
+                                <span class="tag">رفوف مدمجة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 16 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600566753092-c9b6b4b3da95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="غرفة ألعاب" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>غرفة ألعاب ترفيهية</h3>
+                            <p>مساحة ترفيه مخصصة للعائلة والضيوف</p>
+                            <div class="slide-tags">
+                                <span class="tag">ترفيه</span>
+                                <span class="tag">غرف ألعاب</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 17 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="قبو تخزين" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>قبو تخزين منظم</h3>
+                            <p>مساحة تخزين ذكية ومنظمة</p>
+                            <div class="slide-tags">
+                                <span class="tag">تخزين</span>
+                                <span class="tag">تنظيم</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 18 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600566752734-a0e27ce85bf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صالة رياضة" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>صالة رياضة منزلية</h3>
+                            <p>مساحة مخصصة للياقة البدنية في المنزل</p>
+                            <div class="slide-tags">
+                                <span class="tag">لياقة بدنية</span>
+                                <span class="tag">صالات رياضة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 19 -->
+                    <div class="slide">
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سطح المنزل" loading="lazy">
+                        </div>
+                        <div class="slide-content">
+                            <h3>سطح منزل مطور</h3>
+                            <p>استغلال أمثل لسطح المنزل كمساحة إضافية</p>
+                            <div class="slide-tags">
+                                <span class="tag">أسطح</span>
+                                <span class="tag">استغلال المساحات</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- Slide Indicators -->
+            <div class="slide-indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+                <span class="indicator" onclick="goToSlide(3)"></span>
+                <span class="indicator" onclick="goToSlide(4)"></span>
+                <span class="indicator" onclick="goToSlide(5)"></span>
+                <span class="indicator" onclick="goToSlide(6)"></span>
+                <span class="indicator" onclick="goToSlide(7)"></span>
+                <span class="indicator" onclick="goToSlide(8)"></span>
+                <span class="indicator" onclick="goToSlide(9)"></span>
+                <span class="indicator" onclick="goToSlide(10)"></span>
+                <span class="indicator" onclick="goToSlide(11)"></span>
+                <span class="indicator" onclick="goToSlide(12)"></span>
+                <span class="indicator" onclick="goToSlide(13)"></span>
+                <span class="indicator" onclick="goToSlide(14)"></span>
+                <span class="indicator" onclick="goToSlide(15)"></span>
+                <span class="indicator" onclick="goToSlide(16)"></span>
+                <span class="indicator" onclick="goToSlide(17)"></span>
+                <span class="indicator" onclick="goToSlide(18)"></span>
+            </div>
+            
+            <!-- Slide Counter -->
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> / <span>19</span>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     
     <!-- Interactive Services Section -->
