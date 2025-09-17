@@ -145,66 +145,51 @@
     </section>
 
 <!-- Advanced Before/After Gallery -->
-<section class="before-after-section section" id="gallery">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">معرض التحولات المذهلة</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-            شاهد كيف نحول الأحلام إلى واقع معماري مبهر
-        </p>
+<section class="portfolio-gallery section" id="gallery">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">معرض الأعمال</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      شاهد أبرز مشاريعنا قبل وبعد التطوير
+    </p>
 
-        <!-- بداية المعرض -->
-        <div class="before-after-container">
+    <div class="gallery-grid">
+      <!-- صورة واحدة -->
+      <a href="images/work1.jpg" class="gallery-item" data-lightbox="works">
+        <img src="images/work1.jpg" alt="عمل 1">
+      </a>
 
-            <!-- مثال على زوج صور -->
-            <div class="before-after-item" data-aos="fade-right" data-aos-delay="200">
-                <div class="comparison-badge">قبل</div>
-                <div class="image-container">
-                    <img src="images/before1.jpg" alt="صورة قبل" loading="lazy">
-                    <div class="image-overlay">
-                        <div class="overlay-title">قبل التطوير</div>
-                        <div class="overlay-description">الوصف الخاص بالصورة قبل التطوير</div>
-                    </div>
-                </div>
-            </div>
+      <a href="images/work2.jpg" class="gallery-item" data-lightbox="works">
+        <img src="images/work2.jpg" alt="عمل 2">
+      </a>
 
-            <div class="before-after-item" data-aos="fade-left" data-aos-delay="400">
-                <div class="comparison-badge">بعد</div>
-                <div class="image-container">
-                    <img src="images/after1.jpg" alt="صورة بعد" loading="lazy">
-                    <div class="image-overlay">
-                        <div class="overlay-title">بعد التطوير</div>
-                        <div class="overlay-description">الوصف الخاص بالصورة بعد التطوير</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- تكرار نفس البلوك لكل صور العميل -->
-            <div class="before-after-item" data-aos="fade-right" data-aos-delay="200">
-                <div class="comparison-badge">قبل</div>
-                <div class="image-container">
-                    <img src="images/before2.jpg" alt="صورة قبل" loading="lazy">
-                    <div class="image-overlay">
-                        <div class="overlay-title">قبل التطوير</div>
-                        <div class="overlay-description">الوصف الخاص بالصورة قبل التطوير</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="before-after-item" data-aos="fade-left" data-aos-delay="400">
-                <div class="comparison-badge">بعد</div>
-                <div class="image-container">
-                    <img src="images/after2.jpg" alt="صورة بعد" loading="lazy">
-                    <div class="image-overlay">
-                        <div class="overlay-title">بعد التطوير</div>
-                        <div class="overlay-description">الوصف الخاص بالصورة بعد التطوير</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- نهاية المعرض -->
+      <!-- كرري البلوك ده لكل الصور لحد ما تخلص الـ 19 صورة -->
     </div>
+  </div>
 </section>
+
+<!-- Lightbox2 (مكتبة جاهزة) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+</style>
 
 
     <!-- Interactive Services Section -->
