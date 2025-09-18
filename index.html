@@ -10,7 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
+<!-- SwiperJS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   </head>
 <body>
    <!-- Navigation -->
     <nav class="navbar">
@@ -145,347 +149,169 @@
     </section>
 
 <!-- Advanced Before/After Gallery -->
-<!-- Advanced Gallery Slider Section -->
-<section class="gallery-slider-section section" id="gallery">
+<!-- Stunning Gallery Slider Section -->
+<section class="gallery-section" id="gallery">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-up">معرض أعمالنا المتميزة</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-            استكشف مجموعة من أروع مشاريعنا المنجزة بأعلى معايير الجودة والإبداع
-        </p>
+        <h2 class="section-title">معرض التحولات المذهلة</h2>
+        <p class="section-subtitle">شاهد كيف نحول الأحلام إلى واقع معماري مبهر</p>
         
-        <div class="gallery-slider-container" data-aos="fade-up" data-aos-delay="200">
-            <!-- Slider Navigation -->
-            <div class="slider-nav">
-                <button class="nav-btn prev-btn" onclick="changeSlide(-1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="nav-btn next-btn" onclick="changeSlide(1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
+        <!-- Gallery Controls -->
+        <div class="gallery-controls">
+            <button class="control-btn active" onclick="showSlider()">عرض منزلق</button>
+            <button class="control-btn" onclick="showGrid()">عرض شبكي</button>
+            <button class="control-btn" onclick="toggleAutoplay()">إيقاف/تشغيل التلقائي</button>
+        </div>
+
+        <!-- Slider View -->
+        <div class="slider-view">
+            <!-- Main Swiper -->
+            <div class="swiper mainGallerySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/1.jpg" alt="مشروع معماري 1"></div>
+                    <div class="swiper-slide"><img src="images/2.jpg" alt="مشروع معماري 2"></div>
+                    <div class="swiper-slide"><img src="images/3.jpg" alt="مشروع معماري 3"></div>
+                    <div class="swiper-slide"><img src="images/4.jpg" alt="مشروع معماري 4"></div>
+                    <div class="swiper-slide"><img src="images/5.jpg" alt="مشروع معماري 5"></div>
+                    <div class="swiper-slide"><img src="images/6.jpg" alt="مشروع معماري 6"></div>
+                    <div class="swiper-slide"><img src="images/7.jpg" alt="مشروع معماري 7"></div>
+                    <div class="swiper-slide"><img src="images/8.jpg" alt="مشروع معماري 8"></div>
+                    <div class="swiper-slide"><img src="images/9.jpg" alt="مشروع معماري 9"></div>
+                    <div class="swiper-slide"><img src="images/10.jpg" alt="مشروع معماري 10"></div>
+                    <div class="swiper-slide"><img src="images/11.jpg" alt="مشروع معماري 11"></div>
+                    <div class="swiper-slide"><img src="images/12.jpg" alt="مشروع معماري 12"></div>
+                    <div class="swiper-slide"><img src="images/13.jpg" alt="مشروع معماري 13"></div>
+                    <div class="swiper-slide"><img src="images/14.jpg" alt="مشروع معماري 14"></div>
+                    <div class="swiper-slide"><img src="images/15.jpg" alt="مشروع معماري 15"></div>
+                    <div class="swiper-slide"><img src="images/16.jpg" alt="مشروع معماري 16"></div>
+                    <div class="swiper-slide"><img src="images/17.jpg" alt="مشروع معماري 17"></div>
+                    <div class="swiper-slide"><img src="images/18.jpg" alt="مشروع معماري 18"></div>
+                    <div class="swiper-slide"><img src="images/19.jpg" alt="مشروع معماري 19"></div>
+                    <div class="swiper-slide"><img src="images/20.jpg" alt="مشروع معماري 20"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            
-            <!-- Main Slider -->
-            <div class="slider-wrapper">
-                <div class="slider-track" id="sliderTrack">
-                    <!-- Slide 1 -->
-                    <div class="slide active">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مشروع فيلا فاخرة" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>فيلا سكنية فاخرة</h3>
-                            <p>تشطيب كامل لفيلا بمساحة 400 متر مربع</p>
-                            <div class="slide-tags">
-                                <span class="tag">تشطيب داخلي</span>
-                                <span class="tag">تصميم عصري</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 2 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مبنى تجاري حديث" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>مبنى تجاري متطور</h3>
-                            <p>تشطيب واجهة خارجية بأحدث المواد العازلة</p>
-                            <div class="slide-tags">
-                                <span class="tag">واجهات خارجية</span>
-                                <span class="tag">عزل حراري</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 3 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="شقة سكنية أنيقة" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>شقة سكنية أنيقة</h3>
-                            <p>تصميم داخلي راقي مع إضاءة ذكية</p>
-                            <div class="slide-tags">
-                                <span class="tag">تصميم داخلي</span>
-                                <span class="tag">إضاءة ذكية</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 4 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مطبخ عصري" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>مطبخ عصري متكامل</h3>
-                            <p>تصميم مطبخ بخزائن ذكية ومواد عالية الجودة</p>
-                            <div class="slide-tags">
-                                <span class="tag">مطابخ</span>
-                                <span class="tag">تصميم ذكي</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 5 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="حمام فاخر" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>حمام فاخر ومودرن</h3>
-                            <p>تشطيب حمام بأجود أنواع السيراميك والإكسسوارات</p>
-                            <div class="slide-tags">
-                                <span class="tag">حمامات</span>
-                                <span class="tag">سيراميك فاخر</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 6 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صالة استقبال" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>صالة استقبال راقية</h3>
-                            <p>تصميم صالة بديكورات كلاسيكية عصرية</p>
-                            <div class="slide-tags">
-                                <span class="tag">صالات</span>
-                                <span class="tag">ديكور كلاسيكي</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 7 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600563438938-a42abaa0c10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="غرفة نوم رئيسية" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>غرفة نوم رئيسية</h3>
-                            <p>تصميم هادئ ومريح مع دولاب مدمج</p>
-                            <div class="slide-tags">
-                                <span class="tag">غرف نوم</span>
-                                <span class="tag">دواليب مدمجة</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 8 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600566753051-4c4ab27dc56c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مكتب منزلي" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>مكتب منزلي عملي</h3>
-                            <p>مساحة عمل مريحة ومنظمة للعمل من المنزل</p>
-                            <div class="slide-tags">
-                                <span class="tag">مكاتب</span>
-                                <span class="tag">تنظيم مساحات</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 9 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سلالم داخلية" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>سلالم داخلية فاخرة</h3>
-                            <p>تصميم سلالم بدرابزين معدني أنيق</p>
-                            <div class="slide-tags">
-                                <span class="tag">سلالم</span>
-                                <span class="tag">معادن</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 10 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="حديقة داخلية" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>حديقة داخلية</h3>
-                            <p>تصميم مساحة خضراء داخل المنزل</p>
-                            <div class="slide-tags">
-                                <span class="tag">حدائق</span>
-                                <span class="tag">مساحات خضراء</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 11 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607686669-8051fdefdd5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مدخل رئيسي" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>مدخل رئيسي مهيب</h3>
-                            <p>تصميم مدخل يترك انطباعاً أول مميز</p>
-                            <div class="slide-tags">
-                                <span class="tag">مداخل</span>
-                                <span class="tag">تصميم مهيب</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 12 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="شرفة خارجية" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>شرفة خارجية مريحة</h3>
-                            <p>مساحة استرخاء خارجية مع إطلالة رائعة</p>
-                            <div class="slide-tags">
-                                <span class="tag">شرفات</span>
-                                <span class="tag">مساحات خارجية</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 13 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600566753229-f91d6b24dde4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="غرفة معيشة" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>غرفة معيشة دافئة</h3>
-                            <p>مساحة تجمع عائلي مريحة ودافئة</p>
-                            <div class="slide-tags">
-                                <span class="tag">غرف معيشة</span>
-                                <span class="tag">أجواء دافئة</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 14 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مطعم منزلي" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>مطعم منزلي أنيق</h3>
-                            <p>منطقة طعام عائلية بتصميم أنيق</p>
-                            <div class="slide-tags">
-                                <span class="tag">مناطق طعام</span>
-                                <span class="tag">تصميم عائلي</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 15 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="مكتبة منزلية" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>مكتبة منزلية راقية</h3>
-                            <p>مساحة للقراءة والاسترخاء مع رفوف مدمجة</p>
-                            <div class="slide-tags">
-                                <span class="tag">مكتبات</span>
-                                <span class="tag">رفوف مدمجة</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 16 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600566753092-c9b6b4b3da95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="غرفة ألعاب" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>غرفة ألعاب ترفيهية</h3>
-                            <p>مساحة ترفيه مخصصة للعائلة والضيوف</p>
-                            <div class="slide-tags">
-                                <span class="tag">ترفيه</span>
-                                <span class="tag">غرف ألعاب</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 17 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="قبو تخزين" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>قبو تخزين منظم</h3>
-                            <p>مساحة تخزين ذكية ومنظمة</p>
-                            <div class="slide-tags">
-                                <span class="tag">تخزين</span>
-                                <span class="tag">تنظيم</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 18 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600566752734-a0e27ce85bf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صالة رياضة" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>صالة رياضة منزلية</h3>
-                            <p>مساحة مخصصة للياقة البدنية في المنزل</p>
-                            <div class="slide-tags">
-                                <span class="tag">لياقة بدنية</span>
-                                <span class="tag">صالات رياضة</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Slide 19 -->
-                    <div class="slide">
-                        <div class="slide-image">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سطح المنزل" loading="lazy">
-                        </div>
-                        <div class="slide-content">
-                            <h3>سطح منزل مطور</h3>
-                            <p>استغلال أمثل لسطح المنزل كمساحة إضافية</p>
-                            <div class="slide-tags">
-                                <span class="tag">أسطح</span>
-                                <span class="tag">استغلال المساحات</span>
-                            </div>
-                        </div>
-                    </div>
+
+            <!-- Thumbnail Swiper -->
+            <div class="swiper thumbGallerySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/1.jpg" alt="Thumb 1"></div>
+                    <div class="swiper-slide"><img src="images/2.jpg" alt="Thumb 2"></div>
+                    <div class="swiper-slide"><img src="images/3.jpg" alt="Thumb 3"></div>
+                    <div class="swiper-slide"><img src="images/4.jpg" alt="Thumb 4"></div>
+                    <div class="swiper-slide"><img src="images/5.jpg" alt="Thumb 5"></div>
+                    <div class="swiper-slide"><img src="images/6.jpg" alt="Thumb 6"></div>
+                    <div class="swiper-slide"><img src="images/7.jpg" alt="Thumb 7"></div>
+                    <div class="swiper-slide"><img src="images/8.jpg" alt="Thumb 8"></div>
+                    <div class="swiper-slide"><img src="images/9.jpg" alt="Thumb 9"></div>
+                    <div class="swiper-slide"><img src="images/10.jpg" alt="Thumb 10"></div>
+                    <div class="swiper-slide"><img src="images/11.jpg" alt="Thumb 11"></div>
+                    <div class="swiper-slide"><img src="images/12.jpg" alt="Thumb 12"></div>
+                    <div class="swiper-slide"><img src="images/13.jpg" alt="Thumb 13"></div>
+                    <div class="swiper-slide"><img src="images/14.jpg" alt="Thumb 14"></div>
+                    <div class="swiper-slide"><img src="images/15.jpg" alt="Thumb 15"></div>
+                    <div class="swiper-slide"><img src="images/16.jpg" alt="Thumb 16"></div>
+                    <div class="swiper-slide"><img src="images/17.jpg" alt="Thumb 17"></div>
+                    <div class="swiper-slide"><img src="images/18.jpg" alt="Thumb 18"></div>
+                    <div class="swiper-slide"><img src="images/19.jpg" alt="Thumb 19"></div>
+                    <div class="swiper-slide"><img src="images/20.jpg" alt="Thumb 20"></div>
                 </div>
             </div>
-            
-            <!-- Slide Indicators -->
-            <div class="slide-indicators">
-                <span class="indicator active" onclick="goToSlide(0)"></span>
-                <span class="indicator" onclick="goToSlide(1)"></span>
-                <span class="indicator" onclick="goToSlide(2)"></span>
-                <span class="indicator" onclick="goToSlide(3)"></span>
-                <span class="indicator" onclick="goToSlide(4)"></span>
-                <span class="indicator" onclick="goToSlide(5)"></span>
-                <span class="indicator" onclick="goToSlide(6)"></span>
-                <span class="indicator" onclick="goToSlide(7)"></span>
-                <span class="indicator" onclick="goToSlide(8)"></span>
-                <span class="indicator" onclick="goToSlide(9)"></span>
-                <span class="indicator" onclick="goToSlide(10)"></span>
-                <span class="indicator" onclick="goToSlide(11)"></span>
-                <span class="indicator" onclick="goToSlide(12)"></span>
-                <span class="indicator" onclick="goToSlide(13)"></span>
-                <span class="indicator" onclick="goToSlide(14)"></span>
-                <span class="indicator" onclick="goToSlide(15)"></span>
-                <span class="indicator" onclick="goToSlide(16)"></span>
-                <span class="indicator" onclick="goToSlide(17)"></span>
-                <span class="indicator" onclick="goToSlide(18)"></span>
+        </div>
+
+        <!-- Grid View -->
+        <div class="grid-gallery" id="gridGallery">
+            <div class="grid-item" onclick="openLightbox('images/1.jpg')">
+                <img src="images/1.jpg" alt="مشروع 1">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 1</div></div>
             </div>
-            
-            <!-- Slide Counter -->
-            <div class="slide-counter">
-                <span id="currentSlide">1</span> / <span>19</span>
+            <div class="grid-item" onclick="openLightbox('images/2.jpg')">
+                <img src="images/2.jpg" alt="مشروع 2">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 2</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/3.jpg')">
+                <img src="images/3.jpg" alt="مشروع 3">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 3</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/4.jpg')">
+                <img src="images/4.jpg" alt="مشروع 4">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 4</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/5.jpg')">
+                <img src="images/5.jpg" alt="مشروع 5">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 5</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/6.jpg')">
+                <img src="images/6.jpg" alt="مشروع 6">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 6</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/7.jpg')">
+                <img src="images/7.jpg" alt="مشروع 7">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 7</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/8.jpg')">
+                <img src="images/8.jpg" alt="مشروع 8">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 8</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/9.jpg')">
+                <img src="images/9.jpg" alt="مشروع 9">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 9</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/10.jpg')">
+                <img src="images/10.jpg" alt="مشروع 10">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 10</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/11.jpg')">
+                <img src="images/11.jpg" alt="مشروع 11">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 11</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/12.jpg')">
+                <img src="images/12.jpg" alt="مشروع 12">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 12</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/13.jpg')">
+                <img src="images/13.jpg" alt="مشروع 13">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 13</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/14.jpg')">
+                <img src="images/14.jpg" alt="مشروع 14">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 14</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/15.jpg')">
+                <img src="images/15.jpg" alt="مشروع 15">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 15</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/16.jpg')">
+                <img src="images/16.jpg" alt="مشروع 16">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 16</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/17.jpg')">
+                <img src="images/17.jpg" alt="مشروع 17">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 17</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/18.jpg')">
+                <img src="images/18.jpg" alt="مشروع 18">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 18</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/19.jpg')">
+                <img src="images/19.jpg" alt="مشروع 19">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 19</div></div>
+            </div>
+            <div class="grid-item" onclick="openLightbox('images/20.jpg')">
+                <img src="images/20.jpg" alt="مشروع 20">
+                <div class="overlay"><div class="overlay-text">مشروع معماري 20</div></div>
             </div>
         </div>
     </div>
 </section>
 
-    
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightboxImg" src="" alt="صورة مكبرة">
+</div>
+
     <!-- Interactive Services Section -->
     <section class="services-section section" id="services">
         <div class="container">
@@ -1120,77 +946,116 @@
     })();
   </script>
 
-    <script>
-let currentSlideIndex = 0;
-const totalSlides = 19;
-let slideInterval;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swiper/11.0.5/swiper-bundle.min.js"></script>
+<script>
+    let mainSwiper, thumbSwiper;
+    let autoplayEnabled = true;
 
-// Change slide function
-function changeSlide(direction) {
-    clearInterval(slideInterval);
-    
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
-    
-    // Remove active class from current slide
-    slides[currentSlideIndex].classList.remove('active');
-    indicators[currentSlideIndex].classList.remove('active');
-    
-    // Update slide index
-    currentSlideIndex += direction;
-    
-    if (currentSlideIndex >= totalSlides) {
-        currentSlideIndex = 0;
-    } else if (currentSlideIndex < 0) {
-        currentSlideIndex = totalSlides - 1;
+    // Initialize Swiper
+    function initSwiper() {
+        // Thumbnail Swiper
+        thumbSwiper = new Swiper(".thumbGallerySwiper", {
+            spaceBetween: 10,
+            slidesPerView: 10,
+            freeMode: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+                320: { slidesPerView: 4 },
+                640: { slidesPerView: 6 },
+                768: { slidesPerView: 8 },
+                1024: { slidesPerView: 10 }
+            }
+        });
+
+        // Main Swiper
+        mainSwiper = new Swiper(".mainGallerySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            thumbs: {
+                swiper: thumbSwiper,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
     }
-    
-    // Add active class to new slide
-    slides[currentSlideIndex].classList.add('active');
-    indicators[currentSlideIndex].classList.add('active');
-    
-    // Update counter
-    document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
-    
-    // Restart auto-slide
-    startAutoSlide();
-}
 
-// Go to specific slide
-function goToSlide(index) {
-    clearInterval(slideInterval);
-    
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
-    
-    // Remove active class from current slide
-    slides[currentSlideIndex].classList.remove('active');
-    indicators[currentSlideIndex].classList.remove('active');
-    
-    // Update to new slide
-    currentSlideIndex = index;
-    slides[currentSlideIndex].classList.add('active');
-    indicators[currentSlideIndex].classList.add('active');
+    // Show Slider View
+    function showSlider() {
+        document.querySelector('.slider-view').style.display = 'block';
+        document.querySelector('.grid-gallery').classList.remove('active');
+        document.querySelectorAll('.control-btn')[0].classList.add('active');
+        document.querySelectorAll('.control-btn')[1].classList.remove('active');
+    }
 
-    // Update counter
-    document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+    // Show Grid View
+    function showGrid() {
+        document.querySelector('.slider-view').style.display = 'none';
+        document.querySelector('.grid-gallery').classList.add('active');
+        document.querySelectorAll('.control-btn')[1].classList.add('active');
+        document.querySelectorAll('.control-btn')[0].classList.remove('active');
+    }
 
-    // Restart auto-slide
-    startAutoSlide();
-}
+    // Toggle Autoplay
+    function toggleAutoplay() {
+        if (autoplayEnabled) {
+            mainSwiper.autoplay.stop();
+            document.querySelectorAll('.control-btn')[2].textContent = 'تشغيل التلقائي';
+            autoplayEnabled = false;
+        } else {
+            mainSwiper.autoplay.start();
+            document.querySelectorAll('.control-btn')[2].textContent = 'إيقاف التلقائي';
+            autoplayEnabled = true;
+        }
+    }
 
-// Auto-slide function
-function startAutoSlide() {
-    slideInterval = setInterval(() => {
-        changeSlide(1);
-    }, 5000); // تغيير كل 5 ثواني
-}
+    // Lightbox Functions
+    function openLightbox(imgSrc) {
+        document.getElementById('lightboxImg').src = imgSrc;
+        document.getElementById('lightbox').classList.add('active');
+    }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    startAutoSlide();
-});
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+
+    // Close lightbox on click outside image
+    document.getElementById('lightbox').onclick = function(e) {
+        if (e.target === this) {
+            closeLightbox();
+        }
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initSwiper();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+        if (e.key === 'ArrowRight') {
+            mainSwiper.slideNext();
+        }
+        if (e.key === 'ArrowLeft') {
+            mainSwiper.slidePrev();
+        }
+    });
 </script>
-
 </body>
 </html>
