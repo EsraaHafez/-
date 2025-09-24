@@ -1,169 +1,568 @@
-<!DOCTYPE html>
+بص عايزك تغير محتووي اللي هنا كله خليه اي محتوي تاني وغير الهنوانين ورقم واتس وكله وابعت كود بعد تعديل <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعلم من أي مكان | أكاديمية برايت ليرن</title>
+    <title>حوّل مبناك القديم إلى تحفة معمارية | شركة قروأب المحدودة</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
+<!-- SwiperJS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   </head>
 <body>
    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <div class="logo">🎓 برايت ليرن</div>
+                <div class="logo">🏗️ تشطيبات</div>
+ 
                 <ul class="nav-links">
                     <li><a href="#Home">الرئيسية</a></li>
-                    <li><a href="#about">عن الأكاديمية</a></li>
-                    <li><a href="#courses">الكورسات</a></li>
-                    <li><a href="#testimonials">آراء الطلاب</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#gallery">معرض الأعمال</a></li>
                     <li><a href="#contact">تواصل معنا</a></li>
                 </ul>
+                
+                <!-- Mobile Menu Toggle -->
                 <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
+            
+            <!-- Mobile Menu -->
             <div class="mobile-menu" id="mobileMenu">
                 <div class="mobile-links">
                     <a href="#Home">الرئيسية</a>
-                    <a href="#about">عن الأكاديمية</a>
-                    <a href="#courses">الكورسات</a>
-                    <a href="#testimonials">آراء الطلاب</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#services">خدماتنا</a>
+                    <a href="#gallery">معرض الأعمال</a>
                     <a href="#contact">تواصل معنا</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Enhanced Hero Section -->
     <section class="about_section" id="Home">
+        <div class="hero-particles" id="particles"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-subtitle">أكاديمية برايت ليرن - منصتك للتعلم أونلاين</div>
-                <h1>طوّر مهاراتك وابدأ مسيرتك المهنية</h1>
-                <p class="hero-description">انضم إلى آلاف الطلاب وتعلم البرمجة، التصميم، وإدارة الأعمال من أفضل المدربين عبر الإنترنت في أي وقت ومن أي مكان.</p>
+                <div class="hero-subtitle">تشطيبات - رائدة في التشطيبات والتطوير العقاري</div>
+                <h1>حوّل مبناك القديم إلى تحفة معمارية</h1>
+                <p class="hero-description">نحن متخصصون في التشطيبات الداخلية والخارجية، ترميم المباني، وعقود الصيانة الشاملة. فريق من أمهر المهندسين والفنيين المتخصصين لتحقيق رؤيتكم المعمارية بأعلى معايير الجودة والدقة.</p>
                 <div class="hero-buttons">
-                    <a href="#courses" class="cta-primary">
-                        <i class="fas fa-laptop-code"></i>
-                        تصفح الكورسات
-                    </a>
-                    <a href="#contact" class="cta-secondary">
+                    <a href="#contact" class="cta-primary">
                         <i class="fas fa-phone"></i>
-                        تواصل معنا
+                        احصل على استشارة مجانية
                     </a>
+                    <a href="#gallery" class="cta-secondary">
+                        <i class="fas fa-images"></i>
+                        شاهد أعمالنا
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <p>اسحب للأسفل</p>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="Stats_section" id="Stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">مشروع مكتمل</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-count="25">0</div>
+                    <div class="stat-label">سنة خبرة</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">عميل راضي</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number" data-count="21">0</div>
+                    <div class="stat-label">مهندس وفني</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section class="services-section section" id="courses">
+    <!-- Enhanced About Section -->
+    <section class="about section" id="about">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">الكورسات المتاحة</h2>
+            <h2 class="section-title" data-aos="fade-up">لماذا تختار تشطيبات؟</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                تعلم بأسلوب ممتع وتقدّم في حياتك المهنية مع كورساتنا التفاعلية
+                نحن نجمع بين الخبرة العريقة الممتدة لـ 25 عاماً والتقنيات الحديثة لنقدم لك أفضل النتائج
+            </p>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>رؤيتنا في التطوير العقاري</h3>
+                    <p>تشطيبات هي شركة رائدة في مجال التشطيبات والتطوير العقاري، نتميز بخبرة واسعة تمتد لأكثر من 25 عاماً في تحويل المباني القديمة إلى مساحات عصرية وعملية. فريقنا المتخصص من 5 مهندسين معتمدين و16 فني محترف يعمل بأحدث التقنيات والمواد عالية الجودة.</p>
+                    <p>نحن نؤمن بأن كل مبنى يحمل إمكانيات لا محدودة للتطوير والتحديث. مع التزامنا الصارم بمعايير الجودة والمواعيد المحددة، نضمن لعملائنا الحصول على نتائج تفوق التوقعات. سواء كان مشروعكم يتطلب تشطيبات داخلية أو خارجية، أو ترميم شامل، أو عقود صيانة دورية، فإن تشطيبات هي شريككم الموثوق لتحقيق أحلامكم المعمارية.</p>
+                </div>
+                <div class="about-features" data-aos="fade-left">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>ضمان شامل</h3>
+                        <p>ضمان 5 سنوات على جميع الأعمال والمواد المستخدمة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>سرعة التنفيذ</h3>
+                        <p>التزام صارم بالمواعيد المحددة مع جودة عالية</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>جودة عالية</h3>
+                        <p>مواد وخامات عالية الجودة من أفضل الموردين</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>فريق متخصص</h3>
+                        <p>5 مهندسين معتمدين و16 فني ذوي خبرة عالية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Advanced Before/After Gallery -->
+  <!-- Stunning Gallery Slider Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+        <h2 class="section-title">معرض التحولات المذهلة</h2>
+        <p class="section-subtitle">شاهد كيف نحول الأحلام إلى واقع معماري مبهر</p>
+        
+        <!-- Gallery Controls -->
+        <div class="gallery-controls">
+            <button class="control-btn active" onclick="showSlider()">عرض منزلق</button>
+            <button class="control-btn" onclick="showGrid()">عرض شبكي</button>
+            <button class="control-btn" onclick="toggleAutoplay()">إيقاف التلقائي</button>
+        </div>
+
+        <!-- Slider View -->
+        <div class="slider-view" id="sliderView">
+            <!-- Main Swiper -->
+            <div class="swiper mainGallerySwiper">
+<!-- استبدال قسم Main Swiper في الـ HTML -->
+<div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="images/1.jpg" alt="مشروع معماري 1"></div>
+    <div class="swiper-slide"><img src="images/2.jpg" alt="مشروع معماري 2"></div>
+    <div class="swiper-slide"><img src="images/3.jpg" alt="مشروع معماري 3"></div>
+    <div class="swiper-slide"><img src="images/4.jpg" alt="مشروع معماري 4"></div>
+    <div class="swiper-slide"><img src="images/5.jpg" alt="مشروع معماري 5"></div>
+    <div class="swiper-slide"><img src="images/6.jpg" alt="مشروع معماري 6"></div>
+    <div class="swiper-slide"><img src="images/7.jpg" alt="مشروع معماري 7"></div>
+    <div class="swiper-slide"><img src="images/8.jpg" alt="مشروع معماري 8"></div>
+    <div class="swiper-slide"><img src="images/9.jpg" alt="مشروع معماري 9"></div>
+    <div class="swiper-slide"><img src="images/10.jpg" alt="مشروع معماري 10"></div>
+    <div class="swiper-slide"><img src="images/11.jpg" alt="مشروع معماري 11"></div>
+    <div class="swiper-slide"><img src="images/12.jpg" alt="مشروع معماري 12"></div>
+    <div class="swiper-slide"><img src="images/13.jpg" alt="مشروع معماري 13"></div>
+    <div class="swiper-slide"><img src="images/14.jpg" alt="مشروع معماري 14"></div>
+    <div class="swiper-slide"><img src="images/15.jpg" alt="مشروع معماري 15"></div>
+    <div class="swiper-slide"><img src="images/16.jpg" alt="مشروع معماري 16"></div>
+    <div class="swiper-slide"><img src="images/17.jpg" alt="مشروع معماري 17"></div>
+    <div class="swiper-slide"><img src="images/18.jpg" alt="مشروع معماري 18"></div>
+    <div class="swiper-slide"><img src="images/19.jpg" alt="مشروع معماري 19"></div>
+    <div class="swiper-slide"><img src="images/20.jpg" alt="مشروع معماري 20"></div>
+</div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Thumbnail Swiper -->
+            <div class="swiper thumbGallerySwiper">
+<!-- استبدال قسم Thumbnail Swiper -->
+<div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="images/1.jpg" alt="Thumb 1"></div>
+    <div class="swiper-slide"><img src="images/2.jpg" alt="Thumb 2"></div>
+    <div class="swiper-slide"><img src="images/3.jpg" alt="Thumb 3"></div>
+    <div class="swiper-slide"><img src="images/4.jpg" alt="Thumb 4"></div>
+    <div class="swiper-slide"><img src="images/5.jpg" alt="Thumb 5"></div>
+    <div class="swiper-slide"><img src="images/6.jpg" alt="Thumb 6"></div>
+    <div class="swiper-slide"><img src="images/7.jpg" alt="Thumb 7"></div>
+    <div class="swiper-slide"><img src="images/8.jpg" alt="Thumb 8"></div>
+    <div class="swiper-slide"><img src="images/9.jpg" alt="Thumb 9"></div>
+    <div class="swiper-slide"><img src="images/10.jpg" alt="Thumb 10"></div>
+    <div class="swiper-slide"><img src="images/11.jpg" alt="Thumb 11"></div>
+    <div class="swiper-slide"><img src="images/12.jpg" alt="Thumb 12"></div>
+    <div class="swiper-slide"><img src="images/13.jpg" alt="Thumb 13"></div>
+    <div class="swiper-slide"><img src="images/14.jpg" alt="Thumb 14"></div>
+    <div class="swiper-slide"><img src="images/15.jpg" alt="Thumb 15"></div>
+    <div class="swiper-slide"><img src="images/16.jpg" alt="Thumb 16"></div>
+    <div class="swiper-slide"><img src="images/17.jpg" alt="Thumb 17"></div>
+    <div class="swiper-slide"><img src="images/18.jpg" alt="Thumb 18"></div>
+    <div class="swiper-slide"><img src="images/19.jpg" alt="Thumb 19"></div>
+    <div class="swiper-slide"><img src="images/20.jpg" alt="Thumb 20"></div>
+</div>
+            </div>
+        </div>
+
+        <!-- Grid View -->
+        <div class="grid-gallery" id="gridGallery">
+<!-- استبدال Grid Gallery -->
+<div class="grid-item" onclick="openLightbox('images/1.jpg')">
+    <img src="images/1.jpg" alt="مشروع 1">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 1</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/2.jpg')">
+    <img src="images/2.jpg" alt="مشروع 2">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 2</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/3.jpg')">
+    <img src="images/3.jpg" alt="مشروع 3">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 3</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/4.jpg')">
+    <img src="images/4.jpg" alt="مشروع 4">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 4</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/5.jpg')">
+    <img src="images/5.jpg" alt="مشروع 5">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 5</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/6.jpg')">
+    <img src="images/6.jpg" alt="مشروع 6">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 6</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/7.jpg')">
+    <img src="images/7.jpg" alt="مشروع 7">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 7</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/8.jpg')">
+    <img src="images/8.jpg" alt="مشروع 8">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 8</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/9.jpg')">
+    <img src="images/9.jpg" alt="مشروع 9">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 9</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/10.jpg')">
+    <img src="images/10.jpg" alt="مشروع 10">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 10</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/11.jpg')">
+    <img src="images/11.jpg" alt="مشروع 11">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 11</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/12.jpg')">
+    <img src="images/12.jpg" alt="مشروع 12">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 12</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/13.jpg')">
+    <img src="images/13.jpg" alt="مشروع 13">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 13</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/14.jpg')">
+    <img src="images/14.jpg" alt="مشروع 14">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 14</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/15.jpg')">
+    <img src="images/15.jpg" alt="مشروع 15">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 15</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/16.jpg')">
+    <img src="images/16.jpg" alt="مشروع 16">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 16</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/17.jpg')">
+    <img src="images/17.jpg" alt="مشروع 17">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 17</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/18.jpg')">
+    <img src="images/18.jpg" alt="مشروع 18">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 18</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/19.jpg')">
+    <img src="images/19.jpg" alt="مشروع 19">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 19</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/20.jpg')">
+    <img src="images/20.jpg" alt="مشروع 20">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 20</div></div>
+</div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightboxImg" src="" alt="صورة مكبرة">
+</div>
+
+    <!-- Interactive Services Section -->
+    <section class="services-section section" id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">خدماتنا المتميزة</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                نقدم حلولاً شاملة ومتخصصة لجميع احتياجاتك في التشطيب والتطوير العقاري
             </p>
             <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-paint-roller"></i>
                     </div>
-                    <div class="service-title">برمجة الويب</div>
-                    <div class="service-description">تعلم HTML, CSS, JavaScript وابدأ ببناء مواقع احترافية.</div>
+                    <div class="service-title">التشطيبات الداخلية</div>
+                    <div class="service-description">تصميم وتنفيذ التشطيبات الداخلية الفاخرة بأحدث الطرق والمواد العازلة والديكورات العصرية التي تناسب جميع الأذواق</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fas fa-home"></i>
                     </div>
-                    <div class="service-title">تصميم الجرافيك</div>
-                    <div class="service-description">كورسات في الفوتوشوب والإليستريتور لتصميم احترافي.</div>
+                    <div class="service-title">التشطيبات الخارجية</div>
+                    <div class="service-description">واجهات حديثة ومقاومة للعوامل الجوية مع أنظمة عزل حراري ومائي متقدمة لضمان الدوام والجمال</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-title">ترميم المباني</div>
+                    <div class="service-description">خدمات ترميم شاملة للمباني القديمة وإعادة تأهيلها بأحدث المعايير الهندسية مع ضمان الجودة والمتانة</div>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-wrench"></i>
                     </div>
-                    <div class="service-title">إدارة الأعمال</div>
-                    <div class="service-description">تعلم استراتيجيات التسويق، الإدارة المالية، وريادة الأعمال.</div>
+                    <div class="service-title">عقود الصيانة</div>
+                    <div class="service-description">عقود صيانة دورية شاملة للمباني والمنشآت مع فريق فني متخصص متاح على مدار الساعة</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-title">الاستشارات الهندسية</div>
+                    <div class="service-description">استشارات متخصصة من فريق من أمهر المهندسين ذوي الخبرة الطويلة في مجال البناء والتطوير</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-title">استثمار مباني</div>
+                    <div class="service-description">خدمات استثمارية شاملة للمباني والعقارات مع دراسات جدوى مفصلة وإدارة احترافية للاستثمارات العقارية</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="service-title">البناء المستدام</div>
+                    <div class="service-description">حلول صديقة للبيئة مع استخدام مواد مستدامة وتقنيات توفير الطاقة للمستقبل الأخضر</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="faq-section section" id="testimonials">
+    <!-- Enhanced FAQ Section -->
+    <section class="faq-section section" id="faq">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">آراء طلابنا</h2>
+            <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                تجارب حقيقية لطلابنا الذين غيّرنا حياتهم المهنية
+                إجابات على أكثر الأسئلة شيوعاً من عملائنا الكرام
             </p>
             <div class="faq-container">
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question">
-                        <span>أحمد - مطور ويب</span>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>كم تستغرق عملية التشطيب الكاملة؟</span>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>الكورس ساعدني أبدأ شغل حر على Upwork وحالياً عندي عملاء ثابتين.</p>
+                        <p>تختلف مدة التشطيب حسب حجم المشروع ونوع التشطيب المطلوب. عادة ما تتراوح بين 2-6 أشهر للمشاريع المتوسطة، ونحن نلتزم بالجدول الزمني المتفق عليه مع ضمان أعلى معايير الجودة.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-aos="fade-up">
-                    <div class="faq-question">
-                        <span>سارة - مصممة جرافيك</span>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>ما هي أنواع المواد المستخدمة في التشطيب؟</span>
+                        <i class="fas fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>الدروس كانت عملية جداً، والمدربين متعاونين ومتابعين معي خطوة بخطوة.</p>
+                        <p>نستخدم أفضل أنواع المواد المعتمدة دولياً مثل الدهانات العازلة المقاومة للرطوبة، السيراميك والبورسلين عالي الجودة، والعوازل الحرارية والصوتية المطورة. جميع المواد حاصلة على شهادات الجودة العالمية.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>هل تقدمون ضمان على الأعمال والمواد؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم ضمان شامل لمدة 5 سنوات على جميع أعمال التشطيب والمواد المستخدمة. كما نوفر خدمة صيانة دورية مجانية خلال السنة الأولى لضمان استمرارية الجودة العالية.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>كيف يتم تحديد تكلفة المشروع؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نقوم بزيارة مجانية لموقع المشروع وإعداد دراسة تفصيلية تشمل المساحات والمواد المطلوبة. بعدها نقدم عرض سعر شامل وشفاف يتضمن جميع التفاصيل بدون أي تكاليف خفية.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>هل يمكنني متابعة سير العمل في مشروعي؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بالطبع! نوفر نظام متابعة متطور يمكنكم من خلاله متابعة تقدم العمل عبر تقارير دورية وصور للمراحل المختلفة. كما يمكنكم التواصل المباشر مع مدير المشروع في أي وقت.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Advanced Contact Section -->
     <section class="contact-section section" id="contact">
         <div class="container">
-            <h2 class="section2-title" data-aos="fade-up">تواصل معنا</h2>
+            <h2 class="section2-title"  data-aos="fade-up">تواصل معنا الآن</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                راسلنا لأي استفسار أو استشارة مجانية
+                احصل على استشارة مجانية وعرض سعر مخصص لمشروعك
             </p>
             <div class="contact-container">
                 <div class="contact-info" data-aos="fade-right">
-                    <h3>معلومات التواصل</h3>
+                    <h3 style="font-size: 2rem; margin-bottom: 30px;">معلومات التواصل</h3>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <strong>اتصل بنا</strong><br>
-                            +201112223334
+                            0595844787
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <strong>راسلنا</strong><br>
-                            support@brightlearn.com
+                            info@tshtibat.com
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <strong>المقر</strong><br>
-                            القاهرة - مدينة نصر
+                            <strong>زورنا</strong><br>
+                            الرياض - حي البديعة
+                        </div>
+ 
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>فرع آخر</strong><br>
+                            المدينة المنورة - حي الملك فهد
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            
+                            <strong> فرع الرياض </strong><br>
+                                
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
                             <strong>ساعات العمل</strong><br>
-                            يومياً 10 ص - 8 م
+                            من 8 صباحاً إلى 5 مساءً
                         </div>
                     </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://goo.gl/maps/example" class="social-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">الاسم الأول *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">اسم العائلة *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">رقم الجوال *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">البريد الإلكتروني</label>
+                                <input type="email" id="email" name="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة *</label>
+                            <select id="service" style="background:rgb(46, 46, 133);" name="service" class="form-control" required>
+                                <option value="">اختر نوع الخدمة</option>
+                                <option value="التشطيبات">التشطيبات</option>
+                                <option value="ترميم المباني">ترميم المباني</option>
+                                <option value="عقود صيانة">عقود صيانة</option>
+                                <option value="استثمار مباني">استثمار مباني</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">تفاصيل المشروع وملاحظات إضافية</label>
+                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="اكتب تفاصيل مشروعك هنا... (المساحة، نوع المبنى، التوقيت المفضل، إلخ)"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span class="btn-text">
+                                <i class="fas fa-paper-plane"></i>
+                                إرسال الطلب الآن
+                            </span>
+                            <span class="loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                جاري الإرسال...
+                            </span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/966595844787" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+ 
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/966595844787" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
