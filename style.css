@@ -191,22 +191,7 @@ body {
     animation: float 20s infinite linear;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(100vh) translateX(0px);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) translateX(100px);
-        opacity: 0;
-    }
-}
+ 
 
 .hero-content {
     position: relative;
@@ -352,49 +337,9 @@ body {
         min-width: auto;
     }
     
-    /* إخفاء الجسيمات على الموبايل */
-    .hero-particles {
-        display: none;
-    }
+ 
 }
-
-@media (max-width: 480px) {
-    .hero {
-        min-height: 90vh;
-        padding: 80px 0 30px;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-    
-    .hero-description {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-    
-    .cta-primary, .cta-secondary {
-        padding: 14px 30px;
-        font-size: 0.95rem;
-        max-width: 280px;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+ 
 
 /* Scroll Indicator محسن للموبايل */
 .scroll-indicator {
@@ -429,37 +374,7 @@ body {
     animation: scroll 2s infinite;
 }
 
-@media (max-width: 768px) {
-    .scroll-indicator {
-        bottom: 20px;
-    }
-    
-    .scroll-mouse {
-        width: 20px;
-        height: 35px;
-    }
-    
-    .scroll-wheel {
-        width: 2px;
-        height: 6px;
-    }
-}
-
-@keyframes scroll {
-    0%, 20% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-50%) translateY(15px);
-        opacity: 0;
-    }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
+ 
 /* Enhanced About Section */
 .about_section {
     min-height: 100vh;
@@ -1254,33 +1169,7 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .contact-form {
-        padding: 25px 15px;
-    }
-    
-    .form-control {
-        padding: 10px 12px;
-        font-size: 0.9rem;
-    }
-    
-    .submit-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-        min-height: 44px;
-    }
-    
-    .contact-item {
-        font-size: 0.95rem;
-        padding: 12px;
-    }
-    
-    .contact-item i {
-        font-size: 1.2rem;
-        margin-left: 10px;
-        width: 35px;
-    }
-}
+ 
 
 /* Enhanced FAQ محسن للموبايل */
 .faq-section {
@@ -1502,142 +1391,12 @@ body {
     }
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    }
-    50% {
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3), 0 0 0 15px rgba(37, 211, 102, 0.1);
-    }
-    100% {
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-    }
-}
-
+ 
 /* Performance Optimizations */
 .will-change {
     will-change: transform;
 }
-
-/* Custom Animations محسنة للموبايل */
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* تحسينات إضافية للأداء على الموبايل */
-@media (max-width: 768px) {
-    /* تقليل الظلال على الموبايل */
-    .feature-card, .service-card, .faq-item {
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .feature-card:hover, .service-card:hover, .faq-item:hover {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    }
-}
-
-/* تحسين المسافات للشاشات الصغيرة جداً */
-@media (max-width: 320px) {
-    .container {
-        padding: 0 8px;
-    }
-    
-    .nav-content {
-        padding: 0 8px;
-    }
-    
-    .hero-content {
-        padding: 0 8px;
-    }
-    
-    .section-title, .section2-title {
-        font-size: 1.5rem;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-}
-
-/* تحسين التمرير السلس */
-html {
-    scroll-behavior: smooth;
-}
-
-/* إخفاء شريط التمرير الأفقي */
-body {
-    overflow-x: hidden;
-}
-
-/* تحسين التركيز للوصولية */
-*:focus {
-    outline: 2px solid var(--primary-gradient);
-    outline-offset: 2px;
-}
-
-/* تحسين النصوص للقراءة */
-@media (max-width: 768px) {
-    p, .about-text, .service-description, .faq-answer p {
-        text-align: justify;
-        hyphens: auto;
-    }
-}
-
-/* إزالة الانيميشن للمستخدمين الذين يفضلون تقليل الحركة */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .hero-particles, .particle {
-        display: none;
-    }
-}
-
  
-
-
-
-
-
-
-
-
-
-
-
-
 
  
         
