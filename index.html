@@ -1,511 +1,454 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> برايت لين </title>
+    <title>حوّل مبناك القديم إلى تحفة معمارية | شركة قروأب المحدودة</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-<!-- SwiperJS CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-   </head>
+</head>
 <body>
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="container">
-        <div class="nav-content">
-            <!-- Logo -->
-            <div class="logo">🎓 برايت ليرن</div>
-
-            <!-- Desktop Menu -->
-            <ul class="nav-links">
-                <li><a href="#Home">الرئيسية</a></li>
-                <li><a href="#about">عن الأكاديمية</a></li>
-                <li><a href="#courses">الكورسات</a></li>
-                <li><a href="#testimonials">آراء الطلاب</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-links">
-                <a href="#Home">الرئيسية</a>
-                <a href="#about">عن الأكاديمية</a>
-                <a href="#courses">الكورسات</a>
-                <a href="#testimonials">آراء الطلاب</a>
-                <a href="#contact">تواصل معنا</a>
+    <!-- Advanced Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">جاري التحميل...</div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
             </div>
         </div>
     </div>
-</nav>
 
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">🏗️ تشطيبات</div>
+                <button class="menu-toggle" aria-label="القائمة">
+    <i class="fas fa-bars"></i>
+</button>
+                <ul class="nav-links">
+                    <li><a href="#Home">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#gallery">معرض الأعمال</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </div> 
+        </div>
+    </nav>
 
-<!-- Hero Section -->
-<section class="about_section" id="Home">
-    <div class="hero-particles" id="particles"></div>
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-subtitle">برايت ليرن - منصة التعليم الأونلاين</div>
-            <h1>ابدأ رحلتك التعليمية من أي مكان</h1>
-            <p class="hero-description">
-                تعلم البرمجة، التصميم، وريادة الأعمال مع أفضل المدربين وخطط تعليمية تفاعلية تناسب جميع المستويات.
-                طور مهاراتك وحقق أهدافك المهنية معنا.
+    <!-- Enhanced Hero Section -->
+    <section class="about_section" id="Home">
+        <div class="hero-particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-subtitle">تشطيبات - رائدة في التشطيبات والتطوير العقاري</div>
+                <h1>حوّل مبناك القديم إلى تحفة معمارية</h1>
+                <p class="hero-description">نحن متخصصون في التشطيبات الداخلية والخارجية، ترميم المباني، وعقود الصيانة الشاملة. فريق من أمهر المهندسين والفنيين المتخصصين لتحقيق رؤيتكم المعمارية بأعلى معايير الجودة والدقة.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-primary">
+                        <i class="fas fa-phone"></i>
+                        احصل على استشارة مجانية
+                    </a>
+                    <a href="#gallery" class="cta-secondary">
+                        <i class="fas fa-images"></i>
+                        شاهد أعمالنا
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <p>اسحب للأسفل</p>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="Stats_section" id="Stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">مشروع مكتمل</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-count="25">0</div>
+                    <div class="stat-label">سنة خبرة</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">عميل راضي</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number" data-count="21">0</div>
+                    <div class="stat-label">مهندس وفني</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">لماذا تختار تشطيبات؟</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                نحن نجمع بين الخبرة العريقة الممتدة لـ 25 عاماً والتقنيات الحديثة لنقدم لك أفضل النتائج
             </p>
-            <div class="hero-buttons">
-                <a href="#courses" class="cta-primary">
-                    <i class="fas fa-graduation-cap"></i>
-                    تصفح الكورسات
-                </a>
-                <a href="#contact" class="cta-secondary">
-                    <i class="fas fa-envelope"></i>
-                    احجز استشارة مجانية
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="scroll-indicator">
-        <div class="scroll-mouse">
-            <div class="scroll-wheel"></div>
-        </div>
-        <p>اسحب للأسفل</p>
-    </div>
-</section>
-
-<!-- Stats Counter Section -->
-<section class="Stats_section" id="Stats">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="stat-number" data-count="150">0</div>
-                <div class="stat-label">كورس متاح</div>
-            </div>
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="stat-number" data-count="5000">0</div>
-                <div class="stat-label">طالب مسجل</div>
-            </div>
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-number" data-count="45">0</div>
-                <div class="stat-label">مدرب خبير</div>
-            </div>
-            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="stat-number" data-count="98">0</div>
-                <div class="stat-label">نسبة رضا الطلاب %</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section class="about section" id="about">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">لماذا تختار برايت ليرن؟</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-            نقدم لك تجربة تعليمية متكاملة تجمع بين الجودة والمرونة والتطبيق العملي.
-        </p>
-        <div class="about-content">
-            <div class="about-text" data-aos="fade-right">
-                <h3>رؤيتنا ورسالتنا</h3>
-                <p>في برايت ليرن نؤمن أن التعليم هو المفتاح لمستقبل أفضل. هدفنا هو تمكين الأفراد من تعلم المهارات التي يحتاجونها لتحقيق نجاح حقيقي في حياتهم المهنية.</p>
-                <p>مع مكتبة متجددة من الكورسات ومجتمع تفاعلي، نتيح لك التعلم بالوتيرة التي تناسبك وتطبيق ما تتعلمه بشكل عملي من خلال مشاريع واختبارات تقييمية.</p>
-            </div>
-            <div class="about-features" data-aos="fade-left">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>تعلم من أي مكان</h3>
-                    <p>كورسات متاحة 24/7 على أي جهاز</p>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>رؤيتنا في التطوير العقاري</h3>
+                    <p>تشطيبات هي شركة رائدة في مجال التشطيبات والتطوير العقاري، نتميز بخبرة واسعة تمتد لأكثر من 25 عاماً في تحويل المباني القديمة إلى مساحات عصرية وعملية. فريقنا المتخصص من 5 مهندسين معتمدين و16 فني محترف يعمل بأحدث التقنيات والمواد عالية الجودة.</p>
+                    <p>نحن نؤمن بأن كل مبنى يحمل إمكانيات لا محدودة للتطوير والتحديث. مع التزامنا الصارم بمعايير الجودة والمواعيد المحددة، نضمن لعملائنا الحصول على نتائج تفوق التوقعات. سواء كان مشروعكم يتطلب تشطيبات داخلية أو خارجية، أو ترميم شامل، أو عقود صيانة دورية، فإن تشطيبات هي شريككم الموثوق لتحقيق أحلامكم المعمارية.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3>مدربين محترفين</h3>
-                    <p>أفضل الخبراء في مجالاتهم لتعليمك</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3>شهادات معتمدة</h3>
-                    <p>شهادات نهاية كورس تساعدك في سيرتك الذاتية</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>مجتمع تفاعلي</h3>
-                    <p>تواصل مع الطلاب والمدربين لحل مشاكلك</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Gallery Section -->
-<section class="gallery-section" id="gallery">
-    <div class="container">
-        <h2 class="section-title">معرض الأكاديمية</h2>
-        <p class="section-subtitle">لمحات من الكورسات، المدربين، وفعاليات برايت ليرن</p>
-        
-        <!-- Gallery Controls -->
-        <div class="gallery-controls">
-            <button class="control-btn active" onclick="showSlider()">عرض منزلق</button>
-            <button class="control-btn" onclick="showGrid()">عرض شبكي</button>
-            <button class="control-btn" onclick="toggleAutoplay()">إيقاف التلقائي</button>
-        </div>
-
-        <!-- Slider View -->
-        <div class="slider-view" id="sliderView">
-            <!-- Main Swiper -->
-            <div class="swiper mainGallerySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1584697964159-bb2b8fdf6e14" alt="قاعة تدريب حديثة"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091215367-5c64d5c9e21e" alt="طلاب يتعلمون أونلاين"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1614850522884-96f0ef82e42e" alt="مناقشة جماعية في ورشة عمل"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1587614295999-dc6c8f06a8b4" alt="مدرب يشرح"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1616627563160-328c2e8e6f83" alt="طلاب يستخدمون الكمبيوتر"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092334656-3f3aa7ed5c88" alt="محاضرة مباشرة عبر الإنترنت"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581090700227-4c4c2b5b0c7f" alt="كورس برمجة عملي"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581090461512-8b8efb3e8b33" alt="طلاب ينجزون مشروع جماعي"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
-            <!-- Thumbnail Swiper -->
-            <div class="swiper thumbGallerySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1584697964159-bb2b8fdf6e14" alt="Thumb 1"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581091215367-5c64d5c9e21e" alt="Thumb 2"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1614850522884-96f0ef82e42e" alt="Thumb 3"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1587614295999-dc6c8f06a8b4" alt="Thumb 4"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1616627563160-328c2e8e6f83" alt="Thumb 5"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581092334656-3f3aa7ed5c88" alt="Thumb 6"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581090700227-4c4c2b5b0c7f" alt="Thumb 7"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1581090461512-8b8efb3e8b33" alt="Thumb 8"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Grid View -->
-        <div class="grid-gallery" id="gridGallery">
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1584697964159-bb2b8fdf6e14')">
-                <img src="https://images.unsplash.com/photo-1584697964159-bb2b8fdf6e14" alt="قاعة تدريب">
-                <div class="overlay"><div class="overlay-text">قاعة تدريب حديثة</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1581091215367-5c64d5c9e21e')">
-                <img src="https://images.unsplash.com/photo-1581091215367-5c64d5c9e21e" alt="طلاب أونلاين">
-                <div class="overlay"><div class="overlay-text">تعلم أونلاين</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1614850522884-96f0ef82e42e')">
-                <img src="https://images.unsplash.com/photo-1614850522884-96f0ef82e42e" alt="مناقشة">
-                <div class="overlay"><div class="overlay-text">ورشة عمل تفاعلية</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1587614295999-dc6c8f06a8b4')">
-                <img src="https://images.unsplash.com/photo-1587614295999-dc6c8f06a8b4" alt="محاضر">
-                <div class="overlay"><div class="overlay-text">مدرب يشرح</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1616627563160-328c2e8e6f83')">
-                <img src="https://images.unsplash.com/photo-1616627563160-328c2e8e6f83" alt="تعلم عملي">
-                <div class="overlay"><div class="overlay-text">طلاب يطبقون عملياً</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1581092334656-3f3aa7ed5c88')">
-                <img src="https://images.unsplash.com/photo-1581092334656-3f3aa7ed5c88" alt="محاضرة">
-                <div class="overlay"><div class="overlay-text">محاضرة مباشرة</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1581090700227-4c4c2b5b0c7f')">
-                <img src="https://images.unsplash.com/photo-1581090700227-4c4c2b5b0c7f" alt="كورس عملي">
-                <div class="overlay"><div class="overlay-text">كورس برمجة عملي</div></div>
-            </div>
-            <div class="grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1581090461512-8b8efb3e8b33')">
-                <img src="https://images.unsplash.com/photo-1581090461512-8b8efb3e8b33" alt="طلاب">
-                <div class="overlay"><div class="overlay-text">مشاريع جماعية</div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Lightbox Modal -->
-<div class="lightbox" id="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightboxImg" src="" alt="صورة مكبرة">
-</div>
-
-<!-- Interactive Services Section -->
-<section class="services-section section" id="services">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">خدمات الأكاديمية</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-            نقدم برامج تعليمية متكاملة تساعدك على تطوير مهاراتك وتحقيق أهدافك المهنية
-        </p>
-        <div class="services-grid">
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="service-title">كورسات أونلاين</div>
-                <div class="service-description">
-                    تعلم من أي مكان عبر كورساتنا التفاعلية المباشرة والمسجلة مع أفضل المحاضرين
-                </div>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="service-title">ورش عمل عملية</div>
-                <div class="service-description">
-                    تطبيق عملي للمفاهيم النظرية من خلال ورش تفاعلية ومشاريع حقيقية
-                </div>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div class="service-title">تدريب مخصص</div>
-                <div class="service-description">
-                    خطط تدريبية مصممة خصيصاً لتناسب احتياجات الشركات والأفراد
-                </div>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="service-title">شهادات معتمدة</div>
-                <div class="service-description">
-                    احصل على شهادات موثقة تساعدك في مسارك المهني وتطوير سيرتك الذاتية
-                </div>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <div class="service-title">دعم فني وتعليمي</div>
-                <div class="service-description">
-                    تواصل مع فريقنا في أي وقت للحصول على الدعم والإجابة عن أسئلتك
-                </div>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-icon">
-                    <i class="fas fa-calendar-check"></i>
-                </div>
-                <div class="service-title">مرونة في الجدول</div>
-                <div class="service-description">
-                    اختر مواعيد الدراسة التي تناسب وقتك سواء صباحاً أو مساءً
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Enhanced FAQ Section -->
-<section class="faq-section section" id="faq">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-            كل ما تحتاج لمعرفته قبل بدء رحلتك التعليمية معنا
-        </p>
-        <div class="faq-container">
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>كم مدة الكورس؟</span>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>تختلف مدة الكورسات حسب المحتوى، تتراوح عادة بين 4 و 12 أسبوعاً مع إمكانية إعادة مشاهدة التسجيلات.</p>
-                </div>
-            </div>
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>هل الكورسات أونلاين أم حضورية؟</span>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>نوفر خيارين: كورسات أونلاين مباشرة أو حضور في مقر الأكاديمية مع محاضرين معتمدين.</p>
-                </div>
-            </div>
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>هل أحصل على شهادة بعد الانتهاء؟</span>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>نعم، يتم إصدار شهادة معتمدة تثبت اجتيازك للكورس بعد إتمام التقييمات النهائية.</p>
-                </div>
-            </div>
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>كيف يتم الدفع؟</span>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>يمكنك الدفع عبر التحويل البنكي، فوري، أو بطاقات الدفع الإلكتروني بسهولة وأمان.</p>
-                </div>
-            </div>
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>هل يوجد استرداد للرسوم؟</span>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>نعم، يمكنك استرداد المبلغ كاملاً إذا قمت بإلغاء الاشتراك قبل بدء الكورس، ونسبة جزئية بعد أول محاضرتين.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section class="contact-section section" id="contact">
-    <div class="container">
-        <h2 class="section2-title" data-aos="fade-up">تواصل معنا الآن</h2>
-        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-            احصل على استشارة مجانية وساعدنا في اختيار أفضل الكورس لك
-        </p>
-
-        <div class="contact-container">
-            <!-- Contact Info -->
-            <div class="contact-info" data-aos="fade-right">
-                <h3 style="font-size: 2rem; margin-bottom: 30px;">معلومات التواصل</h3>
-
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>اتصل بنا</strong><br>
-                        01012345678
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>راسلنا</strong><br>
-                        support@brightlearn.com
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>مقرنا</strong><br>
-                        القاهرة - مدينة نصر
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>ساعات العمل</strong><br>
-                        يوميًا من 9 صباحاً حتى 9 مساءً
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="contact-form" data-aos="fade-left">
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">الاسم الأول *</label>
-                            <input type="text" id="firstName" name="firstName" class="form-control" required>
+                <div class="about-features" data-aos="fade-left">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">اسم العائلة *</label>
-                            <input type="text" id="lastName" name="lastName" class="form-control" required>
+                        <h3>ضمان شامل</h3>
+                        <p>ضمان 5 سنوات على جميع الأعمال والمواد المستخدمة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>سرعة التنفيذ</h3>
+                        <p>التزام صارم بالمواعيد المحددة مع جودة عالية</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>جودة عالية</h3>
+                        <p>مواد وخامات عالية الجودة من أفضل الموردين</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>فريق متخصص</h3>
+                        <p>5 مهندسين معتمدين و16 فني ذوي خبرة عالية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Before/After Gallery -->
+    <section class="before-after-section section" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">معرض التحولات المذهلة</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                شاهد كيف نحول الأحلام إلى واقع معماري مبهر
+            </p>
+            <div class="before-after-container">
+                <div class="before-after-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="comparison-badge">قبل</div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى قديم قبل التشطيب" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-title">المبنى قبل التطوير</div>
+                            <div class="overlay-description">واجهة قديمة تحتاج إلى تحديث شامل وإعادة تأهيل كاملة</div>
                         </div>
                     </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">رقم الجوال *</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+                <div class="before-after-item" data-aos="fade-left" data-aos-delay="400">
+                    <div class="comparison-badge">بعد</div>
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى حديث بعد التشطيب" loading="lazy">
+                        <div class="image-overlay">
+                            <div class="overlay-title">النتيجة المبهرة</div>
+                            <div class="overlay-description">تحفة معمارية عصرية بتصميم أنيق ووظائف متقدمة</div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني *</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="service">اختر نوع الكورس *</label>
-                        <select id="service" name="service" class="form-control" required>
-                            <option value="">اختر الكورس</option>
-                            <option value="برمجة الويب">برمجة الويب</option>
-                            <option value="تحليل البيانات">تحليل البيانات</option>
-                            <option value="تعلم الآلة">تعلم الآلة</option>
-                            <option value="تصميم UI/UX">تصميم UI/UX</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">ملاحظات إضافية</label>
-                        <textarea id="message" name="message" class="form-control" rows="4" placeholder="هل لديك أي استفسار أو تفاصيل إضافية؟"></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-button">
-                        <span class="btn-text">
-                            <i class="fas fa-paper-plane"></i>
-                            إرسال الطلب الآن
-                        </span>
-                        <span class="loading" style="display: none;">
-                            <i class="fas fa-spinner fa-spin"></i>
-                            جاري الإرسال...
-                        </span>
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Interactive Services Section -->
+    <section class="services-section section" id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">خدماتنا المتميزة</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                نقدم حلولاً شاملة ومتخصصة لجميع احتياجاتك في التشطيب والتطوير العقاري
+            </p>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="service-title">التشطيبات الداخلية</div>
+                    <div class="service-description">تصميم وتنفيذ التشطيبات الداخلية الفاخرة بأحدث الطرق والمواد العازلة والديكورات العصرية التي تناسب جميع الأذواق</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-title">التشطيبات الخارجية</div>
+                    <div class="service-description">واجهات حديثة ومقاومة للعوامل الجوية مع أنظمة عزل حراري ومائي متقدمة لضمان الدوام والجمال</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-title">ترميم المباني</div>
+                    <div class="service-description">خدمات ترميم شاملة للمباني القديمة وإعادة تأهيلها بأحدث المعايير الهندسية مع ضمان الجودة والمتانة</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="service-title">عقود الصيانة</div>
+                    <div class="service-description">عقود صيانة دورية شاملة للمباني والمنشآت مع فريق فني متخصص متاح على مدار الساعة</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-title">الاستشارات الهندسية</div>
+                    <div class="service-description">استشارات متخصصة من فريق من أمهر المهندسين ذوي الخبرة الطويلة في مجال البناء والتطوير</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-title">استثمار مباني</div>
+                    <div class="service-description">خدمات استثمارية شاملة للمباني والعقارات مع دراسات جدوى مفصلة وإدارة احترافية للاستثمارات العقارية</div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="service-title">البناء المستدام</div>
+                    <div class="service-description">حلول صديقة للبيئة مع استخدام مواد مستدامة وتقنيات توفير الطاقة للمستقبل الأخضر</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced FAQ Section -->
+    <section class="faq-section section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">الأسئلة الشائعة</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                إجابات على أكثر الأسئلة شيوعاً من عملائنا الكرام
+            </p>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>كم تستغرق عملية التشطيب الكاملة؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تختلف مدة التشطيب حسب حجم المشروع ونوع التشطيب المطلوب. عادة ما تتراوح بين 2-6 أشهر للمشاريع المتوسطة، ونحن نلتزم بالجدول الزمني المتفق عليه مع ضمان أعلى معايير الجودة.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>ما هي أنواع المواد المستخدمة في التشطيب؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نستخدم أفضل أنواع المواد المعتمدة دولياً مثل الدهانات العازلة المقاومة للرطوبة، السيراميك والبورسلين عالي الجودة، والعوازل الحرارية والصوتية المطورة. جميع المواد حاصلة على شهادات الجودة العالمية.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>هل تقدمون ضمان على الأعمال والمواد؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، نقدم ضمان شامل لمدة 5 سنوات على جميع أعمال التشطيب والمواد المستخدمة. كما نوفر خدمة صيانة دورية مجانية خلال السنة الأولى لضمان استمرارية الجودة العالية.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>كيف يتم تحديد تكلفة المشروع؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نقوم بزيارة مجانية لموقع المشروع وإعداد دراسة تفصيلية تشمل المساحات والمواد المطلوبة. بعدها نقدم عرض سعر شامل وشفاف يتضمن جميع التفاصيل بدون أي تكاليف خفية.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>هل يمكنني متابعة سير العمل في مشروعي؟</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بالطبع! نوفر نظام متابعة متطور يمكنكم من خلاله متابعة تقدم العمل عبر تقارير دورية وصور للمراحل المختلفة. كما يمكنكم التواصل المباشر مع مدير المشروع في أي وقت.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Contact Section -->
+    <section class="contact-section section" id="contact">
+        <div class="container">
+            <h2 class="section2-title"  data-aos="fade-up">تواصل معنا الآن</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                احصل على استشارة مجانية وعرض سعر مخصص لمشروعك
+            </p>
+            <div class="contact-container">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3 style="font-size: 2rem; margin-bottom: 30px;">معلومات التواصل</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>اتصل بنا</strong><br>
+                            0595844787
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>راسلنا</strong><br>
+                            info@tshtibat.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>زورنا</strong><br>
+                            الرياض - حي البديعة
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>فرع آخر</strong><br>
+                            المدينة المنورة - حي الملك فهد
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>ساعات العمل</strong><br>
+                            من 8 صباحاً إلى 5 مساءً
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://goo.gl/maps/example" class="social-link" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">الاسم الأول *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">اسم العائلة *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">رقم الجوال *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">البريد الإلكتروني</label>
+                                <input type="email" id="email" name="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة *</label>
+                            <select id="service" style="background:rgb(46, 46, 133);" name="service" class="form-control" required>
+                                <option value="">اختر نوع الخدمة</option>
+                                <option value="التشطيبات">التشطيبات</option>
+                                <option value="ترميم المباني">ترميم المباني</option>
+                                <option value="عقود صيانة">عقود صيانة</option>
+                                <option value="استثمار مباني">استثمار مباني</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">تفاصيل المشروع وملاحظات إضافية</label>
+                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="اكتب تفاصيل مشروعك هنا... (المساحة، نوع المبنى، التوقيت المفضل، إلخ)"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span class="btn-text">
+                                <i class="fas fa-paper-plane"></i>
+                                إرسال الطلب الآن
+                            </span>
+                            <span class="loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                جاري الإرسال...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Floating WhatsApp Button -->
-    <a href="#" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
+    <a href="https://wa.me/966595844787" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Scripts -->
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    // ✅ صفحة التحميل (Splash)
+    // Advanced Page Loading
     window.addEventListener('load', function() {
         setTimeout(() => {
             document.getElementById('loadingScreen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('loadingScreen').style.display = 'none';
             }, 500);
-        }, 2000); // تقليل وقت الانتظار لأن الأكاديمية أخف
+        }, 3000);
     });
 
-    // ✅ تفعيل AOS
+    // Initialize AOS with custom settings
     AOS.init({
-        duration: 1000,
+        duration: 1200,
         once: true,
         offset: 100,
         easing: 'ease-out-cubic'
     });
 
-    // ✅ العداد المتحرك (عدد الطلاب / الكورسات)
+    // Create floating particles
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // Animated Counter
     function animateCounters() {
         const counters = document.querySelectorAll('.stat-number');
         const observer = new IntersectionObserver((entries) => {
@@ -520,7 +463,7 @@
                         if (current < target) {
                             current += increment;
                             counter.textContent = Math.ceil(current);
-                            setTimeout(updateCounter, 15);
+                            setTimeout(updateCounter, 20);
                         } else {
                             counter.textContent = target;
                         }
@@ -535,24 +478,33 @@
         counters.forEach(counter => observer.observe(counter));
     }
 
-    // ✅ فتح/إغلاق الأسئلة الشائعة
+    // Enhanced FAQ Toggle
     function toggleFAQ(element) {
         const answer = element.nextElementSibling;
         const icon = element.querySelector('i');
-        document.querySelectorAll('.faq-answer').forEach(item => item.classList.remove('active'));
-        document.querySelectorAll('.faq-question i').forEach(i => {
-            i.className = 'fas fa-plus';
-            i.style.transform = 'rotate(0deg)';
+        const allAnswers = document.querySelectorAll('.faq-answer');
+        const allIcons = document.querySelectorAll('.faq-question i');
+
+        allAnswers.forEach((item, index) => {
+            if (item !== answer) {
+                item.classList.remove('active');
+                allIcons[index].className = 'fas fa-plus';
+                allIcons[index].style.transform = 'rotate(0deg)';
+            }
         });
 
-        if (!answer.classList.contains('active')) {
+        if (answer.classList.contains('active')) {
+            answer.classList.remove('active');
+            icon.className = 'fas fa-plus';
+            icon.style.transform = 'rotate(0deg)';
+        } else {
             answer.classList.add('active');
             icon.className = 'fas fa-minus';
             icon.style.transform = 'rotate(180deg)';
         }
     }
 
-    // ✅ معالجة الفورم
+    // Enhanced Form Submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -574,30 +526,26 @@
             const service = formData.get('service');
             const message = formData.get('message');
             
-            // ✅ رسالة WhatsApp خاصة بالأكاديمية
-            const whatsappMessage = `🎓 *طلب استشارة من أكاديمية برايت ليرن* 🎓%0A%0A` +
+            const whatsappMessage = `🏗️ *طلب استشارة من شركة قروأب المحدودة* 🏗️%0A%0A` +
                 `👤 *الاسم:* ${firstName} ${lastName}%0A` +
                 `📱 *الجوال:* ${phone}%0A` +
                 `📧 *الإيميل:* ${email || 'غير محدد'}%0A` +
-                `📚 *نوع الكورس:* ${service}%0A%0A` +
-                `📝 *ملاحظات إضافية:*%0A${message || 'لا توجد ملاحظات'}%0A%0A` +
-                `⏰ *وقت الإرسال:* ${new Date().toLocaleString('ar-SA')}`;
+                `🔧 *نوع الخدمة:* ${service}%0A%0A` +
+                `📝 *تفاصيل المشروع:*%0A${message || 'لا توجد ملاحظات إضافية'}%0A%0A` +
+                `⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-SA')}`;
             
-            const whatsappURL = `https://wa.me/201234567890?text=${whatsappMessage}`;
-            window.open(whatsappURL, '_blank');
+            window.open(`https://wa.me/966595844787?text=${whatsappMessage}`, '_blank');
             
-            showNotification('✅ تم إرسال طلب الحجز بنجاح! سنتواصل معك خلال 24 ساعة.', 'success');
-            
+            showNotification('✅ تم إرسال طلبكم بنجاح! سيتم التواصل معكم خلال 24 ساعة.', 'success');
             this.reset();
-            
             btnText.style.display = 'flex';
             loading.style.display = 'none';
             submitBtn.disabled = false;
             submitBtn.style.opacity = '1';
-            
-        }, 2000);
+        }, 2500);
     });
 
+    // Success/Error Notification System
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
@@ -613,52 +561,108 @@
             right: 20px;
             background: ${type === 'success' ? '#10b981' : '#ef4444'};
             color: white;
-            padding: 15px 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             z-index: 10000;
             transform: translateX(400px);
             transition: all 0.4s ease;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        `;
+        notification.querySelector('.notification-content').style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 12px;
         `;
         document.body.appendChild(notification);
-        setTimeout(() => { notification.style.transform = 'translateX(0)'; }, 100);
+        setTimeout(() => notification.style.transform = 'translateX(0)', 100);
         setTimeout(() => {
             notification.style.transform = 'translateX(400px)';
-            setTimeout(() => document.body.removeChild(notification), 400);
-        }, 4000);
+            setTimeout(() => notification.remove(), 400);
+        }, 5000);
     }
 
-    // ✅ Smooth Scroll
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const offsetTop = target.offsetTop - 70;
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             }
         });
     });
 
-    // ✅ تغيير شكل النافبار عند الاسكرول
+    // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.pageYOffset > 80) {
-            navbar.classList.add('scrolled');
+        const scrolled = window.pageYOffset;
+        
+        if (scrolled > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
         } else {
-            navbar.classList.remove('scrolled');
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
+
+        const hero = document.querySelector('.hero');
+        if (hero && scrolled < window.innerHeight) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
     });
 
-    // ✅ تشغيل الانيميشن بعد تحميل الصفحة
+    // Initialize all functions when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
+        createParticles();
         animateCounters();
+
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.5s ease';
+        });
     });
 
-    console.log('🎓 موقع أكاديمية برايت ليرن تم تحميله بنجاح!');
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('animate');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+    document.querySelectorAll('.feature-card, .service-card, .before-after-item').forEach(el => {
+        observer.observe(el);
+    });
+
+    // ✅ Mobile menu toggle (مجمعة وبدون تكرار)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+    }
 </script>
+ 
 
 </body>
 </html>
