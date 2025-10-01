@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -10,27 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Advanced Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <div class="loading-text">جاري التحميل...</div>
-            <div class="loading-progress">
-                <div class="loading-bar"></div>
-            </div>
-        </div>
-    </div>
+<!-- SwiperJS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Navigation -->
+   </head>
+<body>
+   <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
                 <div class="logo">🏗️ تشطيبات</div>
-                <button class="menu-toggle" aria-label="القائمة">
-    <i class="fas fa-bars"></i>
-</button>
+ 
                 <ul class="nav-links">
                     <li><a href="#Home">الرئيسية</a></li>
                     <li><a href="#about">من نحن</a></li>
@@ -38,7 +29,23 @@
                     <li><a href="#gallery">معرض الأعمال</a></li>
                     <li><a href="#contact">تواصل معنا</a></li>
                 </ul>
-            </div> 
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-links">
+                    <a href="#Home">الرئيسية</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#services">خدماتنا</a>
+                    <a href="#gallery">معرض الأعمال</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -141,37 +148,172 @@
         </div>
     </section>
 
-    <!-- Advanced Before/After Gallery -->
-    <section class="before-after-section section" id="gallery">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">معرض التحولات المذهلة</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                شاهد كيف نحول الأحلام إلى واقع معماري مبهر
-            </p>
-            <div class="before-after-container">
-                <div class="before-after-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="comparison-badge">قبل</div>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى قديم قبل التشطيب" loading="lazy">
-                        <div class="image-overlay">
-                            <div class="overlay-title">المبنى قبل التطوير</div>
-                            <div class="overlay-description">واجهة قديمة تحتاج إلى تحديث شامل وإعادة تأهيل كاملة</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="before-after-item" data-aos="fade-left" data-aos-delay="400">
-                    <div class="comparison-badge">بعد</div>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="مبنى حديث بعد التشطيب" loading="lazy">
-                        <div class="image-overlay">
-                            <div class="overlay-title">النتيجة المبهرة</div>
-                            <div class="overlay-description">تحفة معمارية عصرية بتصميم أنيق ووظائف متقدمة</div>
-                        </div>
-                    </div>
-                </div>
+<!-- Advanced Before/After Gallery -->
+  <!-- Stunning Gallery Slider Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+        <h2 class="section-title">معرض التحولات المذهلة</h2>
+        <p class="section-subtitle">شاهد كيف نحول الأحلام إلى واقع معماري مبهر</p>
+        
+        <!-- Gallery Controls -->
+        <div class="gallery-controls">
+            <button class="control-btn active" onclick="showSlider()">عرض منزلق</button>
+            <button class="control-btn" onclick="showGrid()">عرض شبكي</button>
+            <button class="control-btn" onclick="toggleAutoplay()">إيقاف التلقائي</button>
+        </div>
+
+        <!-- Slider View -->
+        <div class="slider-view" id="sliderView">
+            <!-- Main Swiper -->
+            <div class="swiper mainGallerySwiper">
+<!-- استبدال قسم Main Swiper في الـ HTML -->
+<div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="images/1.jpg" alt="مشروع معماري 1"></div>
+    <div class="swiper-slide"><img src="images/2.jpg" alt="مشروع معماري 2"></div>
+    <div class="swiper-slide"><img src="images/3.jpg" alt="مشروع معماري 3"></div>
+    <div class="swiper-slide"><img src="images/4.jpg" alt="مشروع معماري 4"></div>
+    <div class="swiper-slide"><img src="images/5.jpg" alt="مشروع معماري 5"></div>
+    <div class="swiper-slide"><img src="images/6.jpg" alt="مشروع معماري 6"></div>
+    <div class="swiper-slide"><img src="images/7.jpg" alt="مشروع معماري 7"></div>
+    <div class="swiper-slide"><img src="images/8.jpg" alt="مشروع معماري 8"></div>
+    <div class="swiper-slide"><img src="images/9.jpg" alt="مشروع معماري 9"></div>
+    <div class="swiper-slide"><img src="images/10.jpg" alt="مشروع معماري 10"></div>
+    <div class="swiper-slide"><img src="images/11.jpg" alt="مشروع معماري 11"></div>
+    <div class="swiper-slide"><img src="images/12.jpg" alt="مشروع معماري 12"></div>
+    <div class="swiper-slide"><img src="images/13.jpg" alt="مشروع معماري 13"></div>
+    <div class="swiper-slide"><img src="images/14.jpg" alt="مشروع معماري 14"></div>
+    <div class="swiper-slide"><img src="images/15.jpg" alt="مشروع معماري 15"></div>
+    <div class="swiper-slide"><img src="images/16.jpg" alt="مشروع معماري 16"></div>
+    <div class="swiper-slide"><img src="images/17.jpg" alt="مشروع معماري 17"></div>
+    <div class="swiper-slide"><img src="images/18.jpg" alt="مشروع معماري 18"></div>
+    <div class="swiper-slide"><img src="images/19.jpg" alt="مشروع معماري 19"></div>
+    <div class="swiper-slide"><img src="images/20.jpg" alt="مشروع معماري 20"></div>
+</div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <!-- Thumbnail Swiper -->
+            <div class="swiper thumbGallerySwiper">
+<!-- استبدال قسم Thumbnail Swiper -->
+<div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="images/1.jpg" alt="Thumb 1"></div>
+    <div class="swiper-slide"><img src="images/2.jpg" alt="Thumb 2"></div>
+    <div class="swiper-slide"><img src="images/3.jpg" alt="Thumb 3"></div>
+    <div class="swiper-slide"><img src="images/4.jpg" alt="Thumb 4"></div>
+    <div class="swiper-slide"><img src="images/5.jpg" alt="Thumb 5"></div>
+    <div class="swiper-slide"><img src="images/6.jpg" alt="Thumb 6"></div>
+    <div class="swiper-slide"><img src="images/7.jpg" alt="Thumb 7"></div>
+    <div class="swiper-slide"><img src="images/8.jpg" alt="Thumb 8"></div>
+    <div class="swiper-slide"><img src="images/9.jpg" alt="Thumb 9"></div>
+    <div class="swiper-slide"><img src="images/10.jpg" alt="Thumb 10"></div>
+    <div class="swiper-slide"><img src="images/11.jpg" alt="Thumb 11"></div>
+    <div class="swiper-slide"><img src="images/12.jpg" alt="Thumb 12"></div>
+    <div class="swiper-slide"><img src="images/13.jpg" alt="Thumb 13"></div>
+    <div class="swiper-slide"><img src="images/14.jpg" alt="Thumb 14"></div>
+    <div class="swiper-slide"><img src="images/15.jpg" alt="Thumb 15"></div>
+    <div class="swiper-slide"><img src="images/16.jpg" alt="Thumb 16"></div>
+    <div class="swiper-slide"><img src="images/17.jpg" alt="Thumb 17"></div>
+    <div class="swiper-slide"><img src="images/18.jpg" alt="Thumb 18"></div>
+    <div class="swiper-slide"><img src="images/19.jpg" alt="Thumb 19"></div>
+    <div class="swiper-slide"><img src="images/20.jpg" alt="Thumb 20"></div>
+</div>
             </div>
         </div>
-    </section>
+
+        <!-- Grid View -->
+        <div class="grid-gallery" id="gridGallery">
+<!-- استبدال Grid Gallery -->
+<div class="grid-item" onclick="openLightbox('images/1.jpg')">
+    <img src="images/1.jpg" alt="مشروع 1">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 1</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/2.jpg')">
+    <img src="images/2.jpg" alt="مشروع 2">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 2</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/3.jpg')">
+    <img src="images/3.jpg" alt="مشروع 3">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 3</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/4.jpg')">
+    <img src="images/4.jpg" alt="مشروع 4">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 4</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/5.jpg')">
+    <img src="images/5.jpg" alt="مشروع 5">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 5</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/6.jpg')">
+    <img src="images/6.jpg" alt="مشروع 6">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 6</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/7.jpg')">
+    <img src="images/7.jpg" alt="مشروع 7">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 7</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/8.jpg')">
+    <img src="images/8.jpg" alt="مشروع 8">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 8</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/9.jpg')">
+    <img src="images/9.jpg" alt="مشروع 9">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 9</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/10.jpg')">
+    <img src="images/10.jpg" alt="مشروع 10">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 10</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/11.jpg')">
+    <img src="images/11.jpg" alt="مشروع 11">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 11</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/12.jpg')">
+    <img src="images/12.jpg" alt="مشروع 12">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 12</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/13.jpg')">
+    <img src="images/13.jpg" alt="مشروع 13">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 13</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/14.jpg')">
+    <img src="images/14.jpg" alt="مشروع 14">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 14</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/15.jpg')">
+    <img src="images/15.jpg" alt="مشروع 15">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 15</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/16.jpg')">
+    <img src="images/16.jpg" alt="مشروع 16">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 16</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/17.jpg')">
+    <img src="images/17.jpg" alt="مشروع 17">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 17</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/18.jpg')">
+    <img src="images/18.jpg" alt="مشروع 18">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 18</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/19.jpg')">
+    <img src="images/19.jpg" alt="مشروع 19">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 19</div></div>
+</div>
+<div class="grid-item" onclick="openLightbox('images/20.jpg')">
+    <img src="images/20.jpg" alt="مشروع 20">
+    <div class="overlay"><div class="overlay-text">مشروع معماري 20</div></div>
+</div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightboxImg" src="" alt="صورة مكبرة">
+</div>
 
     <!-- Interactive Services Section -->
     <section class="services-section section" id="services">
@@ -321,12 +463,21 @@
                             <strong>زورنا</strong><br>
                             الرياض - حي البديعة
                         </div>
+ 
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <strong>فرع آخر</strong><br>
                             المدينة المنورة - حي الملك فهد
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            
+                            <strong> فرع الرياض </strong><br>
+                                
                         </div>
                     </div>
                     <div class="contact-item">
@@ -411,6 +562,8 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+ 
+ 
     <!-- Scripts -->
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -534,18 +687,21 @@
                 `📝 *تفاصيل المشروع:*%0A${message || 'لا توجد ملاحظات إضافية'}%0A%0A` +
                 `⏰ *وقت الطلب:* ${new Date().toLocaleString('ar-SA')}`;
             
-            window.open(`https://wa.me/966595844787?text=${whatsappMessage}`, '_blank');
+            const whatsappURL = `https://wa.me/966595844787?text=${whatsappMessage}`;
+            window.open(whatsappURL, '_blank');
             
             showNotification('✅ تم إرسال طلبكم بنجاح! سيتم التواصل معكم خلال 24 ساعة.', 'success');
+            
             this.reset();
+            
             btnText.style.display = 'flex';
             loading.style.display = 'none';
             submitBtn.disabled = false;
             submitBtn.style.opacity = '1';
+            
         }, 2500);
     });
 
-    // Success/Error Notification System
     function showNotification(message, type = 'success') {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
@@ -555,6 +711,7 @@
                 <span>${message}</span>
             </div>
         `;
+        
         notification.style.cssText = `
             position: fixed;
             top: 100px;
@@ -572,31 +729,41 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
         `;
+        
         notification.querySelector('.notification-content').style.cssText = `
             display: flex;
             align-items: center;
             gap: 12px;
         `;
+        
         document.body.appendChild(notification);
-        setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+        
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
         setTimeout(() => {
             notification.style.transform = 'translateX(400px)';
-            setTimeout(() => notification.remove(), 400);
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 400);
         }, 5000);
     }
 
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
             }
         });
     });
 
-    // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         const scrolled = window.pageYOffset;
@@ -608,61 +775,326 @@
             navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             navbar.style.boxShadow = 'none';
         }
-
+        
         const hero = document.querySelector('.hero');
         if (hero && scrolled < window.innerHeight) {
             hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
     });
 
-    // Initialize all functions when DOM is loaded
+    function validateForm() {
+        const requiredFields = document.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.borderColor = '#ef4444';
+                field.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+                isValid = false;
+            } else {
+                field.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                field.style.boxShadow = 'none';
+            }
+        });
+        
+        return isValid;
+    }
+
+    document.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.hasAttribute('required') && !this.value.trim()) {
+                this.style.borderColor = '#ef4444';
+                this.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
+            } else {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                this.style.boxShadow = 'none';
+            }
+        });
+        
+        input.addEventListener('focus', function() {
+            this.style.borderColor = '#4facfe';
+            this.style.boxShadow = '0 0 0 3px rgba(79, 172, 254, 0.1)';
+        });
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         createParticles();
         animateCounters();
-
-        const images = document.querySelectorAll('img');
-        images.forEach(img => {
+        
+        // const images = document.querySelectorAll('img');
+/*         images.forEach(img => {
             img.addEventListener('load', function() {
                 this.style.opacity = '1';
             });
             img.style.opacity = '0';
             img.style.transition = 'opacity 0.5s ease';
-        });
+        }); */
     });
 
-    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('animate');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+    }, observerOptions);
 
     document.querySelectorAll('.feature-card, .service-card, .before-after-item').forEach(el => {
         observer.observe(el);
     });
 
-    // ✅ Mobile menu toggle (مجمعة وبدون تكرار)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    // ✅ Mobile Menu Script (final version)
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-                menuToggle.querySelector('i').classList.remove('fa-times');
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
             });
-        });
-    }
-</script>
- 
 
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            }
+
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    });
+
+    // Preload critical resources
+    const preloadLinks = [
+        'https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+    ];
+
+    preloadLinks.forEach(href => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'style';
+        link.href = href;
+        document.head.appendChild(link);
+    });
+
+    console.log('🏗️ موقع شركة قروأب المحدودة تم تحميله بنجاح!');
+</script>
+
+  <!-- ====== JavaScript ====== -->
+  <script>
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const menu = document.getElementById('mobileMenu');
+
+      // فتح/قفل عند النقر
+      toggle.addEventListener('click', (e) => {
+        const isActive = menu.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', String(isActive));
+        // تغيير aria-label للوضوح للمستخدمين
+        toggle.setAttribute('aria-label', isActive ? 'إغلاق القائمة' : 'فتح القائمة');
+      });
+
+      // إغلاق القائمة عند الضغط خارجها أو الضغط على رابط داخلها (سلوك شائع)
+      document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('active')) return;
+        const clickInside = menu.contains(e.target) || toggle.contains(e.target);
+        if (!clickInside) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'فتح القائمة');
+        }
+      });
+
+      // إغلاق القائمة عند الضغط على Esc للـ accessibility
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'فتح القائمة');
+          toggle.focus();
+        }
+      });
+
+      // على تغيير حجم الشاشة: تأكد أن القائمة المختفية تُزال عند التحول لعرض أكبر
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'فتح القائمة');
+        }
+      });
+
+      // اختياري: ترويسة مبسطة للتنقل عبر لوحة المفاتيح (focus styles already in CSS)
+      const mobileLinks = menu.querySelectorAll('a[role="menuitem"]');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          // غلق عند النقر على أي رابط داخل القائمة (مناسب للتنقل داخل نفس الصفحة)
+          if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'فتح القائمة');
+          }
+        });
+      });
+    })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swiper/11.0.5/swiper-bundle.min.js"></script>
+  <script>
+      let mainSwiper, thumbSwiper;
+      let autoplayEnabled = true;
+
+      // Initialize Swiper
+      function initSwiper() {
+          // 🔥 تأخير قصير للتأكد من أن العناصر محمّلة
+          setTimeout(() => {
+              // Thumbnail Swiper
+              thumbSwiper = new Swiper(".thumbGallerySwiper", {
+                  spaceBetween: 10,
+                  slidesPerView: 10,
+                  freeMode: true,
+                  watchSlidesProgress: true,
+                  breakpoints: {
+                      320: { slidesPerView: 4 },
+                      640: { slidesPerView: 6 },
+                      768: { slidesPerView: 8 },
+                      1024: { slidesPerView: 10 }
+                  }
+              });
+
+              // Main Swiper
+              mainSwiper = new Swiper(".mainGallerySwiper", {
+                  loop: true,
+                  spaceBetween: 10,
+                  observer: true,
+                  observeParents: true,
+                  navigation: {
+                      nextEl: ".swiper-button-next",
+                      prevEl: ".swiper-button-prev",
+                  },
+                  pagination: {
+                      el: ".swiper-pagination",
+                      clickable: true,
+                  },
+                  autoplay: {
+                      delay: 4000,
+                      disableOnInteraction: false,
+                  },
+                  thumbs: {
+                      swiper: thumbSwiper,
+                  },
+                  // 🔥 إضافة خصائص لضمان العمل السليم
+                  watchSlidesProgress: true,
+                  watchOverflow: true,
+                  // حذف effect fade إذا كان يسبب مشاكل
+              });
+
+              console.log('Swiper initialized successfully'); // للتأكد من التهيئة
+          }, 100);
+      }
+
+      // Show Slider View
+      function showSlider() {
+          const sliderView = document.querySelector('.slider-view');
+          const gridGallery = document.querySelector('.grid-gallery');
+          
+          sliderView.style.display = 'block';
+          gridGallery.classList.remove('active');
+          
+          // تحديث الأزرار
+          document.querySelectorAll('.control-btn')[0].classList.add('active');
+          document.querySelectorAll('.control-btn')[1].classList.remove('active');
+          
+          // 🔥 تحديث السلايدر بعد إظهاره
+          setTimeout(() => {
+              if (mainSwiper) {
+                  mainSwiper.update();
+                  mainSwiper.updateSlides();
+                  mainSwiper.updateProgress();
+                  mainSwiper.updateSlidesClasses();
+              }
+              if (thumbSwiper) {
+                  thumbSwiper.update();
+              }
+          }, 50);
+      }
+
+      // Show Grid View
+      function showGrid() {
+          document.querySelector('.slider-view').style.display = 'none';
+          document.querySelector('.grid-gallery').classList.add('active');
+          document.querySelectorAll('.control-btn')[1].classList.add('active');
+          document.querySelectorAll('.control-btn')[0].classList.remove('active');
+      }
+
+      // Toggle Autoplay
+      function toggleAutoplay() {
+          if (!mainSwiper) return; // 🔥 التأكد من وجود السلايدر
+          
+          if (autoplayEnabled) {
+              mainSwiper.autoplay.stop();
+              document.querySelectorAll('.control-btn')[2].textContent = 'تشغيل التلقائي';
+              autoplayEnabled = false;
+          } else {
+              mainSwiper.autoplay.start();
+              document.querySelectorAll('.control-btn')[2].textContent = 'إيقاف التلقائي';
+              autoplayEnabled = true;
+          }
+      }
+
+      // Lightbox Functions
+      function openLightbox(imgSrc) {
+          document.getElementById('lightboxImg').src = imgSrc;
+          document.getElementById('lightbox').classList.add('active');
+      }
+
+      function closeLightbox() {
+          document.getElementById('lightbox').classList.remove('active');
+      }
+
+      // Close lightbox on click outside image
+      document.getElementById('lightbox').onclick = function(e) {
+          if (e.target === this) {
+              closeLightbox();
+          }
+      }
+
+      // Initialize when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+          initSwiper();
+      });
+
+      // 🔥 إعادة تهيئة السلايدر عند تغيير حجم النافذة
+      window.addEventListener('resize', function() {
+          if (mainSwiper) {
+              setTimeout(() => {
+                  mainSwiper.update();
+                  thumbSwiper.update();
+              }, 100);
+          }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+              closeLightbox();
+          }
+          if (e.key === 'ArrowRight' && mainSwiper) {
+              mainSwiper.slideNext();
+          }
+          if (e.key === 'ArrowLeft' && mainSwiper) {
+              mainSwiper.slidePrev();
+          }
+      });
+  </script>
 </body>
 </html>
