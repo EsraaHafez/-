@@ -17,37 +17,37 @@
    </head>
 <body>
    <!-- Navigation -->
-<!-- Navigation -->
-<nav class="navbar">
-  <div class="container">
-    <div class="nav-content">
-      <div class="logo">🏗️ تشطيبات</div>
-
-      <ul class="nav-links">
-        <li><a href="#Home">الرئيسية</a></li>
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="#services">خدماتنا</a></li>
-        <li><a href="#gallery">معرض الأعمال</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
-
-      <!-- Mobile Menu Toggle -->
-      <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#Home">الرئيسية</a>
-      <a href="#about">من نحن</a>
-      <a href="#services">خدماتنا</a>
-      <a href="#gallery">معرض الأعمال</a>
-      <a href="#contact">تواصل معنا</a>
-    </div>
-  </div>
-</nav>
-
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">🏗️ تشطيبات</div>
+ 
+                <ul class="nav-links">
+                    <li><a href="#Home">الرئيسية</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#gallery">معرض الأعمال</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-links">
+                    <a href="#Home">الرئيسية</a>
+                    <a href="#about">من نحن</a>
+                    <a href="#services">خدماتنا</a>
+                    <a href="#gallery">معرض الأعمال</a>
+                    <a href="#contact">تواصل معنا</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Enhanced Hero Section -->
     <section class="about_section" id="Home">
@@ -840,46 +840,106 @@
         observer.observe(el);
     });
 
- <script>
-  (function(){
-    const toggle = document.getElementById('mobileToggle');
-    const menu = document.getElementById('mobileMenu');
+    // ✅ Mobile Menu Script (final version)
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
 
-    toggle.addEventListener('click', (e) => {
-      const isActive = menu.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', String(isActive));
-      toggle.setAttribute('aria-label', isActive ? 'إغلاق القائمة' : 'فتح القائمة');
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+            });
+
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            }
+
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
     });
 
-    document.addEventListener('click', (e) => {
-      if (!menu.classList.contains('active')) return;
-      const clickInside = menu.contains(e.target) || toggle.contains(e.target);
-      if (!clickInside) {
-        menu.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'فتح القائمة');
-      }
+    // Preload critical resources
+    const preloadLinks = [
+        'https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+    ];
+
+    preloadLinks.forEach(href => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'style';
+        link.href = href;
+        document.head.appendChild(link);
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('active')) {
-        menu.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'فتح القائمة');
-        toggle.focus();
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 900 && menu.classList.contains('active')) {
-        menu.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'فتح القائمة');
-      }
-    });
-  })();
+    console.log('🏗️ موقع شركة قروأب المحدودة تم تحميله بنجاح!');
 </script>
 
+  <!-- ====== JavaScript ====== -->
+  <script>
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const menu = document.getElementById('mobileMenu');
+
+      // فتح/قفل عند النقر
+      toggle.addEventListener('click', (e) => {
+        const isActive = menu.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', String(isActive));
+        // تغيير aria-label للوضوح للمستخدمين
+        toggle.setAttribute('aria-label', isActive ? 'إغلاق القائمة' : 'فتح القائمة');
+      });
+
+      // إغلاق القائمة عند الضغط خارجها أو الضغط على رابط داخلها (سلوك شائع)
+      document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('active')) return;
+        const clickInside = menu.contains(e.target) || toggle.contains(e.target);
+        if (!clickInside) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'فتح القائمة');
+        }
+      });
+
+      // إغلاق القائمة عند الضغط على Esc للـ accessibility
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'فتح القائمة');
+          toggle.focus();
+        }
+      });
+
+      // على تغيير حجم الشاشة: تأكد أن القائمة المختفية تُزال عند التحول لعرض أكبر
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900 && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'فتح القائمة');
+        }
+      });
+
+      // اختياري: ترويسة مبسطة للتنقل عبر لوحة المفاتيح (focus styles already in CSS)
+      const mobileLinks = menu.querySelectorAll('a[role="menuitem"]');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          // غلق عند النقر على أي رابط داخل القائمة (مناسب للتنقل داخل نفس الصفحة)
+          if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'فتح القائمة');
+          }
+        });
+      });
+    })();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/swiper/11.0.5/swiper-bundle.min.js"></script>
   <script>
       let mainSwiper, thumbSwiper;
